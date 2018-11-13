@@ -1,0 +1,83 @@
+.movie {
+   // margin-top: 5rem;
+   // padding-left: 16rem;
+   // padding-right: 6rem;
+   // padding-bottom: 6rem;
+   margin-top: 15rem;
+   height: 1rem;
+   display: inline-block;
+
+   display: flex;
+   justify-content: center;
+
+   * > img {
+       width: 25rem;
+       padding-right: 2rem;
+       
+   }
+
+   &__column-poster {
+      height: 25rem;
+      
+   }
+
+   &__column-overview {
+      padding-left: 3.5rem;
+      text-align: left;
+      width: 60%;
+      padding-top: .5rem;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start; 
+
+      &-heading {
+         font-size: 3rem;
+         font-family: 'Fjalla One', sans-serif;
+         color: $color-white;
+      }
+
+      &-text {
+         color: $color-white;
+         font-family: 'Nanum Gothic', sans-serif;
+         text-align: left;
+         font-size: 1.6rem;      
+         line-height: 1.5;
+
+      }
+
+      &-btn { 
+         margin-bottom: 1rem;
+         color: $color-green;
+         cursor: pointer;
+         border-radius: 5rem;
+         // padding: .5rem;
+         padding: .8rem 2rem .8rem 2rem;
+         font-family: 'Nanum Gothic', sans-serif;
+         font-size: 1.5rem;
+         border: solid 1.7px $color-green;
+         transition: all .2s; 
+
+         &:hover {
+            background-color: $color-green; 
+            color: #fff;
+         }
+
+      }
+
+   }
+
+   &__poster {
+      height: 100%;
+   }
+}
+
+.even {
+   background-color: $color-purple;
+}
+
+.odd {
+   background-color: $color-light-blue-2;
+
+}

@@ -39,17 +39,22 @@
          padding-right: 4.6rem;
          display: flex;
          justify-content: flex-end;
-
       }
    }
 
 }
 
+ ::placeholder {
+    color: rgb(167, 166, 166);
+    opacity: 1;
+    /* Firefox */
+ }
+
 input[type="text"] {
-   // display: none;
-   // color: #fff;
+   font-size: 1.4rem;
    border: none;
    outline: none;
+   background-color: red;
    width: 0px;
    padding: 10px;
    padding-right: 2rem;
@@ -59,12 +64,14 @@ input[type="text"] {
 }
 
 input[type="text"]:focus:hover {
+   z-index: 2;
    border-bottom: 1px solid #BBB;
    color: #fff;
 }
 
 input[type="text"]:focus {
    width: 22rem;
+   color: #fff;
    z-index: 1;
    background-color: #000;
    border: 1px solid #fff;
@@ -75,7 +82,6 @@ input[type="submit"] {
    height: 67px;
    width: 63px;
 
-   color: red;
    text-indent: -10000px;
    border: none;
    position: absolute;
@@ -84,4 +90,12 @@ input[type="submit"] {
    opacity: 0.4;
    cursor: pointer;
    transition: opacity .4s ease;
+}
+
+.logo {
+   z-index: -1;
+   width: 2rem;
+   height: 2rem;
+   transform: translateX(2.4rem) translateY(.5rem);
+   cursor: pointer;
 }

@@ -25,11 +25,22 @@ class navigation extends Component {
     }
   }
 
+ 
+
+
   render () {
 
     return (
       <nav className={"navigation " + (this.state.scrolling ? "black" : "")} >
-       <NavigationItems />
+       
+        <input
+          onKeyDown={this.props.showMan}
+          // onClick={this.props.showMan}
+          // onChange={props.onSearch}
+          // onClick={props.onShow}
+          type="text"
+          placeholder="Title, genres, people" />
+        <NavigationItems />
       </nav>
     )
   }

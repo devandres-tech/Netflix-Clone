@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 
-import Navigation from '../Navigation/Navigation'; 
 import Header from '../../components/Header/Header'; 
 import MovieShowcase from '../MovieShowcase/MovieShowcase'; 
 import MovieOriginals from '../MovieOriginals/MovieOriginals'; 
 import Footer from '../../components/Footer/Footer'; 
 import { BrowserRouter } from "react-router-dom"; 
+import SearchMovie from '../../containers/SearchMovie/SearchMovie'; 
 
 
-   // < Navigation />
-   // <Header />
-   // <MovieShowcase />
-   // <MovieOriginals />
-   // <Footer />
 class Layout extends Component {
+
 
 
    render() {
@@ -22,11 +18,10 @@ class Layout extends Component {
       return (
       <BrowserRouter>
           <div className="container">
-            <Navigation />
             <Header />
             <MovieShowcase />
             <MovieOriginals />
-            <Footer />
+           <Footer /> 
           </div>
         </BrowserRouter>)
    }

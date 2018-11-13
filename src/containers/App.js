@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
-import axios from 'axios'; 
-
+import Navigation from "./Navigation/Navigation"
 import Layout from './Layout/Layout'; 
-import MovieRow from '../components/MovieRow/MovieRow'; 
+import axios from 'axios'; 
+import MovieRow from '../components/MovieRow/MovieRow'
+// import SearchMovie from './SearchMovie/SearchMovie'; 
 
 class App extends Component {
 
-   state = {
-      // an array that will hold all of our movies component 
-      rows: []      
-   }
+  state = {
+    myVal: true,
+       //an array that will hold all of our movies component 
+    rows: []
+  }
 
-   makeAipCall = (searchItem) => {
+ myB = () => {
+   this.setState({
+     myVal: true
+   })
+ }
+
+
+
+
+makeAipCall = (searchItem) => {
       const url = "https://api.themoviedb.org/3/search/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&page=1&query=" + searchItem;
       axios.get(url)
          .then(res => {
@@ -42,17 +53,33 @@ class App extends Component {
    }
 
    // get the user input and pass it to the makeAPICall function 
-   searchHandler = (event) => {
-      const searchItem = event.target.value; 
-      this.makeAipCall(searchItem); 
-   }
+  //  searchHandler = (event) => {
+  //     // const searchItem = event.target.value; 
+  //     // this.makeAipCall(searchItem); 
+  //     alert("Hello");
+  //  }
+
+
+  myF = (event) => {
+    this.setState({
+      myVal: false
+    }); 
+    const userInput = event.target.value; 
+    this.makeAipCall(userInput); 
+    console.log(userInput);
+  }
+
+
+
 
    render() {
+
+
       return (
-         <div>       
-           <Layout />
-            {/* <Search onSearch={this.searchHandler}/>
-            {this.state.rows} */}
+         <div>  
+          <Navigation showMan={this.myF} />
+          {this.state.myVal ? <Layout /> : <div onClick={this.myB} className="no">{this.state.rows}</div>}
+
          </div>
          
       );

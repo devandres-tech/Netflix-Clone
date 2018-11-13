@@ -1,8 +1,9 @@
 import React from 'react'; 
+import SearchMovie from "../../containers/SearchMovie/SearchMovie"; 
 
 const header = () => (
    <header className="header">
-     Header
+    {/* <SearchMovie /> */}
    </header>
 ); 
 

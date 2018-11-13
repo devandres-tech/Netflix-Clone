@@ -59,3 +59,22 @@ html {
 	grid-template-rows: 47vw min-content min-content min-content; 
 	grid-template-columns:  4% repeat(10, 1fr) 4%;
 }
+
+.searchContent {
+	height: 100vh;
+	background-color: $color-background;
+}
+
+.no {
+	background-color: $color-background;
+	height: 150%;
+	padding-bottom: 10rem;
+	display: flex;
+	
+
+}
+
+.yes {
+	background-color: purple; 
+	height: 100vh;
+}
