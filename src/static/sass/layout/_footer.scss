@@ -1,0 +1,14 @@
+.footer {
+   background-color: greenyellow;
+   grid-column: 2 / 13;
+   
+
+   &__container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      &--description {
+         padding: 3rem;
+      }
+   }
+}

@@ -1,0 +1,14 @@
+.movieShowcase {
+   background-color: blue;
+   grid-column: 2 / 13;
+
+   &__container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: .5rem;
+
+        &--movie {
+           padding: 3rem;
+        }
+   }
+}

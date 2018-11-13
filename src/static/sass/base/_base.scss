@@ -1,0 +1,61 @@
+/* GLOBAL RESET */
+:global(html), :global(body), :global(div), :global(span), :global(applet), :global(object), :global(iframe),
+:global(h1), :global(h2), :global(h3), :global(h4), :global(h5), :global(h6), :global(p), :global(blockquote), :global(pre),
+:global(a), :global(abbr), :global(acronym), :global(address), :global(big), :global(cite), :global(code),
+:global(del), :global(dfn), :global(em), :global(img), :global(ins), :global(kbd), :global(q), :global(s), :global(samp),
+:global(small), :global(strike), :global(strong), :global(sub), :global(sup), :global(tt), :global(var),
+:global(b), :global(u), :global(i), :global(center),
+:global(dl), :global(dt), :global(dd), :global(ol), :global(ul), :global(li),
+:global(fieldset), :global(form), :global(label), :global(legend),
+:global(table), :global(caption), :global(tbody), :global(tfoot), :global(thead), :global(tr), :global(th), :global(td),
+:global(article), :global(aside), :global(canvas), :global(details), :global(embed),
+:global(figure), :global(figcaption), :global(footer), :global(header), :global(hgroup),
+:global(menu), :global(nav), :global(output), :global(ruby), :global(section), :global(summary),
+:global(time), :global(mark), :global(audio), :global(video) {
+	margin: 0;
+	padding: 0;
+	border: 0;
+   vertical-align: baseline;
+   box-sizing: inherit;
+}
+
+/* HTML5 display-role reset for older browsers */
+:global(article), :global(aside), :global(details), :global(figcaption), :global(figure),
+:global(footer), :global(header), :global(hgroup), :global(menu), :global(nav), :global(section) {
+	display: block;
+}
+:global(body) {
+	line-height: 1;
+}
+:global(ol), :global(ul) {
+	list-style: none;
+}
+:global(blockquote), :global(q) {
+	quotes: none;
+}
+:global(blockquote:before), :global(blockquote:after),
+:global(q:before), :global(q:after) {
+	content: '';
+	content: none;
+} 
+:global(table) {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	box-sizing: border-box;
+	background-color: fff;
+}
+
+html {
+   // this defines what 1rem is --> font root size 
+   font-size: 62.5%; // 10/16, 1rem = 10px; 
+}
+
+// GRID AREA 
+.container {
+	display: grid;      
+	grid-template-rows: 47vw min-content min-content min-content; 
+	grid-template-columns:  4% repeat(10, 1fr) 4%;
+}

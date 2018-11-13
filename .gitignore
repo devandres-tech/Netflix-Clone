@@ -1,0 +1,10 @@
+# NPM packages folder.
+node_modules
+
+# Build files
+dist/
+
+# Logs
+logs
+*.log
+npm-debug.log*
