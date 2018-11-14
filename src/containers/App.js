@@ -14,7 +14,8 @@ class App extends Component {
     toggleMovieList: true,
     //an array that will hold all of our movies component 
     rows: [],
-    toggleModal: false
+    toggleModal: false,
+    movieDetails: {}
   }
 
 makeAipCall = (searchItem) => {
@@ -22,12 +23,11 @@ makeAipCall = (searchItem) => {
       axios.get(url)
          .then(res => {
             // extract the data from json object 
-            console.log(res); 
+            // console.log(res); 
             const movies = res.data.results;
             // console.log(movies); 
             // Holds our movieComponent. 
             let movieRows = [];
-            let total = 0; 
             movies.forEach((movie) => {
                // manually build our image url and set it on the movie object 
                if (movie.poster_path !== null) {
@@ -35,8 +35,8 @@ makeAipCall = (searchItem) => {
                  // pass in the movie object to our MovieRow component and keep it in a variable called 
                  // movieComponent 
                   const movieComponent = <MovieRow
+                  getMovie={this.getMovieDetailsHandler}
                   movieDetails={this.selectMovieHandler}
-                   val={total}
                    key={movie.id}
                    movie={movie}/>
                  // push our movieComponent to our movieRows array; 
@@ -44,6 +44,7 @@ makeAipCall = (searchItem) => {
                } 
             
             })
+
             // update state 
             this.setState({ rows: movieRows });
          }).catch(error => {
@@ -68,12 +69,47 @@ makeAipCall = (searchItem) => {
 
   selectMovieHandler = () => {
     this.setState({toggleModal: true}); 
-    
+ 
+  
+    // const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US`;
+    // axios.get(url)
+    //   .then(res => {
+
+    //     console.log(res.data)
+    //   }).catch(error => {
+    //     console.log(error);
+    //   }); 
   }
 
   closeModal = () => {
     this.setState({ toggleModal: false }); 
   }
+
+  // get movie details 
+  // return object 
+  getMovieDetailsHandler = (movieId) => {
+    const url = `https://api.themoviedb.org/3/movie/${503314}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US`;
+    axios.get(url)
+      .then(res => {
+
+        const movieData = res.data; 
+        console.log(movieData); 
+        this.setState({movieDetails: movieData}); 
+      }).catch(error => {
+
+        console.log(error); 
+      }); 
+  }
+
+
+
+
+
+
+
+
+
+
 
    render() {
 
@@ -83,7 +119,7 @@ makeAipCall = (searchItem) => {
           {this.state.toggleMovieList ? <Layout /> : <div //onClick={this.onChangeHandler} 
                                             className="search-container">{this.state.rows}</div>}
           <Modal show={this.state.toggleModal} modalClosed={this.closeModal}>
-            <MovieSummary />
+            <MovieSummary movieInfo={this.state.movieDetails}/>
           </Modal>  
          </div>
          
