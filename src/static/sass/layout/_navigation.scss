@@ -54,11 +54,11 @@ input[type="text"] {
    font-size: 1.4rem;
    border: none;
    outline: none;
-   background-color: red;
+   // background-color: red;
    width: 0px;
    padding: 10px;
    padding-right: 2rem;
-   // background: none;
+   background: none;
    transition: width .5s cubic-bezier(0.000, 0.795, 0.000, 1.000);
    cursor: pointer;
 }

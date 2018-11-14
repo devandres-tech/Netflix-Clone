@@ -43,12 +43,6 @@ class NavigationItems extends Component {
 
      <div className="navigation__container--left">
        <SearchLogo className="logo"/>
-       {/* <SearchMovie show={this.myF}/> */}
-       {/* <input 
-        placeholder="Title, people, genres" 
-         type="text" /> */}
-       {/* <p>hello</p>
-       <p>hello</p> */}
      </div>
    </ul>
     ); 

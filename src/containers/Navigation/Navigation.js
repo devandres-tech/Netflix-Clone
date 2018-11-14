@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
-import NavigationItems from '../../components/NavigationItems/NavigationItems';
-
+import NavigationItem from '../../components/NavigationItems/NavigationItem/NavigationItem'
+import SearchLogo from '../../static/images/search-icon.svg'; 
 
 class navigation extends Component {
  state = {
@@ -32,15 +31,24 @@ class navigation extends Component {
 
     return (
       <nav className={"navigation " + (this.state.scrolling ? "black" : "")} >
-       
-        <input
-          onKeyDown={this.props.showMan}
-          // onClick={this.props.showMan}
-          // onChange={props.onSearch}
-          // onClick={props.onShow}
-          type="text"
-          placeholder="Title, genres, people" />
-        <NavigationItems />
+      
+        <ul className="navigation__container">
+          <NavigationItem link="/" exact>Netflix</NavigationItem>
+          <NavigationItem link="/">Home</NavigationItem>
+          <NavigationItem link="/">TV Shows</NavigationItem>
+          <NavigationItem link="/">Movies</NavigationItem>
+          <NavigationItem link="/">Recently Added</NavigationItem>
+          <NavigationItem link="/">My List</NavigationItem>
+
+          <div className="navigation__container--left">
+            <SearchLogo className="logo" />
+            <input
+              onKeyDown={this.props.showMan}
+              type="text"
+              placeholder="Title, genres, people" />
+          </div>
+        </ul>
+        {/* <NavigationItems /> */}
       </nav>
     )
   }

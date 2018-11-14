@@ -5,7 +5,8 @@
 
    &__column-poster {
       height: 25rem;
-      width: 18rem;
+      width: 17.5rem;
+
    }
 
     &__poster {
@@ -15,13 +16,4 @@
 
 div.movie:first-child {
    padding-top: 15rem;
-}
-
-.even {
-   background-color: $color-purple;
-}
-
-.odd {
-   background-color: $color-light-blue-2;
-
 }
