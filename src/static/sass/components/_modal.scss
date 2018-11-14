@@ -1,0 +1,25 @@
+.modal {
+   position: fixed;
+   z-index: 500; 
+   width: 100%;
+   top: 30%; 
+   left: 0; 
+   height: 42rem;
+   background: yellowgreen;
+   transition: all 1s; 
+   transform: scale(0);
+}
+
+.show {
+   // transform: 50%
+   transition: transform 1s;
+   transform: scale(1); 
+   opacity: 1;
+}
+
+.hide {
+
+   transform: translateY(-100vh); 
+   display: none;
+}
+

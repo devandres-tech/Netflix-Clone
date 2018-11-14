@@ -1,4 +1,6 @@
 import React from 'react';
+ 
+
 
 const movieRow = (props) => (
 
@@ -6,6 +8,7 @@ const movieRow = (props) => (
          <div className="movie__column-poster">
             <img src={props.movie.posterSrc} alt="" className="movie__poster" />
          </div>
+         <button onClick={props.movieDetails}>hellooo</button>
    </div> 
 );
 
