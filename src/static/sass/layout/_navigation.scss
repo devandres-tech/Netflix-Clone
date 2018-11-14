@@ -30,72 +30,56 @@
       &-link {
          color: #fff;
          text-decoration: none;
-         margin-right: 3rem;
+         margin-right: 2rem;
+
+         &:last-child {
+            padding-right: 2.6rem;
+         }
+
+        
       }
 
       &--left {
          flex-grow: 1;
          color: #fff;
-         padding-right: 4.6rem;
+         padding-right: 2rem;
          display: flex;
          justify-content: flex-end;
+
+         &__input {
+              font-size: 1.4rem;
+              border: none;
+              color: #fff;
+              outline: none;
+              width: 0px;
+              padding: 10px;
+              padding-right: 2rem;
+            //   background: none; 
+              background: $color-background;
+               border: 1px solid #fff;
+              transition: width .5s;
+              cursor: pointer;
+
+               opacity: 0;
+               // transition: all .5s; 
+
+              &:focus {
+                  padding-left: 4rem;
+                  width: 22rem;
+                  // border: 1px solid #fff;
+                  cursor: text;
+                  opacity: 1;
+                
+              }
+         }
       }
    }
 
 }
 
- ::placeholder {
-    color: rgb(167, 166, 166);
-    opacity: 1;
-    /* Firefox */
- }
-
-input[type="text"] {
-   font-size: 1.4rem;
-   border: none;
-   outline: none;
-   // background-color: red;
-   width: 0px;
-   padding: 10px;
-   padding-right: 2rem;
-   background: none;
-   transition: width .5s cubic-bezier(0.000, 0.795, 0.000, 1.000);
-   cursor: pointer;
-}
-
-input[type="text"]:focus:hover {
-   z-index: 2;
-   border-bottom: 1px solid #BBB;
-   color: #fff;
-}
-
-input[type="text"]:focus {
-   width: 22rem;
-   color: #fff;
-   z-index: 1;
-   background-color: #000;
-   border: 1px solid #fff;
-   cursor: text;
-}
-
-input[type="submit"] {
-   height: 67px;
-   width: 63px;
-
-   text-indent: -10000px;
-   border: none;
-   position: absolute;
-   z-index: 2;
-   cursor: pointer;
-   opacity: 0.4;
-   cursor: pointer;
-   transition: opacity .4s ease;
-}
-
 .logo {
-   z-index: -1;
-   width: 2rem;
-   height: 2rem;
-   transform: translateX(2.4rem) translateY(.5rem);
+   width: 1.8rem;
+   height: 1.8rem;
+   transform: translateX(2.4rem) translateY(1rem);
    cursor: pointer;
 }

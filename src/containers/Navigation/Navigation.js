@@ -41,12 +41,17 @@ class navigation extends Component {
           <NavigationItem link="/">My List</NavigationItem>
 
           <div className="navigation__container--left">
+            
             <SearchLogo className="logo" />
             <input
+              className="navigation__container--left__input"
               onKeyDown={this.props.showMan}
               type="text"
               placeholder="Title, genres, people" />
+            
           </div>
+          <NavigationItem link="/">KIDS</NavigationItem>
+          <NavigationItem link="/">DVD</NavigationItem>
         </ul>
         {/* <NavigationItems /> */}
       </nav>

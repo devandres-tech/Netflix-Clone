@@ -53,6 +53,7 @@ makeAipCall = (searchItem) => {
    }
 
   myF = (event) => {
+    
     this.setState({
       myVal: false
     }); 
