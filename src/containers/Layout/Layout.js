@@ -5,7 +5,6 @@ import MovieShowcase from '../MovieShowcase/MovieShowcase';
 import MovieOriginals from '../MovieOriginals/MovieOriginals'; 
 import Footer from '../../components/Footer/Footer'; 
 import { BrowserRouter } from "react-router-dom"; 
-import SearchMovie from '../../containers/SearchMovie/SearchMovie'; 
 
 
 class Layout extends Component {

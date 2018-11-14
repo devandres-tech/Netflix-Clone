@@ -44,8 +44,9 @@ class navigation extends Component {
             
             <SearchLogo className="logo" />
             <input
+              onChange={this.props.showMovies}
               className="navigation__container--left__input"
-              onKeyDown={this.props.showMan}
+              // onKeyPress={this.props.showMan}
               type="text"
               placeholder="Title, genres, people" />
             
@@ -53,7 +54,6 @@ class navigation extends Component {
           <NavigationItem link="/">KIDS</NavigationItem>
           <NavigationItem link="/">DVD</NavigationItem>
         </ul>
-        {/* <NavigationItems /> */}
       </nav>
     )
   }
