@@ -1,76 +1,20 @@
 .movie {
-   // margin-top: 5rem;
-   // padding-left: 16rem;
-   // padding-right: 6rem;
-   // padding-bottom: 6rem;
-   margin-top: 15rem;
-   height: 1rem;
+   flex: 1 1 auto; 
+   padding-top: 6rem;
    display: inline-block;
-
-   display: flex;
-   justify-content: center;
-
-   * > img {
-       width: 25rem;
-       padding-right: 2rem;
-       
-   }
 
    &__column-poster {
       height: 25rem;
-      
+      width: 18rem;
    }
 
-   &__column-overview {
-      padding-left: 3.5rem;
-      text-align: left;
-      width: 60%;
-      padding-top: .5rem;
+    &__poster {
+       height: 100%;
+    }
+}
 
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: flex-start; 
-
-      &-heading {
-         font-size: 3rem;
-         font-family: 'Fjalla One', sans-serif;
-         color: $color-white;
-      }
-
-      &-text {
-         color: $color-white;
-         font-family: 'Nanum Gothic', sans-serif;
-         text-align: left;
-         font-size: 1.6rem;      
-         line-height: 1.5;
-
-      }
-
-      &-btn { 
-         margin-bottom: 1rem;
-         color: $color-green;
-         cursor: pointer;
-         border-radius: 5rem;
-         // padding: .5rem;
-         padding: .8rem 2rem .8rem 2rem;
-         font-family: 'Nanum Gothic', sans-serif;
-         font-size: 1.5rem;
-         border: solid 1.7px $color-green;
-         transition: all .2s; 
-
-         &:hover {
-            background-color: $color-green; 
-            color: #fff;
-         }
-
-      }
-
-   }
-
-   &__poster {
-      height: 100%;
-   }
+div.movie:first-child {
+   padding-top: 15rem;
 }
 
 .even {

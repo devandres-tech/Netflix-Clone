@@ -3,7 +3,7 @@ import React from 'react';
 const movieRow = (props) => (
 
    <div className="movie">
-         <div className="no movie__column-poster">
+         <div className="movie__column-poster">
             <img src={props.movie.posterSrc} alt="" className="movie__poster" />
          </div>
       

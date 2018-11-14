@@ -52,14 +52,6 @@ makeAipCall = (searchItem) => {
          });
    }
 
-   // get the user input and pass it to the makeAPICall function 
-  //  searchHandler = (event) => {
-  //     // const searchItem = event.target.value; 
-  //     // this.makeAipCall(searchItem); 
-  //     alert("Hello");
-  //  }
-
-
   myF = (event) => {
     this.setState({
       myVal: false
@@ -78,7 +70,7 @@ makeAipCall = (searchItem) => {
       return (
          <div>  
           <Navigation showMan={this.myF} />
-          {this.state.myVal ? <Layout /> : <div onClick={this.myB} className="no">{this.state.rows}</div>}
+          {this.state.myVal ? <Layout /> : <div onClick={this.myB} className="search-container">{this.state.rows}</div>}
 
          </div>
          
