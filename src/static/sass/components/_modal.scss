@@ -1,17 +1,12 @@
 .modal {
-   padding-left: 4rem;
-   padding-top: 2rem;
    position: fixed;
    z-index: 500; 
    width: 100%;
-   top: 30%; 
+   top:  25%; 
    left: 0; 
-   color: white;
-   height: 44rem;
-   background: $color-background-modal;
-   transition: all 1s; 
-   transform: scale(0);
-
+   color: #fff;
+   height: 50rem;
+ 
    &__title {
       font-size: 4rem;
    }
@@ -26,23 +21,41 @@
       font-size: 2rem;
    }
 
+   &__episode {
+      padding-top: .5rem;
+      font-size: 2rem;
+   }
+
    &__overview {
       color: $color-modal-grey;
       padding-top: 2rem;
       font-size: 2rem;
+      hyphens: auto;
+      width: 60%;
    }
 }
 
-.show {
-   // transform: 50%
-   transition: transform 1s;
-   transform: scale(1); 
-   opacity: 1;
-}
+// .hide {
+//    transition: all 1s;
+//    // transform: translateY(-100vh); 
+//    display: none;
+// }
 
-.hide {
+   .show {
+      opacity: 1;
+      // transform: scale(1);
+   }
 
-   transform: translateY(-100vh); 
-   display: none;
-}
+   .hide {
+      transition: all 1s;
+      // transform: translateY(-100vh); 
+      display: none;
+   }
 
+   .shit {
+     background: linear-gradient(90deg, #000 50%, transparent);
+     width: 70%;
+     padding-top: 3rem;
+     height: 100%;
+     padding-left: 3.5rem;
+   }

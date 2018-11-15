@@ -22,7 +22,7 @@ makeAipCall = (searchItem) => {
   const url = `https://api.themoviedb.org/3/search/multi?api_key=9ea839ec7891591994ec0f540b4b199f&language=en-US&include_adult=false&query=${searchItem}`;
       axios.get(url)
          .then(res => {
-            console.log(res.data.results); 
+            // console.log(res.data.results); 
             // extract the data from json object 
             const results = res.data.results;
             let movieImageUrl; 
@@ -34,7 +34,7 @@ makeAipCall = (searchItem) => {
                  // pass in the movie object to our MovieRow component and keep it in a variable called 
                  // movieComponent 
                  const movieComponent = <MovieRow
-                   movieDetails={() => this.selectMovieHandler(movie.id)}
+                   movieDetails={() => this.selectMovieHandler(movie)}
                    key={movie.id}
                    movieImage={movieImageUrl}
                    movie={movie} />
@@ -56,7 +56,7 @@ makeAipCall = (searchItem) => {
     }); 
     const userInput = event.target.value; 
     this.makeAipCall(userInput); 
-    console.log(userInput);
+
 
     if (userInput === "") {
       this.setState({
@@ -65,10 +65,16 @@ makeAipCall = (searchItem) => {
     } 
   }
 
-  selectMovieHandler = (movieId) => {
+  selectMovieHandler = (movie) => {
     this.setState({toggleModal: true}); 
-    console.log(movieId); 
-    const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&append_to_response=tv,videos`;
+    let url; 
+    if (movie.media_type === "movie") {
+      const movieId = movie.id; 
+      url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0`;
+    } else if (movie.media_type === "tv") {
+      const tvId = movie.id 
+      url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0`;
+    }
     axios.get(url)
       .then(res => {
 
@@ -93,7 +99,7 @@ makeAipCall = (searchItem) => {
           <Navigation showMovies={this.onSearchHandler} />
           {this.state.toggleMovieList ? <Layout /> : <div //onClick={this.onChangeHandler} 
                                             className="search-container">{this.state.rows}</div>}
-          <Modal show={this.state.toggleModal} modalClosed={this.closeModal}>
+          <Modal show={this.state.toggleModal} modalClosed={this.closeModal} movie={this.state.movieDetails}>
             <MovieSummary movie={this.state.movieDetails}/>
           </Modal>  
          </div>
@@ -105,12 +111,3 @@ makeAipCall = (searchItem) => {
 export default App; 
 
 
-
-
-
-
-
-
-// curl --request GET \
-// --url 'https://api.themoviedb.org/3/find/ur95210597?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US&external_source=imdb_id' \
-//   --data '{}'
