@@ -26,6 +26,15 @@
       font-size: 2rem;
    }
 
+   &__cancel {
+      cursor: pointer;
+      width: 1.8rem;
+      fill: #fff;
+      float: right;
+      padding-right: 2rem;
+      padding-top: 2rem;
+   }
+
    &__overview {
       color: $color-modal-grey;
       padding-top: 2rem;
@@ -35,27 +44,19 @@
    }
 }
 
-// .hide {
-//    transition: all 1s;
-//    // transform: translateY(-100vh); 
-//    display: none;
-// }
+.show {
+   opacity: 1;
+}
 
-   .show {
-      opacity: 1;
-      // transform: scale(1);
-   }
+.hide {
+   transition: all 1s;
+   display: none;
+}
 
-   .hide {
-      transition: all 1s;
-      // transform: translateY(-100vh); 
-      display: none;
-   }
-
-   .shit {
-     background: linear-gradient(90deg, #000 50%, transparent);
-     width: 70%;
-     padding-top: 3rem;
-     height: 100%;
-     padding-left: 3.5rem;
-   }
+.modal__container {
+   background: linear-gradient(90deg, #000 50%, transparent);
+   width: 70%;
+   padding-top: 3rem;
+   height: 100%;
+   padding-left: 3.5rem;
+}

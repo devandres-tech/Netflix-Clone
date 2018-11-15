@@ -5,6 +5,7 @@ import axios from 'axios';
 import MovieRow from '../components/MovieRow/MovieRow'
 import Modal from '../components/UI/Modal/Modal'; 
 import MovieSummary from '../components/MovieRow/MovieSummary/MovieSummary'; 
+import CancelIcon from '../static/images/cancel-music.svg'
 
 
 
@@ -77,9 +78,9 @@ makeAipCall = (searchItem) => {
     }
     axios.get(url)
       .then(res => {
-
+        console.log(res);
         const movieData = res.data; 
-        console.log(movieData); 
+        // console.log(movieData); 
         this.setState({movieDetails: movieData}); 
       }).catch(error => {
 
@@ -97,7 +98,7 @@ makeAipCall = (searchItem) => {
       return (
          <div>  
           <Navigation showMovies={this.onSearchHandler} />
-          {this.state.toggleMovieList ? <Layout /> : <div //onClick={this.onChangeHandler} 
+          {this.state.toggleMovieList ? <Layout /> : <div 
                                             className="search-container">{this.state.rows}</div>}
           <Modal show={this.state.toggleModal} modalClosed={this.closeModal} movie={this.state.movieDetails}>
             <MovieSummary movie={this.state.movieDetails}/>

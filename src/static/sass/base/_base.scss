@@ -45,7 +45,7 @@
 
 body {
 	box-sizing: border-box;
-	background-color: fff;
+	background-color: $color-background;
 }
 
 html {
@@ -55,21 +55,8 @@ html {
 
 // GRID AREA 
 .container {
+	
 	display: grid;      
 	grid-template-rows: 47vw min-content min-content min-content; 
 	grid-template-columns:  4% repeat(10, 1fr) 4%;
-}
-
-.searchContent {
-	height: 100vh;
-	background-color: $color-background;
-}
-
-.search-container {
-	background-color: $color-background;
-	height: 150%;
-	padding-bottom: 10rem;
-	padding-left: 4rem;
-	
-
 }

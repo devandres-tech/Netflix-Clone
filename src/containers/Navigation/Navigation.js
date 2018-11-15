@@ -46,7 +46,6 @@ class navigation extends Component {
             <input
               onChange={this.props.showMovies}
               className="navigation__container--left__input"
-              // onKeyPress={this.props.showMan}
               type="text"
               placeholder="Title, genres, people" />
             

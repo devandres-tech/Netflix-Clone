@@ -1,5 +1,4 @@
 .movie {
-   // z-index: -1;
    flex: 1 1 auto; 
    padding-top: 6rem;
    display: inline-block;
@@ -12,7 +11,8 @@
 
       &:hover {
           z-index: -1;
-         transform: scale(1.4); 
+         transform: scale(1.25); 
+        
       }
 
    }
