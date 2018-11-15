@@ -15,36 +15,34 @@ class App extends Component {
     //an array that will hold all of our movies component 
     rows: [],
     toggleModal: false,
-    movieDetails: {}
+    movieDetails: {},
   }
 
 makeAipCall = (searchItem) => {
-      const url = "https://api.themoviedb.org/3/search/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&page=1&query=" + searchItem;
+  const url = `https://api.themoviedb.org/3/search/multi?api_key=9ea839ec7891591994ec0f540b4b199f&language=en-US&include_adult=false&query=${searchItem}`;
       axios.get(url)
          .then(res => {
+            console.log(res.data.results); 
             // extract the data from json object 
-            // console.log(res); 
-            const movies = res.data.results;
-            // console.log(movies); 
-            // Holds our movieComponent. 
+            const results = res.data.results;
+            let movieImageUrl; 
             let movieRows = [];
-            movies.forEach((movie) => {
+            results.forEach((movie) => {
                // manually build our image url and set it on the movie object 
-               if (movie.poster_path !== null) {
-                 movie.posterSrc = "https://image.tmdb.org/t/p/w185" + movie.poster_path;
+               if (movie.poster_path !== null && movie.media_type !== "person") {
+                  movieImageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
                  // pass in the movie object to our MovieRow component and keep it in a variable called 
                  // movieComponent 
-                  const movieComponent = <MovieRow
-                  getMovie={this.getMovieDetailsHandler}
-                  movieDetails={this.selectMovieHandler}
+                 const movieComponent = <MovieRow
+                   movieDetails={() => this.selectMovieHandler(movie.id)}
                    key={movie.id}
-                   movie={movie}/>
+                   movieImage={movieImageUrl}
+                   movie={movie} />
                  // push our movieComponent to our movieRows array; 
                  movieRows.push(movieComponent);
                } 
-            
+              
             })
-
             // update state 
             this.setState({ rows: movieRows });
          }).catch(error => {
@@ -67,28 +65,10 @@ makeAipCall = (searchItem) => {
     } 
   }
 
-  selectMovieHandler = () => {
+  selectMovieHandler = (movieId) => {
     this.setState({toggleModal: true}); 
- 
-  
-    // const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US`;
-    // axios.get(url)
-    //   .then(res => {
-
-    //     console.log(res.data)
-    //   }).catch(error => {
-    //     console.log(error);
-    //   }); 
-  }
-
-  closeModal = () => {
-    this.setState({ toggleModal: false }); 
-  }
-
-  // get movie details 
-  // return object 
-  getMovieDetailsHandler = (movieId) => {
-    const url = `https://api.themoviedb.org/3/movie/${503314}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US`;
+    console.log(movieId); 
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&append_to_response=tv,videos`;
     axios.get(url)
       .then(res => {
 
@@ -99,17 +79,12 @@ makeAipCall = (searchItem) => {
 
         console.log(error); 
       }); 
+  
   }
 
-
-
-
-
-
-
-
-
-
+  closeModal = () => {
+    this.setState({ toggleModal: false }); 
+  }
 
    render() {
 
@@ -119,10 +94,10 @@ makeAipCall = (searchItem) => {
           {this.state.toggleMovieList ? <Layout /> : <div //onClick={this.onChangeHandler} 
                                             className="search-container">{this.state.rows}</div>}
           <Modal show={this.state.toggleModal} modalClosed={this.closeModal}>
-            <MovieSummary movieInfo={this.state.movieDetails}/>
+            <MovieSummary movie={this.state.movieDetails}/>
           </Modal>  
          </div>
-         
+
       );
    }
 }
@@ -131,14 +106,11 @@ export default App;
 
 
 
-// get primary information about movie  
-//const url =
-//   "https://api.themoviedb.org/3/search/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&page=1&query=" +
-//   searchItem;
+
+
+
+
 
 // curl --request GET \
-// --url 'https://api.themoviedb.org/3/movie/503314?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US' \
-// --data '{}'
-
-// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
-
+// --url 'https://api.themoviedb.org/3/find/ur95210597?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US&external_source=imdb_id' \
+//   --data '{}'

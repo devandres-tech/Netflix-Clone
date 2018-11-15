@@ -1,13 +1,36 @@
 .modal {
+   padding-left: 4rem;
+   padding-top: 2rem;
    position: fixed;
    z-index: 500; 
    width: 100%;
    top: 30%; 
    left: 0; 
-   height: 42rem;
-   background: yellowgreen;
+   color: white;
+   height: 44rem;
+   background: $color-background-modal;
    transition: all 1s; 
    transform: scale(0);
+
+   &__title {
+      font-size: 4rem;
+   }
+
+   &__rating {
+      font-size: 2rem;
+      color: $color-green-modal;
+   }
+
+   &__info {
+      padding-top: 1.6rem;
+      font-size: 2rem;
+   }
+
+   &__overview {
+      color: $color-modal-grey;
+      padding-top: 2rem;
+      font-size: 2rem;
+   }
 }
 
 .show {

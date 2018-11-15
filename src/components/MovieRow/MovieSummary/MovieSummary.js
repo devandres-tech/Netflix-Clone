@@ -5,18 +5,13 @@ import MovieRow from '../MovieRow';
 
 const movieSummary = (props) => (
 
- // get movieid and make api call 
-
- // render data dynamically 
-   
-
    <Aux>
-    
-      {/* <img src="" alt=""/> */}
-      <h1>Movie Title: {props.movieInfo.title}</h1>
-      <p>rating: 45% realease-date: 2018 runtime: 100m </p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, delectus! Veniam error perferendis pariatur atque facere? Repudiandae, quia mollitia sapiente 
-         necessitatibus vitae error assumenda maiores perferendis quaerat excepturi voluptatum quidem?</p>
+      <h1 className="modal__title">{props.movie.title}</h1>
+      <p className="modal__info">
+         <span className="modal__rating">Rating: {props.movie.vote_average * 10}%  </span> 
+         Release date: {props.movie.release_date}  Runtime: {props.movie.runtime}m
+      </p>
+      <p className="modal__overview">{props.movie.overview}</p>
        <button>Play</button>  
        <button>My list</button>  
        <p>staring: mdf gglo bool emmy djf </p>
