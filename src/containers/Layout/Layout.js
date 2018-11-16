@@ -17,9 +17,9 @@ class Layout extends Component {
     this.getMovie(); 
   }
   
-  71411
+  // 71411
   getMovie = () => {
-    // 1) make api call to retrieve movie 
+    
     const url = "https://api.themoviedb.org/3/tv/71411?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0";
     axios.get(url) 
       .then(res => {

@@ -1,9 +1,47 @@
 .header {
    background-color: rebeccapurple;
    grid-column: 1 / 13;
+   display: flex; 
+  
    
+   &__container {
+      padding-top: 25rem;
+      padding-left: 4.5rem;
+       color: #fff;
 
-   &__background {
-     
-   }  
+      &-heading {
+         font-size: 6rem;
+         padding-bottom: 1rem;
+      }
+
+      &-btnPlay, 
+      &-btnMyList {
+         cursor: pointer;
+         font-size: 1.5rem;
+         color: #fff;
+         border-radius: 5px;
+         padding-left: 4rem;
+         margin-right: 1rem;
+         padding-right: 4rem;
+         border: 1px solid rgba(255, 255, 255, .4);
+         padding-top: 1rem;
+         background-color: rgba(51, 51, 51, .4);
+         padding-bottom: 1rem;
+
+      
+
+         &:hover {
+            color: $color-dark;
+            background-color: #fff;
+            transition: all .3s;
+         }
+      }
+
+      &-overview {
+         width: 45rem;
+         line-height: 1.3;
+         padding-top: 1.5rem;
+         font-size: 1.8rem;
+      }
+   }
 }

@@ -18,8 +18,11 @@ class Header extends Component {
 
     return (
       <header style={backgroundStyle} className="header">
-          <div  className="header__background">
-              {/* <h1>{this.props.movie.name}</h1> */}
+          <div className="header__container">
+              <h1 className="header__container-heading">{this.props.movie.name}</h1>
+              <button onClick={() => alert("not a moive!")} className="header__container-btnPlay">Play</button>
+          <button className="header__container-btnMyList">My List</button>
+              <p className="header__container-overview">{this.props.movie.overview}</p>
           </div>    
     
         </header>

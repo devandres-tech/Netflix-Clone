@@ -57,6 +57,6 @@ html {
 .container {
 	
 	display: grid;      
-	grid-template-rows: 47vw min-content min-content min-content; 
+	grid-template-rows: 50vw min-content min-content min-content; 
 	grid-template-columns:  4% repeat(10, 1fr) 4%;
 }

@@ -1,6 +1,7 @@
 .movieShowcase {
-   background-color: blue;
+   background-color: $color-background;
    grid-column: 2 / 13;
+   color: #fff;
 
    &__container {
         display: grid;
@@ -11,4 +12,9 @@
            padding: 3rem;
         }
    }
+}
+
+.shit {
+   width: 20rem;
+   height: 10rem;
 }

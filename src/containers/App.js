@@ -34,7 +34,7 @@ makeAipCall = (searchItem) => {
                   movieImageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
                  // pass in the movie object to our MovieRow component and keep it in a variable called 
                  // movieComponent 
-                 const movieComponent = <MovieRow
+                  const movieComponent = <MovieRow
                    movieDetails={() => this.selectMovieHandler(movie)}
                    key={movie.id}
                    movieImage={movieImageUrl}
@@ -110,5 +110,3 @@ makeAipCall = (searchItem) => {
 }
 
 export default App; 
-
-

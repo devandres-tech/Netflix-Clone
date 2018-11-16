@@ -6,7 +6,8 @@
    left: 0; 
    color: #fff;
    height: 50rem;
- 
+   box-shadow: 0 1.5rem 4rem rgba($color-dark, .15);
+
    &__title {
       font-size: 4rem;
    }
