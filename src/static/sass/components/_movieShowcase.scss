@@ -7,44 +7,50 @@
       padding-top: 2rem;
    }
 
-   &__container {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        column-gap: .5rem;
+   &__container { // row inner
+      // z-index: 10000000;
+      transition: transform 450ms;
+      overflow: scroll;
+      flex: 1 1 auto;
+      display: grid;
+      grid-template-columns: repeat(20, 1fr);
+      column-gap: .5rem;
 
-      &--movie {
-         padding-top: 2rem;
-         padding-bottom: 2rem;
-          height: 35rem;
-         //  width: 20rem;
+      // &:hover {
+      //    transform: translate3d(3rem, 0, 0);
+      // }
+
+      &:hover &--movie {
+         opacity: .3;
+
+         &:hover {
+            transform: scale(1.5);
+            opacity: 1;
+         }
+      }
+      &:hover > *  {
+         transform: translate3d(-5rem, 0, 0); 
+      }
+      &--movie:hover ~ &--movie {
+          transform: translate3d(5rem, 0, 0); 
+      }
+
+      &--movie { // tile
+         cursor: pointer;
+         transition: all 450ms; 
+         transform: center left; 
+         padding-top: 4rem;
+         padding-bottom: 4rem;
+         height: 20rem;
+        
          &:not(:last-child) {
             padding-right: .5rem;
          }
        
          &-image {
             height: 100%;
-            transition: transform .3s;
-
-            &:hover {
-               transform: scale(1.18); 
-               transition: all .3s;
-               cursor: pointer;
-            }
          }
       }
    }
 }
 
-// .shit {
-//    width: 20rem;
-//    height: 10rem;
-
-//    &__poster {
-//       height: 20rem;
-//       width: 15rem;
-//    }
-
-//    &__image {
-//       height: 100%;
-//    }
-// }
