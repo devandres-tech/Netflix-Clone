@@ -3,18 +3,48 @@
    grid-column: 2 / 13;
    color: #fff;
 
+   &__heading {
+      padding-top: 2rem;
+   }
+
    &__container {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         column-gap: .5rem;
 
-        &--movie {
-           padding: 3rem;
-        }
+      &--movie {
+         padding-top: 2rem;
+         padding-bottom: 2rem;
+          height: 35rem;
+         //  width: 20rem;
+         &:not(:last-child) {
+            padding-right: .5rem;
+         }
+       
+         &-image {
+            height: 100%;
+            transition: transform .3s;
+
+            &:hover {
+               transform: scale(1.18); 
+               transition: all .3s;
+               cursor: pointer;
+            }
+         }
+      }
    }
 }
 
-.shit {
-   width: 20rem;
-   height: 10rem;
-}
+// .shit {
+//    width: 20rem;
+//    height: 10rem;
+
+//    &__poster {
+//       height: 20rem;
+//       width: 15rem;
+//    }
+
+//    &__image {
+//       height: 100%;
+//    }
+// }

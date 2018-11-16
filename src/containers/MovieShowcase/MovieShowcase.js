@@ -9,27 +9,28 @@ class MovieShowcase extends Component {
     movies: []
   }
 
-  componentWillMount() {
-    this.getTrending(); 
-  }
+  // componentWillMount() {
+  //   this.getTrending(); 
+  // }
   
   getTrending = () => {
     const url = 'https://api.themoviedb.org/3/movie/popular?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US&page=1'; 
 
     axios.get(url)
       .then(res => {
-        console.log(res.data.results); 
-        const results = res.data.results; 
+        console.log(res.data.results[0]); 
+        const movie = res.data.results[0]; 
         let movieRows = []; 
 
-        results.forEach((movie) => {
-          const movieImageUrl = "url(https://image.tmdb.org/t/p/original/" + movie.poster_path;
-          const movieComponent = <MovieShowcase 
+        // results.forEach((movie) => {
+          const movieImageUrl = "https://image.tmdb.org/t/p/original/" + movie.poster_path;
+          console.log(movieImageUrl);
+        const movieComponent = <MovieShowCaseRow
                                   key={movie.id}
                                   posterUrl={movieImageUrl}
                                   movie={movie}/>
           movieRows.push(movieComponent);                                   
-        })
+        // })
         // update state 
         this.setState({trendingMovieRows: movieRows})
 
@@ -45,21 +46,27 @@ class MovieShowcase extends Component {
 
 
 
-      return (
-         <div className="movieShowcase">
-          <h1 className="movieShowcase__heading">New Releases</h1>
+      return <div className="movieShowcase">
+          <h1 onClick={this.getTrending} className="movieShowcase__heading">
+            New Releases
+          </h1>
           <div className="movieShowcase__container">
-          {/* {this.state.trendingMovieRows} */}
-          {/* {this.state.movies[0].title} */}
-            {/* <div className="movieShowcase__container--movie">movie 1</div>
-            <div className="movieShowcase__container--movie">movie 2</div>
-            <div className="movieShowcase__container--movie">movie 3</div>
+            {/* {this.state.movies[0].title} */}
+            {/* {/* <div className="movieShowcase__container--movie">movie 1</div> */}
+            {/* <div className="movieShowcase__container--movie"> */}
+              {this.state.trendingMovieRows}
+              {this.state.trendingMovieRows}
+              {this.state.trendingMovieRows}
+              {this.state.trendingMovieRows}
+            {/* </div> */}
+            {/* <div className="movieShowcase__container--movie">movie 3</div>
             <div className="movieShowcase__container--movie">movie 4</div>
             <div className="movieShowcase__container--movie">movie 5</div>
-            <div className="movieShowcase__container--movie">movie 6</div> */}
-          {/* </div> */}
-
-          {/* <h1 className="movieShowcase__heading">Trending Now</h1>
+            <div className="movieShowcase__container--movie">
+              movie 6
+            </div> */} 
+            {/* </div> */}
+            {/* <h1 className="movieShowcase__heading">Trending Now</h1>
           <div className="movieShowcase__container">
             <div className="movieShowcase__container--movie">movie 1</div>
             <div className="movieShowcase__container--movie">movie 2</div>
@@ -69,8 +76,7 @@ class MovieShowcase extends Component {
             <div className="movieShowcase__container--movie">movie 6</div>
           </div> */}
           </div>
-        </div>
-        )
+        </div>;
    }
 }
 

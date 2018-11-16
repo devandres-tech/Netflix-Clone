@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 
 const movieShowcaseRow = (props) => (
 
-   <div>
-      <div className="shit">
-         <img src={movieImageUrl} />
-      </div>
-   </div>
+   
+   <div className="movieShowcase__container--movie">
+      <img src={props.posterUrl} className="movieShowcase__container--movie-image"/>
+         </div>
+
 );
 
 export default movieShowcaseRow; 
