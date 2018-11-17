@@ -8,9 +8,10 @@
    }
 
    &__container { 
-     overflow-y:hidden;
+     overflow-y: hidden;
       transition: transform 450ms;
       overflow-x: scroll;
+      
       flex: 1 1 auto;
       display: grid;
       grid-template-columns: repeat(20, 1fr);

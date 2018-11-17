@@ -41,7 +41,7 @@ class Layout extends Component {
           <div className="container">
             <Header movie={this.state.selectedMovie}/>
             <MovieShowcase />
-            <MovieOriginals />
+            {/* <MovieOriginals /> */}
            <Footer /> 
           </div>
         </BrowserRouter>)
