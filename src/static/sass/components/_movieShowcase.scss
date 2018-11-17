@@ -7,8 +7,8 @@
       padding-top: 2rem;
    }
 
-   &__container { // row inner
-      // z-index: 10000000;
+   &__container { 
+     
       transition: transform 450ms;
       overflow: scroll;
       flex: 1 1 auto;
@@ -16,9 +16,6 @@
       grid-template-columns: repeat(20, 1fr);
       column-gap: .5rem;
 
-      // &:hover {
-      //    transform: translate3d(3rem, 0, 0);
-      // }
 
       &:hover &--movie {
          opacity: .3;
@@ -35,7 +32,7 @@
           transform: translate3d(5rem, 0, 0); 
       }
 
-      &--movie { // tile
+      &--movie { 
          cursor: pointer;
          transition: all 450ms; 
          transform: center left; 

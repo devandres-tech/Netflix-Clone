@@ -5,9 +5,9 @@ import React, { Component } from 'react';
 const movieShowcaseRow = (props) => (
 
    
-   <div className="movieShowcase__container--movie">
+   <div onClick={props.movieDetails} className="movieShowcase__container--movie">
       <img src={props.posterUrl} className="movieShowcase__container--movie-image"/>
-         </div>
+   </div>
 
 );
 

@@ -66,6 +66,7 @@ makeAipCall = (searchItem) => {
     } 
   }
 
+  /* Get the appropriate details for a specific movie that was clicked */
   selectMovieHandler = (movie) => {
     this.setState({toggleModal: true}); 
     let url; 
