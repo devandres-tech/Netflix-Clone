@@ -8,9 +8,9 @@
    }
 
    &__container { 
-     
+     overflow-y:hidden;
       transition: transform 450ms;
-      overflow: scroll;
+      overflow-x: scroll;
       flex: 1 1 auto;
       display: grid;
       grid-template-columns: repeat(20, 1fr);
@@ -32,13 +32,15 @@
           transform: translate3d(5rem, 0, 0); 
       }
 
+
       &--movie { 
+
          cursor: pointer;
          transition: all 450ms; 
          transform: center left; 
-         padding-top: 4rem;
+         padding-top: 3.5rem;
          padding-bottom: 4rem;
-         height: 20rem;
+         height: 18rem;
         
          &:not(:last-child) {
             padding-right: .5rem;
@@ -47,6 +49,7 @@
          &-image {
             height: 100%;
          }
+
       }
    }
 }
