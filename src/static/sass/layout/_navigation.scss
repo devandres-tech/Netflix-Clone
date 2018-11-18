@@ -27,15 +27,61 @@
          font-size: 4rem;
       }
 
+      &--bellLogo {
+         cursor: pointer;
+         height: 2.2rem;
+         fill: red; 
+         width: 2.2rem;
+         padding-right: 2.5rem;
+      }
+      
+      &--userLogo {
+         margin-top: 2rem;
+         border-radius: 5px;
+         cursor: pointer;
+         background-color: rgb(201, 199, 78);
+         height: 2.5rem;
+         width: 2.5rem;
+         margin-right: .5rem;
+        
+         &:hover .dropdownContent {
+            transition: all .4s; 
+            opacity: 1; 
+            visibility: visible;
+         }
+      }
+
+      &--downArrow {
+         cursor: pointer;
+         fill: #fff; 
+         height: 1rem;
+         width: 1rem;
+         margin-right: 5.8rem;
+
+      }
+
+      &--logo { 
+         margin-top: 1rem;
+         height: 5rem;
+         padding-right: 1rem;
+        
+      }
+
       &-link {
-         color: #fff;
+          font-weight: 500;
+         font-size: 1.5rem;
+         color: rgb(221, 221, 221);
          text-decoration: none;
          margin-right: 2rem;
-
+         transition: all .2s; 
+     
          &:last-child {
             padding-right: 2.6rem;
          }
 
+         &:hover {
+            color: rgb(167, 167, 167); 
+         }
         
       }
 
@@ -54,19 +100,17 @@
               width: 0px;
               padding: 10px;
               padding-right: 2rem;
-            //   background: none; 
               background: $color-background;
                border: 1px solid #fff;
               transition: width .5s;
               cursor: pointer;
 
                opacity: 0;
-               // transition: all .5s; 
+             
 
               &:focus {
                   padding-left: 4rem;
                   width: 22rem;
-                  // border: 1px solid #fff;
                   cursor: text;
                   opacity: 1;
                 
@@ -82,4 +126,29 @@
    height: 1.8rem;
    transform: translateX(2.4rem) translateY(1rem);
    cursor: pointer;
+}
+
+
+
+.dropdownContent {
+   opacity: 0;
+   visibility: hidden;
+   height: 20rem;
+   width: 15rem;
+   background-color: red;
+   transform: translateY(4.6rem) translateX(-11rem);
+
+}
+
+.dropdownContainer {
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+
+   &:hover .dropdownContent {
+      transition: all .4s;
+      opacity: 1;
+      visibility: visible;
+   }
 }
