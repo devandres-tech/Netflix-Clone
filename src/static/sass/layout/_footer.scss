@@ -13,6 +13,17 @@
       &__copyright {
          color: #fff;
          font-size: 1.8rem;
-      }
-   // // }
+        
+         &--link {
+            text-decoration: none; 
+            color: #fff;
+             transition: all .3s;
+
+         }
+
+         &--link:hover {
+            color: orange;
+         }
+      }  
+ 
 }

@@ -267,11 +267,3 @@ class MovieShowcase extends Component {
 }
 
 export default MovieShowcase; 
-
-/**
- * id: 
- * 18 = drama 
- *  878 - science fiction 
- *  80 - crime 
- * 36 - history 
- */
