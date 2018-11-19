@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node",
-    "start::server": "webpack-dev-server --open --mode development",
+    "start": "webpack-dev-server --open --mode development",
     "build": "webpack -p"
   },
   "engines": {

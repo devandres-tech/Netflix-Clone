@@ -17,7 +17,7 @@ class MovieGenreRow extends Component {
     animatedMovieRow: [],
     documentaryRow: [],
     romanceMovieRow: [],
-    movieDetails: {},
+    movieOverview: {},
     toggleModal: false,
   }
 
@@ -39,8 +39,10 @@ class MovieGenreRow extends Component {
    @param {object} movieObject - A single movie object
    */
   getMovieDetails = (movieObject) => {
-    this.setState({toggleModal: true})
-    this.setState({ movieDetails: movieObject }); 
+    console.log(movieObject);
+    this.setState({ toggleModal: true }); 
+    this.setState({ movieOverview: movieObject }); 
+    
   }
 
   closeModal = () => {
@@ -62,7 +64,7 @@ class MovieGenreRow extends Component {
       if (movie.poster_path && movie.backdrop_path !== null) {
        
         const movieComponent = <MovieGenre
-          movieDetails={() => this.getMovieDetails(movie)}
+          movieDetailsModal={() => this.getMovieDetails(movie)}
           key={movie.id}
           url={url}
           posterUrl={movieImageUrl}
@@ -258,8 +260,8 @@ class MovieGenreRow extends Component {
               {this.state.documentaryRow}
           </div>
         
-          <Modal show={this.state.toggle} modalClosed={this.closeModal} movie={this.state.movieDetails}>
-            <MovieDetails movie={this.state.movieDetails}/>
+          <Modal show={this.state.toggleModal} modalClosed={this.closeModal} movie={this.state.movieOverview}>
+            <MovieDetails movie={this.state.movieOverview}/>
           </Modal>
         </div>
       );

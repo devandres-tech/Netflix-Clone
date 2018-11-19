@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
  
 
-class movieGenre extends Component {
+class MovieGenre extends Component {
 
 
    render() {
@@ -13,7 +13,7 @@ class movieGenre extends Component {
 
       return (
         
-         <div onClick={this.props.movieDetails} 
+         <div onClick={this.props.movieDetailsModal} 
             className={ "movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
             <img src={this.props.posterUrl} className="movieShowcase__container--movie-image"/>
          </div>
@@ -22,4 +22,4 @@ class movieGenre extends Component {
    }
 }
 
-export default movieGenre; 
+export default MovieGenre; 
