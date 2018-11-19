@@ -6,6 +6,7 @@ import MovieDetails from '../../components/Movie/MovieDetails/MovieDetails';
 
 class MovieGenreRow extends Component {
 
+  /** Hold each genre movie row in an array */
   state = {
     trendingMovieRow: [],
     netflixOriginalsRow: [],
@@ -16,10 +17,11 @@ class MovieGenreRow extends Component {
     animatedMovieRow: [],
     documentaryRow: [],
     romanceMovieRow: [],
-    toggle: false,
     movieDetails: {},
+    toggleModal: false,
   }
 
+  /** Make all API calls as soon as our MovieGenreRow component mounts. */
   componentWillMount() {
     this.getTrending(); 
     this.getTopRated(); 
@@ -37,16 +39,16 @@ class MovieGenreRow extends Component {
    @param {object} movieObject - A single movie object
    */
   getMovieDetails = (movieObject) => {
-    this.setState({toggle: true})
+    this.setState({toggleModal: true})
     this.setState({ movieDetails: movieObject }); 
   }
 
   closeModal = () => {
-    this.setState({toggle: false})
+    this.setState({toggleModal: false})
   }
 
 
-  /** Extract our movie data */
+  /** Extract our movie data and pass it to our MovieGenre Component. */
   getMovieRows = (res, url) => {
     const results = res.data.results; 
     let movieRows = []; 
@@ -67,9 +69,8 @@ class MovieGenreRow extends Component {
           movie={movie} />
         movieRows.push(movieComponent);
       }
-
     })
-    // update state 
+    
    return movieRows; 
        
   }

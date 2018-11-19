@@ -20,6 +20,7 @@ class navigation extends Component {
     window.removeEventListener('scroll', this.handleScroll); 
   }
 
+  /** changes the scrolling state depending on the Y-position */
   handleScroll = (event) => {
     if (window.scrollY === 0 ) {
       this.setState({ scrolling: false });
