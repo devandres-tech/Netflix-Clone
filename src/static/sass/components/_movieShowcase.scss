@@ -37,7 +37,7 @@
 
 
       &:hover > &--movie__netflix  {
-         transform: translate3d(-2rem, 0, 0); 
+         transform: translate3d(-1rem, 0, 0); 
       }
 
       &--movie__netflix:hover ~ &--movie__netflix {
@@ -71,7 +71,6 @@
          }
 
          &__netflix {
-            // width: 2rem;
             padding-top: 3rem;
             padding-bottom: 4rem;
             padding-right: 1rem;

@@ -58,7 +58,7 @@ class MovieShowcase extends Component {
       }
       
       if (movie.poster_path && movie.backdrop_path !== null) {
-        console.log(movieImageUrl);
+       
         const movieComponent = <MovieShowCaseRow
           movieDetails={() => this.getMovieDetails(movie)}
           key={movie.id}
@@ -82,8 +82,9 @@ class MovieShowcase extends Component {
    
     axios.get(url)
       .then(res => {
-       
+        console.log(res);
         const movieRows = this.getMovieRows(res, url);
+        
         this.setState({ trendingMovieRow: movieRows });
       })
       .catch(error => {
@@ -114,7 +115,7 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-        
+        console.log(res);
         const movieRows = this.getMovieRows(res, url); 
         this.setState({ netflixOriginalsRow: movieRows }); 
       })
@@ -128,7 +129,7 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-        console.log(res);
+       console.log(res);
         const movieRows = this.getMovieRows(res, url);
         this.setState({ actionMovieRow: movieRows });
       })
@@ -142,7 +143,7 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-        console.log(res);
+       
         const movieRows = this.getMovieRows(res, url);
         this.setState({ comedyMovieRow: movieRows });
       })
@@ -156,7 +157,7 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-        console.log(res);
+      
         const movieRows = this.getMovieRows(res, url);
         this.setState({ horrorMovieRow: movieRows });
       })
@@ -170,7 +171,7 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-        console.log(res);
+      
         const movieRows = this.getMovieRows(res, url);
         this.setState({ romanceMovieRow: movieRows });
       })
@@ -184,7 +185,7 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-        console.log(res);
+       
         const movieRows = this.getMovieRows(res, url);
         this.setState({ animatedMovieRow: movieRows });
       })
@@ -198,7 +199,7 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-        console.log(res);
+      
         const movieRows = this.getMovieRows(res, url);
         this.setState({ documentaryRow: movieRows });
       })
@@ -212,7 +213,6 @@ class MovieShowcase extends Component {
 
       return (  
         <div className="movieShowcase">
-
           <h1 className="movieShowcase__heading">Netflix Originals</h1>
           <div className="movieShowcase__container">
             {this.state.netflixOriginalsRow}

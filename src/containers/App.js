@@ -69,14 +69,17 @@ makeAipCall = (searchItem) => {
   /* Get the appropriate details for a specific movie that was clicked */
   selectMovieHandler = (movie) => {
     this.setState({toggleModal: true}); 
+
     let url; 
     if (movie.media_type === "movie") {
       const movieId = movie.id; 
+      console.log(movie.id); 
       url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0`;
     } else if (movie.media_type === "tv") {
       const tvId = movie.id 
       url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0`;
     }
+
     axios.get(url)
       .then(res => {
         console.log(res);

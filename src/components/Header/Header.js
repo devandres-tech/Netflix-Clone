@@ -8,17 +8,22 @@ class Header extends Component {
   render() {
 
     const backgroundStyle = {
-      transform: "scaleY(-45rem)",
-      backgroundPosition: "center",
+     
+      // backgroundPosition: "center fixed",
+      // backgroundPosition: "center",
+      // backgroundAttachment: "fixed",
+    
       backgroundSize: "cover",
-      backgroundImage: `url(https://image.tmdb.org/t/p/original/${this.props.movie.backdrop_path})`
+      backgroundImage: `url(https://image.tmdb.org/t/p/original/${this.props.movie.backdrop_path})`,
+       backgroundPosition: "center",
     }
 
     return (
       <header style={backgroundStyle} className="header">
+
           <div className="header__container">
               <h1 className="header__container-heading">{this.props.movie.name}</h1>
-          <button onClick={() => alert("not a moive!")} className="header__container-btnPlay">
+          <button onClick={() => alert("not a movie!")} className="header__container-btnPlay">
             <PlayLogo className="header__container-btnMyList-play" />
             Play
           </button>
@@ -28,8 +33,8 @@ class Header extends Component {
           </button>
               <p className="header__container-overview">{this.props.movie.overview}</p>
           </div>    
-    
-        </header>
+        <div className="header--fadeBottom"></div>
+      </header>
     )
 
   }

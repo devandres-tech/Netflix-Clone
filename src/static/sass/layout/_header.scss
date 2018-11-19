@@ -1,9 +1,10 @@
 .header {
    background-color: $color-background;
    grid-column: 1 / 13;
-   display: flex; 
-  
+   height: 65rem;
+   display: inline-block;
    
+  
    &__container {
       padding-top: 20rem;
       padding-left: 4.5rem;
@@ -62,6 +63,20 @@
          padding-top: 2.5rem;
          font-size: 1.8rem;
       }
+   }
+
+   &--fadeBottom {
+      
+   //  height: 65vw;
+   // height: 34rem;
+   // padding-top: 45rem;
+      // width: 100%;
+      // height: 20vh;
+      height: 27.4rem;
+      // padding-bottom: 100rem;
+   //  transform: translateY(-1rem);
+   
+    background-image: linear-gradient(180deg, transparent,rgba(37, 37, 37, 0.61), rgb(17, 17, 17));
    }
 }
 

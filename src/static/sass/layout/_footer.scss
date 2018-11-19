@@ -4,11 +4,6 @@
    padding-bottom: 4rem;
    grid-column: 1 / 13;
    text-align: center;
-   
-
-   // // &__container {
-   //    // display: grid;
-   //    // grid-template-columns: repeat(4, 1fr);
 
       &__copyright {
          color: #fff;
@@ -16,8 +11,8 @@
         
          &--link {
             text-decoration: none; 
-            color: #fff;
-             transition: all .3s;
+            color: $color-red-2;
+            transition: all .3s;
 
          }
 

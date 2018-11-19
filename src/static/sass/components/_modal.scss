@@ -5,8 +5,16 @@
    top:  25%; 
    left: 0; 
    color: #fff;
-   height: 50rem;
+   height: 52rem;
    box-shadow: 0 1.5rem 4rem rgba($color-dark, .15);
+
+   &__container {
+      background: linear-gradient(90deg, #000 50%, transparent);
+      width: 70%;
+      padding-top: 3rem;
+      height: 100%;
+      padding-left: 5rem;
+   }
 
    &__title {
       font-size: 4rem;
@@ -37,11 +45,43 @@
    }
 
    &__overview {
-      color: $color-modal-grey;
+      color: $color-modal-grey-2;
       padding-top: 2rem;
       font-size: 2rem;
       hyphens: auto;
-      width: 60%;
+      width: 55%;
+      line-height: 1.2;
+   }
+
+   &__btn {
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      background-color: transparent;
+      color: #fff;
+      border: .5px solid $color-modal-grey-2;
+      border-radius: 2px;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-right: 1rem;
+      padding: 1rem 2rem 1rem 2rem;
+      transition: all .2s;
+
+      &:hover {
+         transform: scale(1.09); 
+      }
+
+      &--red {
+         background-color: $color-red-2;
+         border: none;
+      }
+
+      &--icon {
+         fill: #fff;
+         padding-right: 1rem;
+         height: 1.4rem;
+         width: 1.4rem;
+      }
    }
 }
 
@@ -54,10 +94,3 @@
    display: none;
 }
 
-.modal__container {
-   background: linear-gradient(90deg, #000 50%, transparent);
-   width: 70%;
-   padding-top: 3rem;
-   height: 100%;
-   padding-left: 3.5rem;
-}
