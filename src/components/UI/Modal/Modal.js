@@ -18,7 +18,7 @@ class Modal extends Component {
             <Backdrop show={this.props.show} toggleBackdrop={this.props.modalClosed} />
                <div
                   style={backgroundStyle}
-                  className={"modal " + (this.props.show ? "show" : "hide")}>
+               className={(this.props.show ? "modal show" : "modal hide")}>
                   {this.props.children} 
                </div>
          </Aux>

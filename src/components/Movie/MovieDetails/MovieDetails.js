@@ -4,7 +4,7 @@ import AddIcon from '../../../static/images/add.svg';
 import PlayIcon from '../../../static/images/play-button.svg'; 
  
 
-class MovieSummary extends Component {
+class MovieDetails extends Component {
 
 
    render() {
@@ -18,8 +18,7 @@ class MovieSummary extends Component {
               <span className="modal__rating">
                 Rating: {this.props.movie.vote_average * 10}%{" "}
               </span>
-              Release date: {this.props.movie.release_date || this.props.movie.first_air_date} Runtime:
-              {this.props.movie.runtime || this.props.movie.episode_run_time} m
+              Release date: {this.props.movie.release_date || this.props.movie.first_air_date }  Runtime: { this.props.movie.runtime || this.props.movie.episode_run_time}m
             </p>
             <p className="modal__episode">
               {this.props.movie.number_of_episodes ? " Episodes: " + this.props.movie.number_of_episodes : ""}
@@ -39,8 +38,4 @@ class MovieSummary extends Component {
    }
 }
 
-
-
-
-
-export default MovieSummary; 
+export default MovieDetails; 

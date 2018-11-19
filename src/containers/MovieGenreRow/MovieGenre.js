@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
  
 
-class movieShowcaseRow extends Component {
+class movieGenre extends Component {
 
 
    render() {
@@ -22,4 +22,4 @@ class movieShowcaseRow extends Component {
    }
 }
 
-export default movieShowcaseRow; 
+export default movieGenre; 

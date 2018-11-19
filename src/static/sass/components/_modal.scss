@@ -2,12 +2,15 @@
    position: fixed;
    z-index: 500; 
    width: 100%;
-   top:  25%; 
+   top:  0; 
    left: 0; 
    color: #fff;
    height: 52rem;
+   opacity: 0;
+   // transform: scale(0);
    box-shadow: 0 1.5rem 4rem rgba($color-dark, .15);
-
+   // transition: all  2s 1s;
+     
    &__container {
       background: linear-gradient(90deg, #000 50%, transparent);
       width: 70%;
@@ -33,15 +36,6 @@
    &__episode {
       padding-top: .5rem;
       font-size: 2rem;
-   }
-
-   &__cancel {
-      cursor: pointer;
-      width: 1.8rem;
-      fill: #fff;
-      float: right;
-      padding-right: 2rem;
-      padding-top: 2rem;
    }
 
    &__overview {
@@ -86,11 +80,15 @@
 }
 
 .show {
+   transition: .5s .3s ease-out;
+   top: 25%;
+   left: 0;
+   visibility: visible;
    opacity: 1;
+ 
 }
 
 .hide {
-   transition: all 1s;
-   display: none;
+    visibility: hidden;
 }
 

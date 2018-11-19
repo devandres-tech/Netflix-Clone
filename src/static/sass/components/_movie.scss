@@ -8,12 +8,11 @@
       width: 17.5rem;
       cursor: pointer;
       transition: transform .3s;
-
-      &:hover {
-          z-index: -1;
-         transform: scale(1.25); 
-
-      }
+      -webkit-transition: transform .3s;
+      
+       &:hover {
+         transform: scale(1.25);
+       }
 
    }
 

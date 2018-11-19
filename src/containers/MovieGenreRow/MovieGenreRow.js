@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from 'axios'; 
-import MovieShowCaseRow from '../MovieShowcase/MovieShowcaseRow/MovieShowcaseRow'; 
+import MovieGenre from './MovieGenre'; 
 import Modal from "../../components/UI/Modal/Modal"; 
 import MovieSummary from '../../components/MovieRow/MovieSummary/MovieSummary'; 
 
-class MovieShowcase extends Component {
+class MovieGenreRow extends Component {
 
   state = {
     trendingMovieRow: [],
@@ -59,7 +59,7 @@ class MovieShowcase extends Component {
       
       if (movie.poster_path && movie.backdrop_path !== null) {
        
-        const movieComponent = <MovieShowCaseRow
+        const movieComponent = <MovieGenre
           movieDetails={() => this.getMovieDetails(movie)}
           key={movie.id}
           url={url}
@@ -82,7 +82,6 @@ class MovieShowcase extends Component {
    
     axios.get(url)
       .then(res => {
-        console.log(res);
         const movieRows = this.getMovieRows(res, url);
         
         this.setState({ trendingMovieRow: movieRows });
@@ -101,6 +100,7 @@ class MovieShowcase extends Component {
     axios.get(url)
       .then(res => {
         const movieRows = this.getMovieRows(res, url);
+
         this.setState({ topRatedRow: movieRows }); 
       }).catch(error => {
         console.log(error); 
@@ -115,8 +115,8 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-        console.log(res);
         const movieRows = this.getMovieRows(res, url); 
+
         this.setState({ netflixOriginalsRow: movieRows }); 
       })
       .catch(error => {
@@ -129,8 +129,8 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-       console.log(res);
         const movieRows = this.getMovieRows(res, url);
+
         this.setState({ actionMovieRow: movieRows });
       })
       .catch(error => {
@@ -143,8 +143,8 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-       
         const movieRows = this.getMovieRows(res, url);
+
         this.setState({ comedyMovieRow: movieRows });
       })
       .catch(error => {
@@ -157,8 +157,8 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-      
         const movieRows = this.getMovieRows(res, url);
+
         this.setState({ horrorMovieRow: movieRows });
       })
       .catch(error => {
@@ -171,8 +171,8 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-      
         const movieRows = this.getMovieRows(res, url);
+
         this.setState({ romanceMovieRow: movieRows });
       })
       .catch(error => {
@@ -185,8 +185,8 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-       
         const movieRows = this.getMovieRows(res, url);
+
         this.setState({ animatedMovieRow: movieRows });
       })
       .catch(error => {
@@ -199,8 +199,8 @@ class MovieShowcase extends Component {
 
     axios.get(url)
       .then(res => {
-      
         const movieRows = this.getMovieRows(res, url);
+
         this.setState({ documentaryRow: movieRows });
       })
       .catch(error => {
@@ -209,7 +209,6 @@ class MovieShowcase extends Component {
   }
 
    render() {
-
 
       return (  
         <div className="movieShowcase">
@@ -266,4 +265,4 @@ class MovieShowcase extends Component {
    }
 }
 
-export default MovieShowcase; 
+export default MovieGenreRow; 

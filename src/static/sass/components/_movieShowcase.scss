@@ -11,9 +11,10 @@
       overflow-y: hidden;
       transition: transform 450ms;
       overflow-x: scroll;
-      
-      flex: 1 1 auto;
-      display: grid;
+      display: flex;
+      width: 95vw;
+      overflow: -moz-scrollbars-horizontal; 
+ 
       grid-template-columns: repeat(20, 1fr);
       column-gap: 0;
 
@@ -60,6 +61,7 @@
          padding-top: 3.5rem;
          padding-bottom: 4rem;
          height: 21.5rem;
+         min-height: 0;
         
          &:not(:last-child) {
             padding-right: .5rem;
@@ -71,6 +73,7 @@
          }
 
          &__netflix {
+            min-height: 0;
             padding-top: 3rem;
             padding-bottom: 4rem;
             padding-right: 1rem;

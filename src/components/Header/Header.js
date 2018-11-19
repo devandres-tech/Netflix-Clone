@@ -8,14 +8,9 @@ class Header extends Component {
   render() {
 
     const backgroundStyle = {
-     
-      // backgroundPosition: "center fixed",
-      // backgroundPosition: "center",
-      // backgroundAttachment: "fixed",
-    
       backgroundSize: "cover",
       backgroundImage: `url(https://image.tmdb.org/t/p/original/${this.props.movie.backdrop_path})`,
-       backgroundPosition: "center",
+      backgroundPosition: "center",
     }
 
     return (
@@ -39,7 +34,5 @@ class Header extends Component {
 
   }
 }
-
-
 
 export default Header; 
