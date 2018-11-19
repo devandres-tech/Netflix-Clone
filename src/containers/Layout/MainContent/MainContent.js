@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../../../components/Header/Header';
-import MovieShowcase from '../MovieShowcase/MovieShowcase';
+import MovieGenreRow from '../../MovieGenreRow/MovieGenreRow';
 import Footer from '../../../components/Footer/Footer';
 import { BrowserRouter } from "react-router-dom";
 
 
 class MainContent extends Component {
+
   state = {
+    /** Will hold our chosen movie to display on the header */
     selectedMovie: {}
   };
 
@@ -17,11 +19,9 @@ class MainContent extends Component {
 
 
   getMovie = () => {
-    /**
-     * @param movieId narcos netflix series id 
-     */
+    /** Movie Id for the Narcos series  */
     const movieId = 63351;
-
+    /** Make Api call to retrieve the details for a single movie  */
     const url = `https://api.themoviedb.org/3/tv/${movieId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0`;
     axios
       .get(url)
@@ -39,7 +39,7 @@ class MainContent extends Component {
       <BrowserRouter>
         <div className="container">
           <Header movie={this.state.selectedMovie} />
-          <MovieShowcase />
+          <MovieGenreRow />
           <Footer />
         </div>
       </BrowserRouter>

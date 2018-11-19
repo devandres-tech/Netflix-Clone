@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios'; 
 import MovieGenre from './MovieGenre'; 
 import Modal from "../../components/UI/Modal/Modal"; 
-import MovieSummary from '../../components/MovieRow/MovieSummary/MovieSummary'; 
+import MovieDetails from '../../components/Movie/MovieDetails/MovieDetails'; 
 
 class MovieGenreRow extends Component {
 
@@ -258,7 +258,7 @@ class MovieGenreRow extends Component {
           </div>
         
           <Modal show={this.state.toggle} modalClosed={this.closeModal} movie={this.state.movieDetails}>
-            <MovieSummary movie={this.state.movieDetails}/>
+            <MovieDetails movie={this.state.movieDetails}/>
           </Modal>
         </div>
       );

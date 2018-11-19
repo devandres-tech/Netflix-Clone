@@ -3,10 +3,7 @@ import Aux from '../../../hoc/Aux/Aux';
 import Backdrop from '../Backdrop/Backdrop'
 
 
-
-
 class Modal extends Component {
-
 
    render() {
       const backgroundStyle = {
@@ -18,7 +15,7 @@ class Modal extends Component {
             <Backdrop show={this.props.show} toggleBackdrop={this.props.modalClosed} />
                <div
                   style={backgroundStyle}
-               className={(this.props.show ? "modal show" : "modal hide")}>
+                  className={(this.props.show ? "modal show" : "modal hide")}>
                   {this.props.children} 
                </div>
          </Aux>
