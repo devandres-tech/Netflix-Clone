@@ -18,6 +18,10 @@
       grid-template-columns: repeat(20, 1fr);
       column-gap: 0;
 
+      @include responsive(phone) {
+         width: 98vw;
+      }
+
 
       &:hover &--movie {
          opacity: .3;

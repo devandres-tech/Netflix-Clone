@@ -22,6 +22,10 @@
       justify-content: flex-start;
       align-items: center;
 
+            @include responsive(phone) {
+               margin-left: 1rem;
+            }
+
       a:first-child {
          padding-left: .2%;
          color: $color-red;
@@ -34,6 +38,10 @@
          fill: red; 
          width: 2.2rem;
          padding-right: 2.5rem;
+
+         @include responsive(phone) {
+            display: none;
+         }
 
       }
       
@@ -48,6 +56,10 @@
 
          @include responsive(tab_port) {
              margin-right: 3rem;
+         }
+
+         @include responsive(phone) {
+            display: none;
          }
         
          &:hover > .dropdownContent {
@@ -82,6 +94,10 @@
             height: 1.5rem;
             width: 1.5rem;
             display: inline-block;
+         }
+
+         @include responsive(phone) {
+            display: none; 
          }
 
       }
@@ -134,15 +150,17 @@
             border: 1px solid #fff;
             transition: width .5s;
             cursor: pointer;
-
             opacity: 0;
-             
 
               &:focus {
                   padding-left: 4rem;
                   width: 22rem;
                   cursor: text;
                   opacity: 1;
+
+                  @include responsive(phone) {
+                     width: 16rem;
+                  }
               }
          }
       }

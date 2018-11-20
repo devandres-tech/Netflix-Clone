@@ -3,12 +3,20 @@
    grid-column: 1 / 13;
    height: 65rem;
    display: inline-block;
+
+   @include responsive(phone) {
+      height: 50rem;
+   }
    
   
    &__container {
       padding-top: 20rem;
       padding-left: 4.5rem;
-       color: #fff;
+      color: #fff;
+
+      @include responsive(phone) {
+         padding-left: 1rem;
+      }
 
       &-heading {
          font-size: 6rem;
@@ -62,6 +70,10 @@
          line-height: 1.3;
          padding-top: 2.5rem;
          font-size: 1.8rem;
+
+         @include responsive(phone) {
+              width: 36rem;
+         }
       }
    }
 
