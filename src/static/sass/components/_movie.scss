@@ -3,15 +3,28 @@
    padding-top: 6rem;
    display: inline-block;
 
+   @include responsive(tab_port) {
+      padding-top: 4rem;
+   }
+
    &__column-poster {
       height: 25rem;
       width: 17.5rem;
       cursor: pointer;
       transition: transform .3s;
       -webkit-transition: transform .3s;
+
+      @include responsive(tab_port) {
+         height: 20rem;
+         width: 14rem;
+      }
       
        &:hover {
          transform: scale(1.25);
+
+         @include responsive(tab_port) {
+             transform: scale(1.15);
+         }
        }
    }
 

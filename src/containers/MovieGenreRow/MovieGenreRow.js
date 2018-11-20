@@ -215,7 +215,7 @@ class MovieGenreRow extends Component {
 
       return (  
         <div className="movieShowcase">
-          <h1 className="movieShowcase__heading">Netflix Originals</h1>
+          <h1 className="movieShowcase__heading">NETFLIX ORIGINALS</h1>
           <div className="movieShowcase__container">
             {this.state.netflixOriginalsRow}
           </div>

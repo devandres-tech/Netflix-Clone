@@ -1,0 +1,28 @@
+
+/* Media query manager */
+@mixin responsive($breakpoint) {
+
+   @if $breakpoint == phone {
+      @media only screen and (max-width: 37.5em) { // 600px --> 600 / 16
+         @content
+      }; 
+   }
+
+   @if $breakpoint == tab_medium {   // 980px 
+      @media only screen and (max-width: 61.25em) {
+         @content
+      }; 
+   }
+
+   @if $breakpoint == tab_port {
+      @media only screen and (max-width: 74em) {   // 1184px 
+         @content
+      }; 
+   }
+
+   @if $breakpoint == lg_desktop {
+      @media only screen and (max-width: 102em) {   // 1633px 
+         @content
+      }; 
+   }
+}

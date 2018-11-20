@@ -30,10 +30,19 @@
 
       &:hover > *  {
          transform: translate3d(-6rem, 0, 0); 
+
+         @include responsive(tab_port) {
+            transform: translate3d(-5rem, 0, 0);
+         }
       }
 
       &--movie:hover ~ &--movie {
           transform: translate3d(6rem, 0, 0); 
+
+         @include responsive(tab_port) {
+
+            transform: translate3d(4.5rem, 0, 0);
+         }
       }
 
 
@@ -62,6 +71,10 @@
          padding-bottom: 4rem;
          height: 21.5rem;
          min-height: 0;
+
+         @include responsive(tab_port) {
+            height: 18.5rem;
+         }
         
          &:not(:last-child) {
             padding-right: .5rem;
@@ -81,6 +94,10 @@
             cursor: pointer;
             transition: all 450ms;
             transform: center left;
+
+            @include responsive(tab_port) {
+               height: 42rem;
+            }
          }
 
       }

@@ -7,9 +7,12 @@
    color: #fff;
    height: 52rem;
    opacity: 0;
-   // transform: scale(0);
    box-shadow: 0 1.5rem 4rem rgba($color-dark, .15);
-   // transition: all  2s 1s;
+
+   @include responsive(tab_port) {
+      height: 38rem;
+   }
+
      
    &__container {
       background: linear-gradient(90deg, #000 50%, transparent);
@@ -17,6 +20,17 @@
       padding-top: 3rem;
       height: 100%;
       padding-left: 5rem;
+
+      @include responsive(tab_port) {
+         background: linear-gradient(90deg, rgb(0, 0, 0) 55%, rgba(0, 0, 0, 0.733), transparent);
+         width: 88%;
+      }
+
+      @include responsive(tab_medium) {
+         background: linear-gradient(90deg, rgba(0, 0, 0, 0.966) 65%, transparent);
+         width: 100%;
+      
+      }
    }
 
    &__title {
@@ -43,8 +57,22 @@
       padding-top: 2rem;
       font-size: 2rem;
       hyphens: auto;
-      width: 55%;
+      width: 60%;
       line-height: 1.2;
+
+      @include responsive(lg_desktop) {
+         width: 60%;
+         font-size: 1.8rem;
+      }
+
+      @include responsive(tab_port) {
+         width: 80%;
+      }
+
+      @include responsive(tab_medium) {
+         width: 95%;
+         color: rgba(255, 255, 255, 0.877); 
+      }
    }
 
    &__btn {

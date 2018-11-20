@@ -51,12 +51,16 @@ body {
 
 html {
    // this defines what 1rem is --> font root size 
-   font-size: 62.5%; // 10/16, 1rem = 10px; 
+	 font-size: 62.5%; // 10/16, 1rem = 10px; 
+	 
+	 @include responsive(tab_port) {
+		 font-size: 50%; 
+	 }
 }
 
 // GRID AREA 
 .container {
-	
+
 	display: grid;      
 	grid-template-rows: min-content min-content min-content min-content; 
 	grid-template-columns:  4% repeat(10, 1fr) 4%;
