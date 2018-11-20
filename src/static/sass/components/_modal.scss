@@ -12,6 +12,9 @@
    @include responsive(tab_port) {
       height: 38rem;
    }
+    @include responsive(phone) {
+       height: 50rem;
+    }
 
      
    &__container {
@@ -29,7 +32,11 @@
       @include responsive(tab_medium) {
          background: linear-gradient(90deg, rgba(0, 0, 0, 0.966) 65%, transparent);
          width: 100%;
+      }
 
+      @include responsive(phone) {
+         padding-top: 1rem;
+         padding-left: 1rem; 
       }
    }
 
@@ -72,6 +79,10 @@
       @include responsive(tab_medium) {
          width: 95%;
          color: rgba(255, 255, 255, 0.877); 
+      }
+      @include responsive(phone) {
+         padding-top: 1rem;
+         font-size: 1.7rem;
       }
    }
 
