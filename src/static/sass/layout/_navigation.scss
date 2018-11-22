@@ -256,7 +256,7 @@
 }
 
 .pseudo-link {
-
+   cursor: pointer;
    @include responsive(tab_port) {
       display: none;
    }
