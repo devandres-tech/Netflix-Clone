@@ -38,14 +38,21 @@
          @include responsive(tab_port) {
             transform: translate3d(-5rem, 0, 0);
          }
+
+         @include responsive(phone) {
+            transform: translate3d(-3rem, 0, 0);
+         }
       }
 
       &--movie:hover ~ &--movie {
           transform: translate3d(6rem, 0, 0); 
 
          @include responsive(tab_port) {
-
             transform: translate3d(4.5rem, 0, 0);
+         }
+
+         @include responsive(phone) {
+            transform: translate3d(2.8rem, 0, 0);
          }
       }
 
@@ -79,6 +86,10 @@
          @include responsive(tab_port) {
             height: 18.5rem;
          }
+
+         @include responsive(phone) {
+            height: 14rem;
+         }
         
          &:not(:last-child) {
             padding-right: .5rem;
@@ -101,6 +112,9 @@
 
             @include responsive(tab_port) {
                height: 42rem;
+            }
+            @include responsive(phone) {
+               height: 34rem;
             }
          }
 

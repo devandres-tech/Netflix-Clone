@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios'; 
+import axios from '../../axios-movies'; 
 import MovieGenre from './MovieGenre'; 
 import Modal from "../../components/UI/Modal/Modal"; 
 import MovieDetails from '../../components/Movie/MovieDetails/MovieDetails'; 
@@ -57,7 +57,7 @@ class MovieGenreRow extends Component {
      
     results.forEach((movie) => {
       let movieImageUrl = "https://image.tmdb.org/t/p/original/" + movie.backdrop_path;
-      if (url === "https://api.themoviedb.org/3/discover/tv?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_networks=213") {
+      if (url === "/discover/tv?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_networks=213") {
         movieImageUrl = "https://image.tmdb.org/t/p/original/" + movie.poster_path;
       }
       
@@ -81,7 +81,7 @@ class MovieGenreRow extends Component {
    * Send request for movies that are popular right now
    */
   getTrending = () => {
-    const url = "https://api.themoviedb.org/3/trending/all/week?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US"; 
+    const url = "/trending/all/week?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US"; 
    
     axios.get(url)
       .then(res => {
@@ -98,7 +98,7 @@ class MovieGenreRow extends Component {
    * Send request for movies that are top rated 
    */
   getTopRated = () => {
-    const url = "https://api.themoviedb.org/3/movie/top_rated?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US"; 
+    const url = "/movie/top_rated?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&language=en-US"; 
 
     axios.get(url)
       .then(res => {
@@ -114,7 +114,7 @@ class MovieGenreRow extends Component {
    * Get Netflix originals 
    */
   getNetflixMovies = () => {
-    const url = "https://api.themoviedb.org/3/discover/tv?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_networks=213";
+    const url = "/discover/tv?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_networks=213";
 
     axios.get(url)
       .then(res => {
@@ -128,7 +128,7 @@ class MovieGenreRow extends Component {
   }
 
   getActionMovies = () => {
-    const url = "https://api.themoviedb.org/3/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=28";
+    const url = "/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=28";
 
     axios.get(url)
       .then(res => {
@@ -142,7 +142,7 @@ class MovieGenreRow extends Component {
   }
 
   getComedyMovies = () => {
-    const url = "https://api.themoviedb.org/3/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=35";
+    const url = "/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=35";
 
     axios.get(url)
       .then(res => {
@@ -156,7 +156,7 @@ class MovieGenreRow extends Component {
   }
 
   getHorrorMovies = () => {
-    const url = "https://api.themoviedb.org/3/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=27";
+    const url = "/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=27";
 
     axios.get(url)
       .then(res => {
@@ -170,7 +170,7 @@ class MovieGenreRow extends Component {
   }
 
   getRomanceMovies = () => {
-    const url = "https://api.themoviedb.org/3/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=10749";
+    const url = "/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=10749";
 
     axios.get(url)
       .then(res => {
@@ -184,7 +184,7 @@ class MovieGenreRow extends Component {
   }
 
   getAnimatedMovies = () => {
-    const url = "https://api.themoviedb.org/3/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=16";
+    const url = "/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=16";
 
     axios.get(url)
       .then(res => {
@@ -198,7 +198,7 @@ class MovieGenreRow extends Component {
   }
 
   getDocumentaries = () => {
-    const url = "https://api.themoviedb.org/3/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=99";
+    const url = "/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=99";
 
     axios.get(url)
       .then(res => {
