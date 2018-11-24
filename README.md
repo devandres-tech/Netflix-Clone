@@ -13,8 +13,10 @@ This project is a simplified version of Netflix. It was created with React and p
 - The webpage adapts to any screen size. 
 
 
-Please feel free to provide some feedback!
-
 
 ### Video Walktrough 
 ![](https://github.com/AndresXI/Netflix-Clone/blob/master/netflix-demo.gif?raw=true)
+
+
+
+Please feel free to provide some feedback!
