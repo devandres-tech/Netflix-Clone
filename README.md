@@ -17,3 +17,4 @@ Please feel free to provide some feedback!
 
 
 ### Video Walktrough 
+![](https://github.com/AndresXI/Netflix-Clone/blob/master/netflix-demo.gif?raw=true)
