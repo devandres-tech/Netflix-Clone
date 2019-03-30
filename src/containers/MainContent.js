@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Header from '../../../components/Header/Header';
-import MovieGenreRow from '../../MovieGenreRow/MovieGenreRow';
-import Footer from '../../../components/Footer/Footer';
+import Header from '../components/Header';
+import MovieGenreRow from './MovieGenreRow';
+import Footer from '../components/Footer';
 import { BrowserRouter } from "react-router-dom";
 
 

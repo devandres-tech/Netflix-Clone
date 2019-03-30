@@ -1,11 +1,11 @@
-import React, { Component } from 'react'; 
-import axios from "axios"; 
+import React, { Component } from 'react';
+import axios from "axios";
 
-import Navbar from '../Navbar/Navbar'; 
-import MainContent from '../Layout/MainContent/MainContent'; 
-import Movie from '../../components/Movie/Movie'; 
-import Modal from '../../components/UI/Modal/Modal'; 
-import MovieDetails from '../../components/Movie/MovieDetails/MovieDetails';
+import Navbar from './Navbar';
+import MainContent from './MainContent';
+import Movie from '../components/Movie/Movie';
+import Modal from '../components/UI/Modal';
+import MovieDetails from '../components/Movie/MovieDetails';
 
 class Layout extends Component {
 
@@ -39,10 +39,10 @@ class Layout extends Component {
 
             /** Set the movie object to our Movie component */
             const movieComponent = <Movie
-            movieDetails={() => this.selectMovieHandler(movie)}
-            key={movie.id}
-            movieImage={movieImageUrl}
-            movie={movie} />
+              movieDetails={() => this.selectMovieHandler(movie)}
+              key={movie.id}
+              movieImage={movieImageUrl}
+              movie={movie} />
 
             /** Push our movie component to our movieRows array */
             movieRows.push(movieComponent);
@@ -93,7 +93,7 @@ class Layout extends Component {
     axios.get(url)
       .then(res => {
         const movieData = res.data;
-        
+
         this.setState({ movieOverview: movieData });
       }).catch(error => {
         console.log(error);
@@ -112,13 +112,13 @@ class Layout extends Component {
         <Navbar showMovies={this.onSearchHandler} />
         {
           this.state.toggleMovieList ? <MainContent /> : <div
-          className="search-container">{this.state.MovieList}</div>
+            className="search-container">{this.state.MovieList}</div>
         }
 
-        <Modal show={this.state.toggleModal} 
-               modalClosed={this.closeModal} 
-               movie={this.state.movieOverview}>
-          
+        <Modal show={this.state.toggleModal}
+          modalClosed={this.closeModal}
+          movie={this.state.movieOverview}>
+
           <MovieDetails movie={this.state.movieOverview} />
         </Modal>
       </div>

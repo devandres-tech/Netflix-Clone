@@ -1,8 +1,8 @@
-import React from 'react'; 
+import React from 'react';
 
 
 const dropdownContent = () => (
-  
+
   <div className="dropdownContainer">
     <div className="navigation__container--userLogo">
       <div className="dropdownContent">
@@ -28,9 +28,7 @@ const dropdownContent = () => (
       </div>
     </div>
   </div>
-
-  
 );
 
-export default dropdownContent; 
+export default dropdownContent;
 

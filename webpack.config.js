@@ -6,11 +6,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 
-   entry: "./src/index.js", 
+   entry: "./src/index.js",
    output: {
       filename: "bundle.js",
    },
-
    module: {
       rules: [
          {
@@ -26,7 +25,7 @@ module.exports = {
             use: {
                loader: 'svg-react-loader'
             }
-            
+
          },
          {
             test: /\.scss$/,
@@ -37,7 +36,6 @@ module.exports = {
                      publicPath: '../'
                   }
                },
-               // 'style-loader',
                'css-loader',
                'sass-loader'
             ]
@@ -55,19 +53,22 @@ module.exports = {
                },
             ],
          }
-      ] // end rules array 
+      ]
+   },
+   node: {
+      fs: "empty"
    },
    plugins: [
       new HtmlWebPackPlugin({
          template: "./src/index.html",
          filename: "./index.html"
       }),
-      new CopyWebpackPlugin([{ from: 'src/static/images', to: 'static/images'}]),
+      new CopyWebpackPlugin([{ from: 'src/static/images', to: 'static/images' }]),
       new MiniCssExtractPlugin({
          // Options similar to the same options in webpackOptions.output
          // both options are optional
          filename: "main.css"
       }),
-      new CleanWebpackPlugin(['dist'])
+      new CleanWebpackPlugin(['dist']),
    ]
 }; 
