@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
-import MovieGenreRow from './MovieGenreRow';
 import Footer from '../components/Footer';
-import { BrowserRouter } from "react-router-dom";
+
+import TrendingMovies from './TrendingMovies';
+import NetflixOriginals from './NetflixOriginals';
+import TopRated from './TopRated';
+import ActionMovies from './ActionMovies';
+import ComedyMovies from './ComedyMovies';
+import HorrorMovies from './HorrorMovies';
+import RomanceMovies from './RomanceMovies';
+import Documentaries from './Documentaries';
 
 
 class MainContent extends Component {
@@ -36,13 +43,19 @@ class MainContent extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <div className="container">
-          <Header movie={this.state.selectedMovie} />
-          <MovieGenreRow />
-          <Footer />
+      <div className="container">
+        <Header movie={this.state.selectedMovie} />
+        <div className="movieShowcase">
+          <NetflixOriginals />
+          <TrendingMovies />
+          <TopRated />
+          <ActionMovies />
+          <ComedyMovies />
+          <HorrorMovies />
+          <Documentaries />
         </div>
-      </BrowserRouter>
+        <Footer />
+      </div>
     );
   }
 }
