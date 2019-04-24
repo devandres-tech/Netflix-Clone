@@ -82,7 +82,6 @@ class Layout extends Component {
     /** Make the appropriate API call to get the details for a single movie or tv show. */
     if (movie.media_type === "movie") {
       const movieId = movie.id;
-      console.log(movie.id);
       url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0`;
 
     } else if (movie.media_type === "tv") {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const movieRow = (props) => (
+const Movie = (props) => (
    <div className="movie">
       <div onClick={props.movieDetails} className="movie__column-poster">
          <img src={props.movieImage} alt="" className="movie__poster" />
@@ -8,4 +8,4 @@ const movieRow = (props) => (
    </div>
 );
 
-export default movieRow; 
+export default Movie; 

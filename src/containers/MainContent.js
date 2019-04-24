@@ -51,7 +51,7 @@ class MainContent extends Component {
           <TopRated />
           <ActionMovies />
           <ComedyMovies />
-          <HorrorMovies />
+          {/* <HorrorMovies /> */}
           <Documentaries />
         </div>
         <Footer />
