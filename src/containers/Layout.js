@@ -113,7 +113,6 @@ class Layout extends Component {
           this.state.toggleMovieList ? <MainContent /> : <div
             className="search-container">{this.state.MovieList}</div>
         }
-
         <Modal show={this.state.toggleModal}
           modalClosed={this.closeModal}
           movie={this.state.movieOverview}>
