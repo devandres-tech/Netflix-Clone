@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from "axios";
+import axios from "../axios-movies";
 
 import Navbar from './Navbar';
 import MainContent from './MainContent';
@@ -22,7 +22,7 @@ class Layout extends Component {
 
   /** Make API call as soon as the user starts typing.  */
   makeAipCall = (searchItem) => {
-    const url = `https://api.themoviedb.org/3/search/multi?api_key=9ea839ec7891591994ec0f540b4b199f&language=en-US&include_adult=false&query=${searchItem}`;
+    const url = `/search/multi?api_key=${process.env.API_KEY}&language=en-US&include_adult=false&query=${searchItem}`;
 
     axios.get(url)
       .then(res => {
@@ -82,11 +82,11 @@ class Layout extends Component {
     /** Make the appropriate API call to get the details for a single movie or tv show. */
     if (movie.media_type === "movie") {
       const movieId = movie.id;
-      url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0`;
+      url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`;
 
     } else if (movie.media_type === "tv") {
       const tvId = movie.id
-      url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0`;
+      url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${process.env.API_KEY}`;
     }
 
     axios.get(url)
@@ -113,7 +113,6 @@ class Layout extends Component {
           this.state.toggleMovieList ? <MainContent /> : <div
             className="search-container">{this.state.MovieList}</div>
         }
-
         <Modal show={this.state.toggleModal}
           modalClosed={this.closeModal}
           movie={this.state.movieOverview}>

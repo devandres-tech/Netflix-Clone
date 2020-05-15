@@ -8,7 +8,6 @@ import HorrorMoviesReducer from './reducerHorrorMovies';
 import RomanceMoviesReducer from './reducerRomanceMovies';
 import DocumentaryReducer from './reducerDocumentary';
 
-
 const rootReducer = combineReducers({
   trending: TrendingReducer,
   netflixOriginals: NetflixOriginalsReducer,
@@ -17,7 +16,7 @@ const rootReducer = combineReducers({
   comedy: ComedyMoviesReducer,
   horror: HorrorMoviesReducer,
   romance: RomanceMoviesReducer,
-  documentary: DocumentaryReducer
+  documentary: DocumentaryReducer,
 });
 
 export default rootReducer;
