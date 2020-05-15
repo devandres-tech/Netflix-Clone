@@ -15,8 +15,7 @@ class ActionMovies extends Component {
     // Call getMoviesRows function only when we get the data back
     // from the API through redux
     if (this.props.actionMovies.data) {
-      const url =
-        '/discover/movie?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=28';
+      const url = `/discover/movie?api_key=${process.env.API_KEY}&with_genres=28`;
       movies = getMovieRows(this.props.actionMovies.data, url);
     }
     return (

@@ -15,8 +15,7 @@ class Documentaries extends Component {
     // Call getMoviesRows function only when we get the data back
     // from the API through redux
     if (this.props.movies.data) {
-      const url =
-        '/discover/tv?api_key=224ce27b38a3805ecf6f6c36eb3ba9d0&with_genres=99';
+      const url = `/discover/tv?api_key=${process.env.API_KEY}&with_genres=99`;
       movies = getMovieRows(this.props.movies.data, url);
     }
     return (

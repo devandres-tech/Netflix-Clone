@@ -12,6 +12,12 @@ import './static/sass/style.scss';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
+// TODO
+// - fix styling issue
+// - implemented debouncing
+// - implement carousel
+// - fix modal backdrop bug
+// - add routing and 404 page
 const app = (
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
