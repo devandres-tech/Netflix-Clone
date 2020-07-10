@@ -7,13 +7,12 @@ import Movie from '../components/Movie/Movie';
 import Modal from '../components/UI/Modal';
 import MovieDetails from '../components/Movie/MovieDetails';
 
-class Layout extends Component {
-
+class Home extends Component {
   state = {
     /** Toggles the movie list when the user starts typing. */
     toggleMovieList: true,
     /** An array that will hold all of our movie Components. */
-    MovieList: [],
+    // MovieList: [],
     /** Toggles the modal when a movie is clicked. */
     toggleModal: false,
     /** Holds the movie information for a single movie. */
@@ -58,9 +57,12 @@ class Layout extends Component {
   /** Get the user input  */
   onSearchHandler = (event) => {
     /** Display the movie list. */
-    this.setState({
-      toggleMovieList: false
-    });
+    // navigate to search comp
+    // this.props.history.push('/search)
+    this.props.history.push('/search')
+    // this.setState({
+    //   toggleMovieList: false
+    // });
 
     const userInput = event.target.value;
     /** Pass in the user input to make the API call. */
@@ -106,8 +108,11 @@ class Layout extends Component {
   render() {
     return (
       <div>
-        <Navbar showMovies={this.onSearchHandler} />
-        <MainContent />
+        {/* <Navbar showMovies={this.onSearchHandler} /> */}
+        {
+          this.state.toggleMovieList ? <MainContent /> : <div
+            className="search-container">{this.state.MovieList}</div>
+        }
         <Modal show={this.state.toggleModal}
           modalClosed={this.closeModal}
           movie={this.state.movieOverview}>
@@ -118,4 +123,4 @@ class Layout extends Component {
   }
 }
 
-export default Layout; 
+export default Home;
