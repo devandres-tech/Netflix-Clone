@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './store/reducers';
 import promise from 'redux-promise';
+import '@babel/polyfill';
 
 import App from './containers/App';
 // Import main sass file to apply global styles

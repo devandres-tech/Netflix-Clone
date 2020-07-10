@@ -19,62 +19,6 @@ class Home extends Component {
     movieOverview: {},
   }
 
-  /** Make API call as soon as the user starts typing.  */
-  makeAipCall = (searchItem) => {
-    const url = `/search/multi?api_key=${process.env.API_KEY}&language=en-US&include_adult=false&query=${searchItem}`;
-
-    axios.get(url)
-      .then(res => {
-        const results = res.data.results;
-        let movieImageUrl;
-        /** Will hold all our movies Components */
-        let movieRows = [];
-
-        /** Loop through all the movies */
-        results.forEach((movie) => {
-          /** Manually build our image url and set it on the Movie component. */
-          if (movie.poster_path !== null && movie.media_type !== "person") {
-            movieImageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
-
-            /** Set the movie object to our Movie component */
-            const movieComponent = <Movie
-              movieDetails={() => this.selectMovieHandler(movie)}
-              key={movie.id}
-              movieImage={movieImageUrl}
-              movie={movie} />
-
-            /** Push our movie component to our movieRows array */
-            movieRows.push(movieComponent);
-          }
-        })
-        /** Set our MovieList array to the movieRows array */
-        this.setState({ MovieList: movieRows });
-      }).catch(error => {
-        console.log(error);
-      });
-  }
-
-  /** Get the user input  */
-  onSearchHandler = (event) => {
-    /** Display the movie list. */
-    // navigate to search comp
-    // this.props.history.push('/search)
-    this.props.history.push('/search')
-    // this.setState({
-    //   toggleMovieList: false
-    // });
-
-    const userInput = event.target.value;
-    /** Pass in the user input to make the API call. */
-    this.makeAipCall(userInput);
-
-    /** If the input is empty don't display the movie list. */
-    if (userInput === "") {
-      this.setState({
-        toggleMovieList: true
-      });
-    }
-  }
 
   /* Get the appropriate details for a specific movie that was clicked */
   selectMovieHandler = (movie) => {
@@ -108,11 +52,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        {/* <Navbar showMovies={this.onSearchHandler} /> */}
-        {
-          this.state.toggleMovieList ? <MainContent /> : <div
-            className="search-container">{this.state.MovieList}</div>
-        }
+        <MainContent />
         <Modal show={this.state.toggleModal}
           modalClosed={this.closeModal}
           movie={this.state.movieOverview}>

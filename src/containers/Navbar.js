@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import _ from 'lodash';
 import { withRouter } from 'react-router-dom';
+import axios from '../axios-movies';
+import Movie from '../components/Movie/Movie';
 
-import NavigationItem from '../components/NavigationItem'
 import SearchLogo from '../static/images/search-icon.svg';
 import NetflixLogo from '../static/images/Netflix_Logo_RGB.png';
 import BellLogo from '../static/images/bell-logo.svg';
@@ -15,9 +16,11 @@ class Navbar extends Component {
     super(props)
     this.state = {
       scrolling: false,
+      movieList: [],
+      userInput: ''
     }
     // use to debounce api call
-    this.onSearchHandler = _.debounce(this.onSearchHandler, 1000)
+    this.makeAipCall = _.debounce(this.makeAipCall, 1000)
   }
 
   componentDidMount() {
@@ -38,63 +41,64 @@ class Navbar extends Component {
     }
   }
 
-  /** makes api call */
-  onSearchHandler = (event) => {
-    this.props.history.push('/search')
-    console.log('helo--', event.target.value)
-  }
+  onChange = async (event) => {
+    await this.setState({ userInput: event.target.value })
+    const { userInput } = this.state
 
-  onChange = (event) => {
-    const userInput = event.target.value;
-    this.props.history.push('/search')
-    this.onSearchHandler(event)
-    if (userInput === "") {
-      this.props.history.push('/')
-    }
+    await this.makeAipCall(userInput);
   }
 
   /** Make API call as soon as the user starts typing.  */
-  makeAipCall = (searchItem) => {
+  makeAipCall = async (searchItem) => {
+    if (searchItem.length === 0) {
+      this.props.history.push('/')
+      return
+    }
+
     const url = `/search/multi?api_key=${process.env.API_KEY}&language=en-US&include_adult=false&query=${searchItem}`;
+    const response = await axios.get(url);
+    const results = response.data.results;
+    let movieImageUrl;
+    /** Will hold all our movies Components */
+    let movieRows = [];
 
-    axios.get(url)
-      .then(res => {
-        const results = res.data.results;
-        let movieImageUrl;
-        /** Will hold all our movies Components */
-        let movieRows = [];
+    /** Loop through all the movies */
+    results.forEach((movie) => {
+      /** Manually build our image url and set it on the Movie component. */
+      if (movie.poster_path !== null && movie.media_type !== "person") {
+        movieImageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
 
-        /** Loop through all the movies */
-        results.forEach((movie) => {
-          /** Manually build our image url and set it on the Movie component. */
-          if (movie.poster_path !== null && movie.media_type !== "person") {
-            movieImageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+        /** Set the movie object to our Movie component */
+        const movieComponent = <Movie
+          movieDetails={() => this.selectMovieHandler(movie)}
+          key={movie.id}
+          movieImage={movieImageUrl}
+          movie={movie} />
 
-            /** Set the movie object to our Movie component */
-            const movieComponent = <Movie
-              movieDetails={() => this.selectMovieHandler(movie)}
-              key={movie.id}
-              movieImage={movieImageUrl}
-              movie={movie} />
+        /** Push our movie component to our movieRows array */
+        movieRows.push(movieComponent);
+      }
+    })
+    /** Set our MovieList array to the movieRows array */
+    await this.setState({ movieList: movieRows });
+    this.props.history.push({
+      pathname: '/search',
+      movieRows: this.state.movieList
+    });
+  }
 
-            /** Push our movie component to our movieRows array */
-            movieRows.push(movieComponent);
-          }
-        })
-        /** Set our MovieList array to the movieRows array */
-        this.setState({ MovieList: movieRows });
-      }).catch(error => {
-        console.log(error);
-      });
+  onLogoClick = () => {
+    // reset state
+    this.setState({ userInput: '' })
   }
 
   render() {
-    const { scrolling, showMovies } = this.state;
+    const { scrolling } = this.state;
 
     return (
       <nav className={"navigation " + (scrolling ? "black" : "")} >
         <ul className="navigation__container">
-          <NavLink to="/">
+          <NavLink to="/" onClick={() => this.onLogoClick()}>
             <img className="navigation__container--logo" src={NetflixLogo} alt="" />
           </NavLink>
           <DropdownArrow className="navigation__container--downArrow-2"></DropdownArrow>
@@ -107,6 +111,7 @@ class Navbar extends Component {
           <div className="navigation__container--left">
             <SearchLogo className="logo" />
             <input
+              value={this.state.userInput}
               onChange={() => this.onChange(event)}
               className="navigation__container--left__input"
               type="text"
