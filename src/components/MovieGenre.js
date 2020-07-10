@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Modal from '../components/UI/Modal';
-import MovieDetails from '../components/movie/MovieDetails';
+import MovieDetails from '../components/Movie/MovieDetails';
 
 export default class MovieGenre extends Component {
    state = {
