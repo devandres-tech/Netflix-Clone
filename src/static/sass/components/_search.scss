@@ -9,3 +9,31 @@
    padding-bottom: 10rem;
    padding-left: 4rem;
 }
+
+.no-results {
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   color: #c5c5c5;
+   height: 100%;
+   padding-top: 25rem;
+
+   &__text {
+      font-size: 1.6rem;
+
+      &>* {
+         padding-bottom: 1.8rem;
+      }
+
+      &>ul {
+         // color: red;
+         padding-left: 6.5rem;
+         list-style: disc;
+
+         &>* {
+            padding-bottom: 0.2rem;
+         }
+      }
+   }
+
+}
