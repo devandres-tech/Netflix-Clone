@@ -92,7 +92,6 @@ class Layout extends Component {
     axios.get(url)
       .then(res => {
         const movieData = res.data;
-
         this.setState({ movieOverview: movieData });
       }).catch(error => {
         console.log(error);
@@ -105,25 +104,18 @@ class Layout extends Component {
   }
 
   render() {
-
     return (
       <div>
         <Navbar showMovies={this.onSearchHandler} />
-        {
-          this.state.toggleMovieList ? <MainContent /> : <div
-            className="search-container">{this.state.MovieList}</div>
-        }
+        <MainContent />
         <Modal show={this.state.toggleModal}
           modalClosed={this.closeModal}
           movie={this.state.movieOverview}>
-
           <MovieDetails movie={this.state.movieOverview} />
         </Modal>
       </div>
-
     );
   }
-
 }
 
 export default Layout; 

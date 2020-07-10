@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './store/reducers';
@@ -20,9 +19,7 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 // - add routing and 404 page
 const app = (
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </Provider>
 );
 

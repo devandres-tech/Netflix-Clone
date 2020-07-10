@@ -1,10 +1,5 @@
-import React, { Component } from 'react';
-import Layout from './Layout';
+import React from 'react';
+import AppRouter from './AppRouter';
 
-class App extends Component {
-  render() {
-    return <Layout />;
-  }
-}
-
+const App = () => <AppRouter />;
 export default App;

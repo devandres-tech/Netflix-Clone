@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+
 import NavigationItem from '../components/NavigationItem'
 import SearchLogo from '../static/images/search-icon.svg';
 import NetflixLogo from '../static/images/Netflix_Logo_RGB.png';
@@ -30,7 +32,6 @@ class navigation extends Component {
     }
   }
 
-
   render() {
     const { scrolling } = this.state;
     const { showMovies } = this.props;
@@ -38,7 +39,9 @@ class navigation extends Component {
     return (
       <nav className={"navigation " + (scrolling ? "black" : "")} >
         <ul className="navigation__container">
-          <NavigationItem link="/" exact><img className="navigation__container--logo" src={NetflixLogo} alt="" /></NavigationItem>
+          <NavLink to="/">
+            <img className="navigation__container--logo" src={NetflixLogo} alt="" />
+          </NavLink>
           <DropdownArrow className="navigation__container--downArrow-2"></DropdownArrow>
           <div className="navigation__container-link pseudo-link">Home</div>
           <div className="navigation__container-link pseudo-link">TV Shows</div>
@@ -46,16 +49,13 @@ class navigation extends Component {
           <div className="navigation__container-link pseudo-link">Recently Added</div>
           <div className="navigation__container-link pseudo-link">My List</div>
 
-
           <div className="navigation__container--left">
             <SearchLogo className="logo" />
-
             <input
               onChange={showMovies}
               className="navigation__container--left__input"
               type="text"
               placeholder="Title, genres, people" />
-
           </div>
 
           <div className="navigation__container-link pseudo-link">KIDS</div>
@@ -64,7 +64,6 @@ class navigation extends Component {
 
           <DropdownContent />
           <DropdownArrow className="navigation__container--downArrow" />
-
         </ul>
       </nav>
     )

@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const dotenv = require('dotenv');
 const webpack = require('webpack');
+var path = require('path');
 
 module.exports = () => {
   // call dotenv and it will return an Object with a parsed key
@@ -20,7 +21,9 @@ module.exports = () => {
   return {
     entry: './src/index.js',
     output: {
+      path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js',
+      publicPath: '/',
     },
     module: {
       rules: [
@@ -65,6 +68,9 @@ module.exports = () => {
           ],
         },
       ],
+    },
+    devServer: {
+      historyApiFallback: true,
     },
     node: {
       fs: 'empty',
