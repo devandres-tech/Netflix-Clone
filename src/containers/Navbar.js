@@ -83,7 +83,8 @@ class Navbar extends Component {
     await this.setState({ movieList: movieRows });
     this.props.history.push({
       pathname: '/search',
-      movieRows: this.state.movieList
+      movieRows: this.state.movieList,
+      userInput: searchItem
     });
   }
 
