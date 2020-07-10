@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import _ from 'lodash';
 import { withRouter } from 'react-router-dom';
 
 import NavigationItem from '../components/NavigationItem'
@@ -9,10 +10,14 @@ import BellLogo from '../static/images/bell-logo.svg';
 import DropdownArrow from '../static/images/drop-down-arrow.svg';
 import DropdownContent from "../components/DropdownContent";
 
-
 class Navbar extends Component {
-  state = {
-    scrolling: false
+  constructor(props) {
+    super(props)
+    this.state = {
+      scrolling: false,
+    }
+    // use to debounce api call
+    this.onSearchHandler = _.debounce(this.onSearchHandler, 1000)
   }
 
   componentDidMount() {
@@ -33,22 +38,16 @@ class Navbar extends Component {
     }
   }
 
-  /** Get the user input  */
+  /** makes api call */
   onSearchHandler = (event) => {
-    /** Display the movie list. */
-    // navigate to search comp
-    // this.props.history.push('/search)
     this.props.history.push('/search')
-    // this.setState({
-    //   toggleMovieList: false
-    // });
+    console.log('helo--', event.target.value)
+  }
 
+  onChange = (event) => {
     const userInput = event.target.value;
-    console.log('user input', userInput)
-    /** Pass in the user input to make the API call. */
-    // this.makeAipCall(userInput);
-
-    /** If the input is empty don't display the movie list. */
+    this.props.history.push('/search')
+    this.onSearchHandler(event)
     if (userInput === "") {
       this.props.history.push('/')
     }
@@ -87,43 +86,43 @@ class Navbar extends Component {
       }).catch(error => {
         console.log(error);
       });
-
-
-    render() {
-      const { scrolling, showMovies } = this.state;
-
-      return (
-        <nav className={"navigation " + (scrolling ? "black" : "")} >
-          <ul className="navigation__container">
-            <NavLink to="/">
-              <img className="navigation__container--logo" src={NetflixLogo} alt="" />
-            </NavLink>
-            <DropdownArrow className="navigation__container--downArrow-2"></DropdownArrow>
-            <div className="navigation__container-link pseudo-link">Home</div>
-            <div className="navigation__container-link pseudo-link">TV Shows</div>
-            <div className="navigation__container-link pseudo-link">Movies</div>
-            <div className="navigation__container-link pseudo-link">Recently Added</div>
-            <div className="navigation__container-link pseudo-link">My List</div>
-
-            <div className="navigation__container--left">
-              <SearchLogo className="logo" />
-              <input
-                onChange={() => this.onSearchHandler(event)}
-                className="navigation__container--left__input"
-                type="text"
-                placeholder="Title, genres, people" />
-            </div>
-
-            <div className="navigation__container-link pseudo-link">KIDS</div>
-            <div className="navigation__container-link pseudo-link">DVD</div>
-            <BellLogo className="navigation__container--bellLogo" />
-
-            <DropdownContent />
-            <DropdownArrow className="navigation__container--downArrow" />
-          </ul>
-        </nav>
-      )
-    }
   }
 
-  export default withRouter(Navbar); 
+  render() {
+    const { scrolling, showMovies } = this.state;
+
+    return (
+      <nav className={"navigation " + (scrolling ? "black" : "")} >
+        <ul className="navigation__container">
+          <NavLink to="/">
+            <img className="navigation__container--logo" src={NetflixLogo} alt="" />
+          </NavLink>
+          <DropdownArrow className="navigation__container--downArrow-2"></DropdownArrow>
+          <div className="navigation__container-link pseudo-link">Home</div>
+          <div className="navigation__container-link pseudo-link">TV Shows</div>
+          <div className="navigation__container-link pseudo-link">Movies</div>
+          <div className="navigation__container-link pseudo-link">Recently Added</div>
+          <div className="navigation__container-link pseudo-link">My List</div>
+
+          <div className="navigation__container--left">
+            <SearchLogo className="logo" />
+            <input
+              onChange={() => this.onChange(event)}
+              className="navigation__container--left__input"
+              type="text"
+              placeholder="Title, genres, people" />
+          </div>
+
+          <div className="navigation__container-link pseudo-link">KIDS</div>
+          <div className="navigation__container-link pseudo-link">DVD</div>
+          <BellLogo className="navigation__container--bellLogo" />
+
+          <DropdownContent />
+          <DropdownArrow className="navigation__container--downArrow" />
+        </ul>
+      </nav>
+    )
+  }
+}
+
+export default withRouter(Navbar); 

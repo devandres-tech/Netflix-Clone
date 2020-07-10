@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Search extends Component {
   state = {
-    movieList: [];
+    movieList: []
   }
 
   render() {
