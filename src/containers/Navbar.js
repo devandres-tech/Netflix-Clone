@@ -16,7 +16,6 @@ class Navbar extends Component {
     super(props)
     this.state = {
       scrolling: false,
-      movieList: [],
       userInput: ''
     }
     // use to debounce api call
@@ -54,42 +53,18 @@ class Navbar extends Component {
       this.props.history.push('/')
       return
     }
-
     const url = `/search/multi?api_key=${process.env.API_KEY}&language=en-US&include_adult=false&query=${searchItem}`;
     const response = await axios.get(url);
     const results = response.data.results;
-    let movieImageUrl;
-    /** Will hold all our movies Components */
-    let movieRows = [];
-
-    /** Loop through all the movies */
-    results.forEach((movie) => {
-      /** Manually build our image url and set it on the Movie component. */
-      if (movie.poster_path !== null && movie.media_type !== "person") {
-        movieImageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
-
-        /** Set the movie object to our Movie component */
-        const movieComponent = <Movie
-          movieDetails={() => this.selectMovieHandler(movie)}
-          key={movie.id}
-          movieImage={movieImageUrl}
-          movie={movie} />
-
-        /** Push our movie component to our movieRows array */
-        movieRows.push(movieComponent);
-      }
-    })
-    /** Set our MovieList array to the movieRows array */
-    await this.setState({ movieList: movieRows });
     this.props.history.push({
       pathname: '/search',
-      movieRows: this.state.movieList,
+      movieRows: results,
       userInput: searchItem
     });
   }
 
   onLogoClick = () => {
-    // reset state
+    // reset input state
     this.setState({ userInput: '' })
   }
 

@@ -9,10 +9,6 @@ import MovieDetails from '../components/Movie/MovieDetails';
 
 class Home extends Component {
   state = {
-    /** Toggles the movie list when the user starts typing. */
-    toggleMovieList: true,
-    /** An array that will hold all of our movie Components. */
-    // MovieList: [],
     /** Toggles the modal when a movie is clicked. */
     toggleModal: false,
     /** Holds the movie information for a single movie. */
@@ -21,29 +17,28 @@ class Home extends Component {
 
 
   /* Get the appropriate details for a specific movie that was clicked */
-  selectMovieHandler = (movie) => {
-    this.setState({ toggleModal: true });
+  // selectMovieHandler = (movie) => {
+  //   this.setState({ toggleModal: true });
 
-    let url;
-    /** Make the appropriate API call to get the details for a single movie or tv show. */
-    if (movie.media_type === "movie") {
-      const movieId = movie.id;
-      url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`;
+  //   let url;
+  //   /** Make the appropriate API call to get the details for a single movie or tv show. */
+  //   if (movie.media_type === "movie") {
+  //     const movieId = movie.id;
+  //     url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`;
 
-    } else if (movie.media_type === "tv") {
-      const tvId = movie.id
-      url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${process.env.API_KEY}`;
-    }
+  //   } else if (movie.media_type === "tv") {
+  //     const tvId = movie.id
+  //     url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${process.env.API_KEY}`;
+  //   }
 
-    axios.get(url)
-      .then(res => {
-        const movieData = res.data;
-        this.setState({ movieOverview: movieData });
-      }).catch(error => {
-        console.log(error);
-      });
-
-  }
+  //   axios.get(url)
+  //     .then(res => {
+  //       const movieData = res.data;
+  //       this.setState({ movieOverview: movieData });
+  //     }).catch(error => {
+  //       console.log(error);
+  //     });
+  // }
 
   closeModal = () => {
     this.setState({ toggleModal: false });
