@@ -46,14 +46,16 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <MainContent />
+      <>
+        <div class="main-content">
+          <MainContent />
+        </div>
         <Modal show={this.state.toggleModal}
           modalClosed={this.closeModal}
           movie={this.state.movieOverview}>
           <MovieDetails movie={this.state.movieOverview} />
         </Modal>
-      </div>
+      </>
     );
   }
 }

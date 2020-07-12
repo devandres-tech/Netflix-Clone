@@ -1,9 +1,9 @@
 .modal {
    position: fixed;
-   z-index: 500; 
+   z-index: 500;
    width: 100%;
-   top:  0; 
-   left: 0; 
+   top: 0;
+   left: 0;
    color: #fff;
    height: 52rem;
    opacity: 0;
@@ -12,11 +12,12 @@
    @include responsive(tab_port) {
       height: 38rem;
    }
-    @include responsive(phone) {
-       height: 50rem;
-    }
 
-     
+   @include responsive(phone) {
+      height: 50rem;
+   }
+
+
    &__container {
       background: linear-gradient(90deg, #000 50%, transparent);
       width: 70%;
@@ -36,7 +37,7 @@
 
       @include responsive(phone) {
          padding-top: 1rem;
-         padding-left: 1rem; 
+         padding-left: 1rem;
       }
    }
 
@@ -82,8 +83,9 @@
 
       @include responsive(tab_medium) {
          width: 95%;
-         color: rgba(255, 255, 255, 0.877); 
+         color: rgba(255, 255, 255, 0.877);
       }
+
       @include responsive(phone) {
          padding-top: 1rem;
          font-size: 1.7rem;
@@ -109,7 +111,7 @@
       }
 
       &:hover {
-         transform: scale(1.09); 
+         transform: scale(1.09);
       }
 
       &--red {
@@ -132,10 +134,8 @@
    left: 0;
    visibility: visible;
    opacity: 1;
- 
 }
 
 .hide {
-    visibility: hidden;
+   visibility: hidden;
 }
-

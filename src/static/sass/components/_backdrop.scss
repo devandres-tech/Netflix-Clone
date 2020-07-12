@@ -1,10 +1,10 @@
 .backdrop {
-   width: 100%; 
+   width: 120%;
    height: 100%;
-   position: fixed; 
-   z-index: 100; 
-   left: 0; 
-   top: 0; 
+   position: fixed;
+   z-index: 100;
+   left: 0;
+   top: 0;
    background-color: rgba($color-background, .7);
    transition: all .5s;
 }

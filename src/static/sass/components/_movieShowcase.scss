@@ -11,14 +11,14 @@
       display: none;
    }
 
-   &__container { 
-      scrollbar-width: none;
+   &__container {
+      overflow-y: hidden;
       transition: transform 450ms;
       overflow: -moz-hidden-unscrollable;
       overflow-x: scroll;
       display: flex;
       width: 95vw;
-      overflow: -moz-scrollbars-horizontal; 
+      overflow: -moz-scrollbars-horizontal;
       grid-template-columns: repeat(20, 1fr);
       column-gap: 0;
 
@@ -36,20 +36,20 @@
          }
       }
 
-      &:hover > *  {
-         transform: translate3d(-6rem, 0, 0); 
+      &:hover>* {
+         //    transform: translate3d(-5rem, 0, 0);
 
          @include responsive(tab_port) {
             transform: translate3d(-5rem, 0, 0);
          }
 
-         @include responsive(phone) {
-            transform: translate3d(-3rem, 0, 0);
-         }
+         //    @include responsive(phone) {
+         //       // transform: translate3d(-3rem, 0, 0);
+         //    }
       }
 
-      &--movie:hover ~ &--movie {
-          transform: translate3d(6rem, 0, 0); 
+      &--movie:hover~&--movie {
+         // transform: translate3d(6rem, 0, 0);
 
          @include responsive(tab_port) {
             transform: translate3d(4.5rem, 0, 0);
@@ -61,12 +61,12 @@
       }
 
 
-      &:hover > &--movie__netflix  {
-         transform: translate3d(-1rem, 0, 0); 
+      &:hover>&--movie__netflix {
+         transform: translate3d(-1rem, 0, 0);
       }
 
-      &--movie__netflix:hover ~ &--movie__netflix {
-          transform: translate3d(1rem, 0, 0); 
+      &--movie__netflix:hover~&--movie__netflix {
+         transform: translate3d(1rem, 0, 0);
       }
 
       &:hover &--movie__netflix {
@@ -78,10 +78,10 @@
          }
       }
 
-      &--movie { 
+      &--movie {
          cursor: pointer;
-         transition: all 450ms; 
-         transform: center left; 
+         transition: all 450ms;
+         transform: center left;
          padding-top: 3.5rem;
          padding-bottom: 4rem;
          height: 21.5rem;
@@ -94,14 +94,14 @@
          @include responsive(phone) {
             height: 14rem;
          }
-        
+
          &:not(:last-child) {
             padding-right: .5rem;
          }
-       
+
          &-image {
             height: 100%;
-            
+
          }
 
          &__netflix {
@@ -117,6 +117,7 @@
             @include responsive(tab_port) {
                height: 42rem;
             }
+
             @include responsive(phone) {
                height: 34rem;
             }
@@ -125,4 +126,3 @@
       }
    }
 }
-

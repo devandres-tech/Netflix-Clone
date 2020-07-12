@@ -16,7 +16,6 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 // - fix styling issue
 // - implement carousel
 // - fix modal backdrop bug
-// - fix search movie onClickFunction
 const app = (
   <Provider store={createStoreWithMiddleware(reducers)}>
     <App />
