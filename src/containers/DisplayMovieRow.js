@@ -1,9 +1,7 @@
 import React from 'react';
-// import MovieGenre from './components/MovieGenre';
 import MovieGenre from '../components/MovieGenre';
 
 const getMovieRows = (movies, url) => {
-  console.log('getMovieRow() ', movies, url);
   const movieRow = movies.map((movie) => {
     let movieImageUrl =
       'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
@@ -31,7 +29,6 @@ const getMovieRows = (movies, url) => {
 };
 
 export default function DisplayMovieRow(props) {
-  console.log('DisplayMovieRow.render()', props.movies);
   let movies = getMovieRows(props.movies, props.url);
   return (
     <>
