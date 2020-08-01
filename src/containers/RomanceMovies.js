@@ -18,6 +18,7 @@ class RomanceMovies extends Component {
       const url = `/discover/tv?api_key=${process.env.API_KEY}&with_genres=10749`;
       movies = getMovieRows(this.props.movies.data, url);
     }
+
     return (
       <>
         <h1 className="movieShowcase__heading">Romance Movies</h1>

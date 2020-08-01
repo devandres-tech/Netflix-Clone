@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import OwlCarousel from 'react-owl-carousel2';
 
 import { getMovieRows } from '../getMovie';
 import { fetchNetflixOriginals } from '../store/actions/index';
+
+const options = {
+  items: 1,
+  nav: true,
+  rewind: true,
+  autoplay: true,
+};
+
+const events = {
+  onDragged: [],
+  onChanged: [],
+};
 
 class NetflixOriginals extends Component {
   componentWillMount() {
@@ -22,6 +35,13 @@ class NetflixOriginals extends Component {
       <>
         <h1 className="movieShowcase__heading">NETFLIX ORIGINALS</h1>
         <div className="movieShowcase__container">{movies}</div>
+        {/* <OwlCarousel
+          options={options}
+          events={events}
+          className="movieShowcase__container"
+        >
+          {movies}
+        </OwlCarousel> */}
       </>
     );
   }

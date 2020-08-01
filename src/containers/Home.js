@@ -47,7 +47,7 @@ class Home extends Component {
   render() {
     return (
       <>
-        <div class="main-content">
+        <div className="main-content">
           <MainContent />
         </div>
         <Modal show={this.state.toggleModal}
