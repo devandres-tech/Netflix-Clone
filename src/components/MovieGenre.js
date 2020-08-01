@@ -24,13 +24,13 @@ export default class MovieGenre extends Component {
 
       return (
          <>
-            <div onClick={() => this.handleToggleModal()}
+            <div onClick={() => this.props.selectMovieHandler(this.props.movie)}
                className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
                <img src={this.props.posterUrl} className="movieShowcase__container--movie-image" />
             </div>
-            <Modal show={this.state.toggleModal} movie={this.props.movie} modalClosed={this.closeModal}>
+            {/* <Modal show={this.state.toggleModal} movie={this.props.movie} modalClosed={this.closeModal}>
                <MovieDetails movie={this.props.movie} />
-            </Modal>
+            </Modal> */}
          </>
       )
    }

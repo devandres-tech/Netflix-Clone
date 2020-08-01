@@ -124,6 +124,7 @@ class MainContent extends Component {
               if (info.movies.length > 0) {
                 return (
                   <DisplayMovieRow
+                    selectMovieHandler={this.props.selectMovieHandler}
                     key={info.title}
                     title={info.title}
                     url={info.url}

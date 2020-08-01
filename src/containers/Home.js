@@ -17,28 +17,10 @@ class Home extends Component {
 
 
   /* Get the appropriate details for a specific movie that was clicked */
-  // selectMovieHandler = (movie) => {
-  //   this.setState({ toggleModal: true });
-
-  //   let url;
-  //   /** Make the appropriate API call to get the details for a single movie or tv show. */
-  //   if (movie.media_type === "movie") {
-  //     const movieId = movie.id;
-  //     url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`;
-
-  //   } else if (movie.media_type === "tv") {
-  //     const tvId = movie.id
-  //     url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${process.env.API_KEY}`;
-  //   }
-
-  //   axios.get(url)
-  //     .then(res => {
-  //       const movieData = res.data;
-  //       this.setState({ movieOverview: movieData });
-  //     }).catch(error => {
-  //       console.log(error);
-  //     });
-  // }
+  selectMovieHandler = async (movie) => {
+    this.setState({ toggleModal: true });
+    await this.setState({ movieOverview: movie });
+  }
 
   closeModal = () => {
     this.setState({ toggleModal: false });
@@ -48,7 +30,7 @@ class Home extends Component {
     return (
       <>
         <div className="main-content">
-          <MainContent />
+          <MainContent selectMovieHandler={this.selectMovieHandler} />
         </div>
         <Modal show={this.state.toggleModal}
           modalClosed={this.closeModal}

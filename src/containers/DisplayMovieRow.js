@@ -1,7 +1,9 @@
 import React from 'react';
+import OwlCarousel from 'react-owl-carousel2';
+
 import MovieGenre from '../components/MovieGenre';
 
-const getMovieRows = (movies, url) => {
+const getMovieRows = (movies, url, selectMovieHandler) => {
   const movieRow = movies.map((movie) => {
     let movieImageUrl =
       'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
@@ -15,6 +17,7 @@ const getMovieRows = (movies, url) => {
     if (movie.poster_path && movie.backdrop_path !== null) {
       const movieComponent = (
         <MovieGenre
+          selectMovieHandler={selectMovieHandler}
           key={movie.id}
           url={url}
           posterUrl={movieImageUrl}
@@ -29,7 +32,7 @@ const getMovieRows = (movies, url) => {
 };
 
 export default function DisplayMovieRow(props) {
-  let movies = getMovieRows(props.movies, props.url);
+  let movies = getMovieRows(props.movies, props.url, props.selectMovieHandler);
   return (
     <>
       <h1 className="movieShowcase__heading">{props.title}</h1>
