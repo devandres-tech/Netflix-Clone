@@ -83,8 +83,9 @@ export default class DisplayMovieRow extends Component {
       <>
         <h1 className="movieShowcase__heading">{this.props.title}</h1>
         {/* <div className="movieShowcase__container">{movies}</div> */}
+        <Dots value={this.state.value} onChange={this.onSlideChange} number={this.props.movies.length} />
         <Carousel
-          className="movieShowcase__container"
+          // className="movieShowcase__container"
           infinite
           draggable={false}
           arrows
@@ -105,14 +106,17 @@ export default class DisplayMovieRow extends Component {
             }
             // return <img key={idx} src={movieImageUrl} />;
             return (
-              <img
-                src={movieImageUrl}
-                className="movieShowcase__container--movie-image"
-              />
+              <div
+                className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}
+              >
+                <img
+                  className="movieShowcase__container--movie-image"
+                  src={movieImageUrl}
+                />
+              </div>
             );
           })}
         </Carousel>
-        <Dots value={this.state.value} onChange={this.onSlideChange} number={this.props.movies.length} />
       </>
     );
   }
