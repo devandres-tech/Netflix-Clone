@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Carousel, { Dots, slidesToShowPlugin } from '@brainhubeu/react-carousel';
-import '@brainhubeu/react-carousel/lib/style.css';
+import Slider from "react-slick";
+
 
 import MovieGenre from '../components/MovieGenre';
 
@@ -32,32 +32,6 @@ const getMovieRows = (movies, url, selectMovieHandler) => {
   return movieRow;
 };
 
-// export default function DisplayMovieRow(props) {
-//   // let movies = getMovieRows(props.movies, props.url, props.selectMovieHandler);
-//   return (
-//     <>
-//       <h1 className="movieShowcase__heading">{props.title}</h1>
-//       {/* <div className="movieShowcase__container">{movies}</div> */}
-//       <OwlCarousel
-//         ref="car"
-//         options={options}
-//         event={events}
-//         className="movieShowcase__container"
-//       >
-//         {props.movies.map((movieItem) => {
-//           return (
-//             <div>
-//               <img src={movieItem.posterUrl} />
-//             </div>
-//           );
-//         })}
-//       </OwlCarousel>
-//     </>
-//   );
-// }
-
-// import React, { Component } from 'react'
-
 export default class DisplayMovieRow extends Component {
   constructor(props) {
     super(props);
@@ -72,6 +46,62 @@ export default class DisplayMovieRow extends Component {
 
   render() {
     console.log('DisplayMovie.render()', this.props.movies);
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 1000,
+      draggable: false,
+      slidesToShow: 6,
+      slidesToScroll: 6,
+      initialSlide: 0,
+      responsive: [
+        {
+          breakpoint: 1824,
+          settings: {
+            slidesToShow: 6,
+            slidesToScroll: 6,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 1300,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 1100,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 798,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            infinite: true,
+            dots: true
+          }
+        }
+      ]
+    };
     let netflixUrl = false;
     if (
       this.props.url ===
@@ -79,21 +109,15 @@ export default class DisplayMovieRow extends Component {
     ) {
       netflixUrl = true;
     }
+
     return (
       <>
         <h1 className="movieShowcase__heading">{this.props.title}</h1>
-        {/* <div className="movieShowcase__container">{movies}</div> */}
-        <Dots value={this.state.value} onChange={this.onSlideChange} number={this.props.movies.length} />
-        <Carousel
+        <Slider
           // className="movieShowcase__container"
-          infinite
-          draggable={false}
-          arrows
-          value={this.state.value}
-          slidesPerScroll={4}
-          slidesPerPage={4}
-          onChange={this.onSlideChange}
+          {...settings}
         >
+
           {this.props.movies.map((movie, idx) => {
             let movieImageUrl =
               'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
@@ -104,7 +128,6 @@ export default class DisplayMovieRow extends Component {
               movieImageUrl =
                 'https://image.tmdb.org/t/p/original/' + movie.poster_path;
             }
-            // return <img key={idx} src={movieImageUrl} />;
             return (
               <div
                 className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}
@@ -116,7 +139,7 @@ export default class DisplayMovieRow extends Component {
               </div>
             );
           })}
-        </Carousel>
+        </Slider>
       </>
     );
   }
