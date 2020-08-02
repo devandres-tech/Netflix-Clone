@@ -16,6 +16,7 @@
   "author": "Andres Alcocer",
   "license": "ISC",
   "dependencies": {
+    "@brainhubeu/react-carousel": "^1.19.26",
     "axios": "^0.18.1",
     "lodash": "^4.17.19",
     "prop-types": "^15.6.2",

@@ -13,9 +13,7 @@ import './static/sass/style.scss';
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 // TODO
-// - fix styling issue
 // - implement carousel
-// - fix modal backdrop bug
 const app = (
   <Provider store={createStoreWithMiddleware(reducers)}>
     <App />
