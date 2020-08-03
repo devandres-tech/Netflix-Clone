@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import Slider from "react-slick";
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import MovieGenre from '../components/MovieGenre';
+
+// install Swiper components
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const getMovieRows = (movies, url, selectMovieHandler) => {
   const movieRow = movies.map((movie) => {
@@ -46,62 +54,6 @@ export default class DisplayMovieRow extends Component {
 
   render() {
     console.log('DisplayMovie.render()', this.props.movies);
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 1000,
-      draggable: false,
-      slidesToShow: 6,
-      slidesToScroll: 6,
-      initialSlide: 0,
-      responsive: [
-        {
-          breakpoint: 1824,
-          settings: {
-            slidesToShow: 6,
-            slidesToScroll: 6,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 1300,
-          settings: {
-            slidesToShow: 5,
-            slidesToScroll: 5,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 1100,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 798,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 500,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            infinite: true,
-            dots: true
-          }
-        }
-      ]
-    };
     let netflixUrl = false;
     if (
       this.props.url ===
@@ -113,34 +65,42 @@ export default class DisplayMovieRow extends Component {
     return (
       <>
         <h1 className="movieShowcase__heading">{this.props.title}</h1>
-        <Slider
-          // className="movieShowcase__container"
-          {...settings}
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={3}
+          navigation
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log('slide change')}
         >
-
-          {this.props.movies.map((movie, idx) => {
-            let movieImageUrl =
-              'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
-            if (
-              this.props.url ===
-              `/discover/tv?api_key=${process.env.API_KEY}&with_networks=213`
-            ) {
-              movieImageUrl =
-                'https://image.tmdb.org/t/p/original/' + movie.poster_path;
-            }
-            return (
-              <div
-                className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}
-              >
-                <img
-                  className="movieShowcase__container--movie-image"
-                  src={movieImageUrl}
-                />
-              </div>
-            );
-          })}
-        </Slider>
+          <SwiperSlide>Slide 1</SwiperSlide>
+          <SwiperSlide>Slide 2</SwiperSlide>
+          <SwiperSlide>Slide 3</SwiperSlide>
+          <SwiperSlide>Slide 4</SwiperSlide>
+        </Swiper>
       </>
     );
   }
 }
+
+{/* <div className="movieShowcase__container">
+  {
+    this.props.movies.map((movie) => {
+      let movieImageUrl =
+        'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
+      if (
+        this.props.url ===
+        `/discover/tv?api_key=${process.env.API_KEY}&with_networks=213`
+      ) {
+        movieImageUrl =
+          'https://image.tmdb.org/t/p/original/' + movie.poster_path;
+      }
+      return (
+        <div className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
+          <img src={movieImageUrl} className="movieShowcase__container--movie-image" />
+        </div>
+      )
+    })
+  }
+</div> */}

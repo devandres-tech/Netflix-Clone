@@ -15,11 +15,11 @@
       overflow-y: hidden;
       transition: transform 450ms;
       overflow: -moz-hidden-unscrollable;
-      overflow-x: scroll;
+      // overflow-x: scroll;
       display: flex;
       width: 95vw;
-      overflow: -moz-scrollbars-horizontal;
-      grid-template-columns: repeat(20, 1fr);
+      // overflow: -moz-scrollbars-horizontal;
+      // grid-template-columns: repeat(20, 1fr);
       column-gap: 0;
 
       @include responsive(phone) {
@@ -86,6 +86,7 @@
          padding-bottom: 4rem;
          height: 21.5rem;
          min-height: 0;
+         object-fit: contain;
 
          @include responsive(tab_port) {
             height: 18.5rem;
@@ -101,6 +102,7 @@
 
          &-image {
             height: 100%;
+            // object-fit: contain;
          }
 
          &__netflix {
@@ -123,4 +125,32 @@
          }
       }
    }
+}
+
+// Slick carousel override styles
+.slick-track {
+   transition: transform 450ms;
+
+   &:hover>div.movieShowcase__container--movie-image {
+      opacity: .3;
+
+      &:hover {
+         transform: scale(1.5);
+         opacity: 1;
+      }
+   }
+}
+
+.slick-slider {
+   margin-right: 4rem;
+   // right: -5px !important;
+}
+
+.slick-prev {
+   left: 0 !important;
+   z-index: 10000;
+}
+
+.slick-next {
+   right: 0 !important;
 }
