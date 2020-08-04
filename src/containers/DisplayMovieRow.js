@@ -66,18 +66,33 @@ export default class DisplayMovieRow extends Component {
       <>
         <h1 className="movieShowcase__heading">{this.props.title}</h1>
         <Swiper
-          spaceBetween={50}
-          slidesPerView={3}
+          className="movieShowcase__container"
+          slidesPerView={4}
           navigation
+          scrollbar={{ draggable: false, hide: true }}
+          slideToClickedSlide={{ draggable: false }}
           pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log('slide change')}
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
+          {
+            this.props.movies.map((movie) => {
+              let movieImageUrl =
+                'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
+              if (
+                this.props.url ===
+                `/discover/tv?api_key=${process.env.API_KEY}&with_networks=213`
+              ) {
+                movieImageUrl =
+                  'https://image.tmdb.org/t/p/original/' + movie.poster_path;
+              }
+              return (
+                <SwiperSlide className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
+                  <img src={movieImageUrl} className="movieShowcase__container--movie-image" />
+                </SwiperSlide>
+              )
+            })
+          }
         </Swiper>
       </>
     );

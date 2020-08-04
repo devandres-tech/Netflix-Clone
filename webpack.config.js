@@ -16,8 +16,6 @@ module.exports = () => {
     return prev;
   }, {});
 
-  console.log('keys', envKeys);
-
   return {
     entry: './src/index.js',
     output: {
