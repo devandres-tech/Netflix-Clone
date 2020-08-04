@@ -69,8 +69,13 @@ export default class DisplayMovieRow extends Component {
           className="movieShowcase__container"
           slidesPerView={4}
           navigation
+          grabCursor={false}
+          draggable={false}
+          loop={true}
+          preventClicksPropagation={true}
+          preventClicks={true}
           scrollbar={{ draggable: false, hide: true }}
-          slideToClickedSlide={{ draggable: false }}
+          slideToClickedSlide={false}
           pagination={{ clickable: true }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log('slide change')}
@@ -86,11 +91,13 @@ export default class DisplayMovieRow extends Component {
                 movieImageUrl =
                   'https://image.tmdb.org/t/p/original/' + movie.poster_path;
               }
-              return (
-                <SwiperSlide className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
-                  <img src={movieImageUrl} className="movieShowcase__container--movie-image" />
-                </SwiperSlide>
-              )
+              if (movie.poster_path && movie.backdrop_path !== null) {
+                return (
+                  <SwiperSlide className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
+                    <img src={movieImageUrl} className="movieShowcase__container--movie-image" />
+                  </SwiperSlide>
+                )
+              }
             })
           }
         </Swiper>

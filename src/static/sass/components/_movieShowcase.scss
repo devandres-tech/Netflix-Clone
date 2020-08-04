@@ -1,3 +1,42 @@
+// Override swiper styles
+.swiper-pagination {
+   top: 0;
+   height: 2rem;
+   text-align: right;
+   padding-right: 4rem;
+}
+
+.swiper-pagination-bullet {
+   background-color: rgb(255, 255, 255);
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets {
+   bottom: 0;
+   left: 0;
+   width: 100%;
+}
+
+div.swiper-button-prev,
+div.swiper-button-next {
+   color: rgb(252, 252, 252);
+   transition: all .3s;
+
+   &:hover {
+      transition: all .3s;
+   }
+
+}
+
+.swiper-wrapper:hover .swiper-slide {
+   opacity: .3;
+
+   &:hover {
+      transform: scale(1.4);
+      opacity: 1;
+   }
+}
+
+
 .movieShowcase {
    background-color: $color-background;
    grid-column: 2 / 13;
@@ -12,26 +51,18 @@
    }
 
    &__container {
-      // overflow-y: hidden;
       transition: transform 450ms;
-      // overflow: -moz-hidden-unscrollable;
-      // overflow-x: scroll;
-      // display: flex;
-      // width: 95vw;
-      // overflow: -moz-scrollbars-horizontal;
-      // grid-template-columns: repeat(20, 1fr);
-      // column-gap: 0;
 
       @include responsive(phone) {
          width: 98vw;
       }
 
       &:hover &--movie {
-         opacity: .3;
+         // opacity: .3;
 
          &:hover {
-            transform: scale(1.4);
-            opacity: 1;
+            // transform: scale(1.4);
+            // opacity: 1;
          }
       }
 
@@ -99,7 +130,8 @@
 
          &-image {
             height: 100%;
-            // object-fit: contain;
+            width: 100%;
+            object-fit: contain;
          }
 
          &__netflix {
@@ -122,33 +154,4 @@
          }
       }
    }
-}
-
-// Override swiper styles
-.swiper-pagination {
-   top: 0;
-   height: 2rem;
-   text-align: right;
-   padding-right: 4rem;
-}
-
-.swiper-pagination-bullet {
-   background-color: rgb(255, 255, 255);
-}
-
-.swiper-container-horizontal>.swiper-pagination-bullets {
-   bottom: 0;
-   left: 0;
-   width: 100%;
-}
-
-div.swiper-button-prev,
-div.swiper-button-next {
-   color: rgb(252, 252, 252);
-   transition: all .3s;
-
-   &:hover {
-      background-color: grayscale($color: #202020);
-   }
-
 }
