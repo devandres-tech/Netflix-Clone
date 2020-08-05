@@ -12,34 +12,6 @@ import MovieGenre from '../components/MovieGenre';
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
-const getMovieRows = (movies, url, selectMovieHandler) => {
-  const movieRow = movies.map((movie) => {
-    let movieImageUrl =
-      'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
-    if (
-      url === `/discover/tv?api_key=${process.env.API_KEY}&with_networks=213`
-    ) {
-      movieImageUrl =
-        'https://image.tmdb.org/t/p/original/' + movie.poster_path;
-    }
-
-    if (movie.poster_path && movie.backdrop_path !== null) {
-      const movieComponent = (
-        <MovieGenre
-          selectMovieHandler={selectMovieHandler}
-          key={movie.id}
-          url={url}
-          posterUrl={movieImageUrl}
-          movie={movie}
-        />
-      );
-
-      return movieComponent;
-    }
-  });
-  return movieRow;
-};
-
 export default class DisplayMovieRow extends Component {
   constructor(props) {
     super(props);
@@ -67,11 +39,26 @@ export default class DisplayMovieRow extends Component {
         <h1 className="movieShowcase__heading">{this.props.title}</h1>
         <Swiper
           className="movieShowcase__container"
-          slidesPerView={4}
+          // slidesPerView={4}
           navigation
           grabCursor={false}
+          slidesPerGroup={4}
           draggable={false}
           loop={true}
+          breakpoints={{
+            1378: {
+              slidesPerView: 5
+            },
+            998: {
+              slidesPerView: 4
+            },
+            625: {
+              slidesPerView: 3
+            },
+            0: {
+              slidesPerView: 2
+            },
+          }}
           preventClicksPropagation={true}
           preventClicks={true}
           scrollbar={{ draggable: false, hide: true }}
@@ -105,24 +92,3 @@ export default class DisplayMovieRow extends Component {
     );
   }
 }
-
-{/* <div className="movieShowcase__container">
-  {
-    this.props.movies.map((movie) => {
-      let movieImageUrl =
-        'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
-      if (
-        this.props.url ===
-        `/discover/tv?api_key=${process.env.API_KEY}&with_networks=213`
-      ) {
-        movieImageUrl =
-          'https://image.tmdb.org/t/p/original/' + movie.poster_path;
-      }
-      return (
-        <div className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
-          <img src={movieImageUrl} className="movieShowcase__container--movie-image" />
-        </div>
-      )
-    })
-  }
-</div> */}
