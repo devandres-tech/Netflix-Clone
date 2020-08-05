@@ -6,9 +6,6 @@ import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-
-import MovieGenre from '../components/MovieGenre';
-
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -95,7 +92,10 @@ export default class DisplayMovieRow extends Component {
               }
               if (movie.poster_path && movie.backdrop_path !== null) {
                 return (
-                  <SwiperSlide key={idx} className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
+                  <SwiperSlide
+                    onClick={() => this.props.selectMovieHandler(movie)}
+                    key={idx} className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}
+                  >
                     <img src={movieImageUrl} className="movieShowcase__container--movie-image" />
                   </SwiperSlide>
                 )
