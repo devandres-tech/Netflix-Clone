@@ -8,6 +8,7 @@
    height: 52rem;
    opacity: 0;
    box-shadow: 0 1.5rem 4rem rgba($color-dark, .15);
+   transition: all .3s;
 
    @include responsive(tab_port) {
       height: 38rem;

@@ -16,8 +16,6 @@ module.exports = () => {
     return prev;
   }, {});
 
-  console.log('keys', envKeys);
-
   return {
     entry: './src/index.js',
     output: {
@@ -40,6 +38,11 @@ module.exports = () => {
           use: {
             loader: 'svg-react-loader',
           },
+        },
+        {
+          test: /\.css$/,
+          include: /node_modules/,
+          loaders: ['style-loader', 'css-loader'],
         },
         {
           test: /\.scss$/,
