@@ -97,18 +97,8 @@ div.swiper-button-next {
          transform: center left;
          padding-top: 3.5rem;
          padding-bottom: 4rem;
-         // height: 21.5rem;
          min-height: 0;
          object-fit: contain;
-
-         @include responsive(tab_port) {
-            // height: 18.5rem;
-            // height: 40rem;
-         }
-
-         @include responsive(phone) {
-            // height: 14rem;
-         }
 
          &:not(:last-child) {
             padding-right: .5rem;
@@ -125,18 +115,9 @@ div.swiper-button-next {
             padding-top: 3rem;
             padding-bottom: 4rem;
             padding-right: 1rem;
-            // height: 52rem;
             cursor: pointer;
             transition: all 450ms;
             transform: center left;
-
-            @include responsive(tab_port) {
-               // height: 42rem;
-            }
-
-            @include responsive(phone) {
-               // height: 34rem;
-            }
          }
       }
    }

@@ -17,15 +17,29 @@ export default class DisplayMovieRow extends Component {
     super(props);
     this.state = {
       value: 0,
+      width: window.innerWidth
     };
   }
+
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  componentWillUnMount() {
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  handleResize = (e) => {
+    this.setState({ width: window.innerWidth });
+  };
 
   onSlideChange = (value) => {
     this.setState({ value })
   }
 
   render() {
-    console.log('DisplayMovie.render()', this.props.movies);
+    const { width } = this.state;
     let netflixUrl = false;
     if (
       this.props.url ===
@@ -39,24 +53,27 @@ export default class DisplayMovieRow extends Component {
         <h1 className="movieShowcase__heading">{this.props.title}</h1>
         <Swiper
           className="movieShowcase__container"
-          // slidesPerView={4}
           navigation
           grabCursor={false}
-          slidesPerGroup={4}
           draggable={false}
           loop={true}
+          loopAdditionalSlides={2}
           breakpoints={{
             1378: {
-              slidesPerView: 5
+              slidesPerView: 5,
+              slidesPerGroup: 5
             },
             998: {
-              slidesPerView: 4
+              slidesPerView: 4,
+              slidesPerGroup: 4
             },
             625: {
-              slidesPerView: 3
+              slidesPerView: 3,
+              slidesPerGroup: 3,
             },
             0: {
-              slidesPerView: 2
+              slidesPerView: 2,
+              slidesPerGroup: 2
             },
           }}
           preventClicksPropagation={true}
@@ -64,11 +81,9 @@ export default class DisplayMovieRow extends Component {
           scrollbar={{ draggable: false, hide: true }}
           slideToClickedSlide={false}
           pagination={{ clickable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
         >
           {
-            this.props.movies.map((movie) => {
+            this.props.movies.map((movie, idx) => {
               let movieImageUrl =
                 'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
               if (
@@ -80,7 +95,7 @@ export default class DisplayMovieRow extends Component {
               }
               if (movie.poster_path && movie.backdrop_path !== null) {
                 return (
-                  <SwiperSlide className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
+                  <SwiperSlide key={idx} className={"movieShowcase__container--movie" + (netflixUrl ? "__netflix" : "")}>
                     <img src={movieImageUrl} className="movieShowcase__container--movie-image" />
                   </SwiperSlide>
                 )
