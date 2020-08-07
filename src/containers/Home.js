@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import axios from "../axios-movies";
 
-import Navbar from './Navbar';
 import MainContent from './MainContent';
-import Movie from '../components/Movie/Movie';
 import Modal from '../components/UI/Modal';
 import MovieDetails from '../components/Movie/MovieDetails';
 
