@@ -1,6 +1,6 @@
 # Netflix Clone
 
-- Demo: http://netflix-react-clone.surge.sh/
+- Demo: https://netflix-clone-9a0b9.web.app/
 
 This project is a simplified front end clone of Netflix. It was created with React and CSS (Grid and Flexbox). It uses [The MovieDB Api](https://www.themoviedb.org/documentation/api) to search for movies and display details. Feel free to contribute!
 
