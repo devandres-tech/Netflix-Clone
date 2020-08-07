@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import _ from 'lodash';
 import { withRouter } from 'react-router-dom';
-import axios from '../axios-movies';
-import Movie from '../components/Movie/Movie';
 
+import axios from '../axios-movies';
 import SearchLogo from '../static/images/search-icon.svg';
 import NetflixLogo from '../static/images/Netflix_Logo_RGB.png';
 import BellLogo from '../static/images/bell-logo.svg';
@@ -31,7 +30,7 @@ class Navbar extends Component {
   }
 
   /** changes the scrolling state depending on the Y-position */
-  handleScroll = (event) => {
+  handleScroll = () => {
     if (window.scrollY === 0) {
       this.setState({ scrolling: false });
     }

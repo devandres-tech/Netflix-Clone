@@ -10,6 +10,7 @@ This project is a simplified front end clone of Netflix. It was created with Rea
 - Redux & React
 - Sass (grid & flexbox)
 - Media queries
+- Swiper JS
 
 ### Runing Project Locally
 - Install dependencies: run `npm install` in root project
