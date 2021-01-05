@@ -16,7 +16,7 @@
   "author": "Andres Alcocer",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "lodash": "^4.17.19",
     "prop-types": "^15.6.2",
     "react": "^16.13.1",
