@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import MainContent from './MainContent';
-import Modal from '../components/UI/Modal';
-import MovieDetails from '../components/Movie/MovieDetails';
+import MainContent from './MainContent'
+import Modal from '../components/UI/Modal'
+import MovieDetails from '../components/Movie/MovieDetails'
 
 class Home extends Component {
   state = {
@@ -12,31 +12,32 @@ class Home extends Component {
     movieOverview: {},
   }
 
-
   /* Get the appropriate details for a specific movie that was clicked */
   selectMovieHandler = async (movie) => {
-    this.setState({ toggleModal: true });
-    await this.setState({ movieOverview: movie });
+    this.setState({ toggleModal: true })
+    await this.setState({ movieOverview: movie })
   }
 
   closeModal = () => {
-    this.setState({ toggleModal: false });
+    this.setState({ toggleModal: false })
   }
 
   render() {
     return (
       <>
-        <div className="main-content">
+        <div className='main-content'>
           <MainContent selectMovieHandler={this.selectMovieHandler} />
         </div>
-        <Modal show={this.state.toggleModal}
+        <Modal
+          show={this.state.toggleModal}
           modalClosed={this.closeModal}
-          movie={this.state.movieOverview}>
+          movie={this.state.movieOverview}
+        >
           <MovieDetails movie={this.state.movieOverview} />
         </Modal>
       </>
-    );
+    )
   }
 }
 
-export default Home;
+export default Home
