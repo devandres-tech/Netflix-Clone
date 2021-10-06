@@ -9,6 +9,9 @@ import '@babel/polyfill';
 import App from './containers/App';
 // Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+// import 'swiper/css/scrollbar';
 // Import main sass file to apply global styles
 import './static/sass/style.scss';
 

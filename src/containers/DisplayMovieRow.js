@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -13,11 +14,11 @@ export default class DisplayMovieRow extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("resize", this.handleResize);
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentWillUnMount() {
-    window.addEventListener("resize", this.handleResize);
+    window.addEventListener('resize', this.handleResize);
   }
 
   handleResize = (e) => {
@@ -44,9 +45,7 @@ export default class DisplayMovieRow extends Component {
           draggable={false}
           loop={true}
           loopAdditionalSlides={
-            width >= 1378 ? 4 :
-              width >= 998 ? 3 :
-                width >= 625 ? 2 : 2
+            width >= 1378 ? 4 : width >= 998 ? 3 : width >= 625 ? 2 : 2
           }
           breakpoints={{
             1378: {
