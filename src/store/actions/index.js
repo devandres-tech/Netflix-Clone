@@ -51,67 +51,69 @@ export const fetchTrending = () => {
 }
 
 export const fetchTopRated = () => {
-  const request = axios.get(
-    `/movie/top_rated?api_key=${process.env.API_KEY}&language=en-US`
-  )
-
-  return {
-    type: FETCH_TOP_RATED,
-    payload: request,
+  return async (dispatch) => {
+    try {
+      const request = await axios.get(
+        `/movie/top_rated?api_key=${process.env.API_KEY}&language=en-US`
+      )
+      dispatch({ type: FETCH_TOP_RATED, payload: request })
+    } catch (error) {}
   }
 }
 
 export const fetchActionMovies = () => {
-  const request = axios.get(
-    `/discover/movie?api_key=${process.env.API_KEY}&with_genres=28`
-  )
+  return async (dispatch) => {
+    try {
+      const request = await axios.get(
+        `/discover/movie?api_key=${process.env.API_KEY}&with_genres=28`
+      )
 
-  return {
-    type: FETCH_ACTION_MOVIES,
-    payload: request,
+      dispatch({ type: FETCH_ACTION_MOVIES, payload: request })
+    } catch (error) {}
   }
 }
 
 export const fetchComedyMovies = () => {
-  const request = axios.get(
-    `/discover/movie?api_key=${process.env.API_KEY}&with_genres=35`
-  )
+  return async (dispatch) => {
+    try {
+      const request = await axios.get(
+        `/discover/movie?api_key=${process.env.API_KEY}&with_genres=35`
+      )
 
-  return {
-    type: FETCH_COMEDY_MOVIES,
-    payload: request,
+      dispatch({ type: FETCH_COMEDY_MOVIES, payload: request })
+    } catch (error) {}
   }
 }
 
 export const fetchHorrorMovies = () => {
-  const request = axios.get(
-    `/discover/movie?api_key=${process.env.API_KEY}&with_genres=27`
-  )
-
-  return {
-    type: FETCH_HORROR_MOVIES,
-    payload: request,
+  return async (dispatch) => {
+    try {
+      const request = await axios.get(
+        `/discover/movie?api_key=${process.env.API_KEY}&with_genres=27`
+      )
+      dispatch({ type: FETCH_HORROR_MOVIES, payload: request })
+    } catch (error) {}
   }
 }
 
 export const fetchRomanceMovies = () => {
-  const request = axios.get(
-    `/discover/movie?api_key=${process.env.API_KEY}&with_genres=10749`
-  )
-
-  return {
-    type: FETCH_ROMANCE_MOVIES,
-    payload: request,
+  return async (dispatch) => {
+    try {
+      const request = await axios.get(
+        `/discover/movie?api_key=${process.env.API_KEY}&with_genres=10749`
+      )
+      dispatch({ type: FETCH_ROMANCE_MOVIES, payload: request })
+    } catch (error) {}
   }
 }
 
 export const fetchDocumentaries = () => {
-  const request = axios.get(
-    `/discover/movie?api_key=${process.env.API_KEY}&with_genres=99`
-  )
-
-  return {
-    type: FETCH_DOCUMENTARIES,
-    payload: request,
+  return async (dispatch) => {
+    try {
+      const request = await axios.get(
+        `/discover/movie?api_key=${process.env.API_KEY}&with_genres=99`
+      )
+      dispatch({ type: FETCH_DOCUMENTARIES, payload: request })
+    } catch (error) {}
   }
 }

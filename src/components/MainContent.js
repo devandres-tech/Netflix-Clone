@@ -11,6 +11,12 @@ const MainContent = ({ selectMovieHandler }) => {
   const headerMovie = useSelector((state) => state.headerMovie)
   const netflixOriginals = useSelector((state) => state.netflixOriginals)
   const trending = useSelector((state) => state.trending)
+  const topRated = useSelector((state) => state.topRated)
+  const actionMovies = useSelector((state) => state.action)
+  const comedyMovies= useSelector((state) => state.comedy)
+  const horrorMovies = useSelector((state) => state.horror)
+  const romanceMovies = useSelector((state) => state.romance)
+  const documentaries = useSelector((state) => state.documentary)
 
   const dispatch = useDispatch()
 
@@ -18,6 +24,12 @@ const MainContent = ({ selectMovieHandler }) => {
     dispatch(movieActions.fetchHeaderMovie())
     dispatch(movieActions.fetchNetflixOriginals())
     dispatch(movieActions.fetchTrending())
+    dispatch(movieActions.fetchTopRated())
+    dispatch(movieActions.fetchActionMovies())
+    dispatch(movieActions.fetchComedyMovies())
+    dispatch(movieActions.fetchHorrorMovies())
+    dispatch(movieActions.fetchRomanceMovies())
+    dispatch(movieActions.fetchDocumentaries())
   }, [dispatch])
 
   return (
@@ -34,6 +46,36 @@ const MainContent = ({ selectMovieHandler }) => {
           title='Trending'
           selectMovieHandler={selectMovieHandler}
           movies={trending.data}
+        />
+        <DisplayMovieRow
+          title='Top Rated'
+          selectMovieHandler={selectMovieHandler}
+          movies={topRated.data}
+        />
+        <DisplayMovieRow
+          title='Action Movies'
+          selectMovieHandler={selectMovieHandler}
+          movies={actionMovies.data}
+        />
+        <DisplayMovieRow
+          title='Comedy'
+          selectMovieHandler={selectMovieHandler}
+          movies={comedyMovies.data}
+        />
+        <DisplayMovieRow
+          title='Horror Movies'
+          selectMovieHandler={selectMovieHandler}
+          movies={horrorMovies.data}
+        />
+        <DisplayMovieRow
+          title='Romance'
+          selectMovieHandler={selectMovieHandler}
+          movies={romanceMovies.data}
+        />
+        <DisplayMovieRow
+          title='Documentaries'
+          selectMovieHandler={selectMovieHandler}
+          movies={documentaries.data}
         />
       </div>
       <Footer />
