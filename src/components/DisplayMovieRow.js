@@ -71,7 +71,7 @@ export default class DisplayMovieRow extends Component {
           slideToClickedSlide={false}
           pagination={{ clickable: true }}
         >
-          {this.props.movies.map((movie, idx) => {
+          {this.props.movies && this.props.movies.map((movie, idx) => {
             let movieImageUrl =
               'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path;
             if (

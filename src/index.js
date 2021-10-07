@@ -1,26 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import promise from 'redux-promise';
-import '@babel/polyfill';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import ReduxThunk from 'redux-thunk'
+import '@babel/polyfill'
 
-import reducers from './store/reducers';
-import AppRouter from './AppRouter';
+import reducers from './store/reducers'
+import AppRouter from './AppRouter'
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 // Import main sass file to apply global styles
-import './static/sass/style.scss';
+import './static/sass/style.scss'
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const store = createStore(reducers, applyMiddleware(ReduxThunk))
 
 const app = (
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <AppRouter />
   </Provider>
-);
+)
 
-ReactDOM.render(app, document.getElementById('app'));
+ReactDOM.render(app, document.getElementById('app'))

@@ -8,10 +8,7 @@ const Home = () => {
   const [toggleModal, setToggleModal] = useState(false)
   const [movieOverview, setMovieOverview] = useState({})
 
-
-  /* Get the appropriate details for a specific movie that was clicked */
   const selectMovieHandler = async (movie) => {
-    console.log('movei is', movie)
     setToggleModal(true)
     setMovieOverview(movie)
   }
