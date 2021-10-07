@@ -1,6 +1,7 @@
 import axios from '../../axios-movies'
 
 export const FETCH_HEADER_MOVIE = 'FETCH_HEADER_MOVIE'
+export const FETCH_SEARCH_MOVIE = 'FETCH_SEARCH_MOVIE'
 export const FETCH_TRENDING = 'FETCH_TRENDING'
 export const FETCH_NETFLIX_ORIGINALS = 'FETCH_NETFLIX_ORIGINALS'
 export const FETCH_TOP_RATED = 'FETCH_TOP_RATED'
@@ -9,6 +10,20 @@ export const FETCH_COMEDY_MOVIES = 'FETCH_COMEDY_MOVIES'
 export const FETCH_HORROR_MOVIES = 'FETCH_HORROR_MOVIES'
 export const FETCH_ROMANCE_MOVIES = 'FETCH_ROMANCE_MOVIES'
 export const FETCH_DOCUMENTARIES = 'FETCH_DOCUMENTARIES'
+
+export const fetchSearchMovie = (searchTerm) => {
+  return async (dispatch) => {
+    try {
+      const request = await axios.get(
+        `/search/multi?api_key=${process.env.API_KEY}&language=en-US&include_adult=false&query=${searchTerm}`
+      )
+      console.log('action.index.fetachSearchMove()', request)
+      dispatch({ type: FETCH_SEARCH_MOVIE, payload: request })
+    } catch (error) {
+      console.log('error', error)
+    }
+  }
+}
 
 export const fetchHeaderMovie = () => {
   const movieId = 63351

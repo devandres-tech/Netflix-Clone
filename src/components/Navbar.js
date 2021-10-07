@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import _ from 'lodash'
 import { withRouter } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { useScroll } from '../hooks/useScroll'
 import { useDebounce } from '../hooks/useDebounce'
-import axios from '../axios-movies'
+import * as movieActions from '../store/actions'
+// import axios from '../axios-movies'
 import SearchLogo from '../static/images/search-icon.svg'
 import NetflixLogo from '../static/images/Netflix_Logo_RGB.png'
 import BellLogo from '../static/images/bell-logo.svg'
@@ -14,9 +16,11 @@ import DropdownContent from '../components/DropdownContent'
 
 const Navbar = (props) => {
   const [userInput, setUserInput] = useState('')
+  const searchResults = useSelector((state) => state.searchMovie)
   const [scrollDimensions] = useScroll()
   const { scrollY } = scrollDimensions
 
+  const dispatch = useDispatch()
   const debouncedUserInput = useDebounce(userInput, 500)
 
   const onChange = async (event) => {
@@ -24,27 +28,52 @@ const Navbar = (props) => {
   }
 
   useEffect(() => {
-    onSearchUserInputHandler(userInput)
+    // onSearchUserInputHandler(userInput)
     if (debouncedUserInput) {
-      onSearchUserInputHandler(debouncedUserInput)
+      // if (userInput.length === 0) {
+      //   props.history.push('/')
+      //   return
+      // }
+      // onSearchUserInputHandler(debouncedUserInput)
+      dispatch(movieActions.fetchSearchMovie(debouncedUserInput))
+      // props.history.push({
+      //   pathname: '/search',
+      //   movieRows: searchResults,
+      //   userInput: userInput,
+      // })
     }
   }, [debouncedUserInput])
 
-  const onSearchUserInputHandler = async (searchItem) => {
-    if (searchItem.length === 0) {
-      props.history.push('/')
-      return
+  useEffect(() => {
+    // if (userInput.length === 1) {
+    //   console.log('goiong home...', userInput.length)
+    //   props.history.push('/')
+    //   return
+    // }
+    if (searchResults) {
+      console.log('useEffect()', searchResults.data)
+      props.history.push({
+        pathname: '/search',
+        movieRows: searchResults,
+        userInput: userInput,
+      })
+
     }
-    const url = `/search/multi?api_key=${process.env.API_KEY}&language=en-US&include_adult=false&query=${searchItem}`
-    const response = await axios.get(url)
-    const results = response.data.results
-    console.log('called api...')
-    props.history.push({
-      pathname: '/search',
-      movieRows: results,
-      userInput: searchItem,
-    })
-  }
+  }, [searchResults])
+
+  // const onSearchUserInputHandler = async (searchItem) => {
+
+  //   // const url = `/search/multi?api_key=${process.env.API_KEY}&language=en-US&include_adult=false&query=${searchItem}`
+  //   // const response = await axios.get(url)
+  //   // const results = response.data.results
+  //   dispatch(movieActions.fetchSearchMovie(searchItem))
+  //   // console.log('called api...', searchResults)
+  //   // props.history.push({
+  //   //   pathname: '/search',
+  //   //   movieRows: results,
+  //   //   userInput: searchItem,
+  //   // })
+  // }
 
   const onLogoClick = () => {
     setUserInput('')

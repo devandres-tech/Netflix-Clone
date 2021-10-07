@@ -17,12 +17,17 @@ export default class Search extends Component {
   }
 
   componentDidMount = async () => {
+
+    console.log('movie roww', movieRows)
     const { movieRows } = this.props.history.location;
-    if (movieRows)
+    if (movieRows) {
       await this.setState({ movies: movieRows });
+
+    }
   }
 
   componentDidUpdate = async (prevProps) => {
+    console.log('hiiiiiii')
     if (
       prevProps.location.movieRows.length !==
       this.props.location.movieRows.length
@@ -62,6 +67,7 @@ export default class Search extends Component {
   render() {
     const { movies } = this.state
     const { userInput } = this.props.location
+    console.log('search().render()', this.props.history.location)
 
     return (
       <>

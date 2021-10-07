@@ -4,7 +4,6 @@ import * as movieActions from '../store/actions'
 
 import Header from './Header'
 import Footer from './Footer'
-
 import DisplayMovieRow from './DisplayMovieRow'
 
 const MainContent = ({ selectMovieHandler }) => {
@@ -13,7 +12,7 @@ const MainContent = ({ selectMovieHandler }) => {
   const trending = useSelector((state) => state.trending)
   const topRated = useSelector((state) => state.topRated)
   const actionMovies = useSelector((state) => state.action)
-  const comedyMovies= useSelector((state) => state.comedy)
+  const comedyMovies = useSelector((state) => state.comedy)
   const horrorMovies = useSelector((state) => state.horror)
   const romanceMovies = useSelector((state) => state.romance)
   const documentaries = useSelector((state) => state.documentary)
