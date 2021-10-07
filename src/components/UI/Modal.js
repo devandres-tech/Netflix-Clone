@@ -1,25 +1,31 @@
-import React from 'react';
+import React from 'react'
 
-import Aux from '../../hoc/Aux';
-import Backdrop from './Backdrop';
+import Backdrop from './Backdrop'
 
-export default function Modal(props) {
+const Modal = ({
+  show,
+  modalClosed,
+  children,
+  movie: { backdrop_path, poster_path },
+}) => {
   const backgroundStyle = {
     backgroundSize: 'cover',
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${
-      props.movie.backdrop_path || props.movie.poster_path
+      backdrop_path || poster_path
     })`,
-  };
+  }
 
   return (
-    <Aux>
-      <Backdrop show={props.show} toggleBackdrop={props.modalClosed} />
+    <div>
+      <Backdrop show={show} toggleBackdrop={modalClosed} />
       <div
         style={backgroundStyle}
-        className={props.show ? 'modal show' : 'modal hide'}
+        className={show ? 'modal show' : 'modal hide'}
       >
-        {props.children}
+        {children}
       </div>
-    </Aux>
-  );
+    </div>
+  )
 }
+
+export default Modal
