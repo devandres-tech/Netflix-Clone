@@ -7,7 +7,7 @@ import { useViewport } from '../hooks/useViewport'
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
-const DisplayMovieRow = ({ title, isNetflixMovies, movies }) => {
+const DisplayMovieRow = ({ title, isNetflixMovies, movies, selectMovieHandler }) => {
   const [windowDimensions] = useViewport()
   const { width } = windowDimensions
 
@@ -56,7 +56,7 @@ const DisplayMovieRow = ({ title, isNetflixMovies, movies }) => {
             if (movie.poster_path && movie.backdrop_path !== null) {
               return (
                 <SwiperSlide
-                  onClick={() => this.props.selectMovieHandler(movie)}
+                  onClick={() => selectMovieHandler(movie)}
                   key={idx}
                   className={
                     'movieShowcase__container--movie' +

@@ -40,13 +40,13 @@ export const fetchNetflixOriginals = () => {
 }
 
 export const fetchTrending = () => {
-  const request = axios.get(
-    `/trending/all/week?api_key=${process.env.API_KEY}&language=en-US`
-  )
-
-  return {
-    type: FETCH_TRENDING,
-    payload: request,
+  return async (dispatch) => {
+    try {
+      const request = await axios.get(
+        `/trending/all/week?api_key=${process.env.API_KEY}&language=en-US`
+      )
+      dispatch({ type: FETCH_TRENDING, payload: request })
+    } catch (error) {}
   }
 }
 
