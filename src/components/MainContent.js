@@ -130,6 +130,7 @@ const MainContent = () => {
       <Header movie={headerMovie} />
       <div className='movieShowcase'>
         <DisplayMovieRow
+          isNetflixMovies={true}
           title='Netflix Originals'
           movies={netflixOriginals.data}
         />
