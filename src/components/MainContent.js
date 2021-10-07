@@ -3,8 +3,8 @@ import axios from 'axios';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from './Header';
+import Footer from './Footer';
 import {
   fetchNetflixOriginals,
   fetchTrending,
@@ -12,13 +12,11 @@ import {
   fetchActionMovies,
   fetchComedyMovies,
   fetchDocumentaries,
-  fetchHorrorMovies
+  fetchHorrorMovies,
 } from '../store/actions/index';
 import DisplayMovieRow from './DisplayMovieRow';
 
-
 class MainContent extends Component {
-
   state = {
     /** Will hold our chosen movie to display on the header */
     selectedMovie: {},
@@ -73,29 +71,29 @@ class MainContent extends Component {
 
     const newMoviesArray = this.state.movieInfo.map((movie) => {
       if (movie.title === 'Netflix Originals') {
-        movie.movies.push(...this.props.netflixOriginals.data)
+        movie.movies.push(...this.props.netflixOriginals.data);
       }
       if (movie.title === 'Trending Now') {
-        movie.movies.push(...this.props.trending.data)
+        movie.movies.push(...this.props.trending.data);
       }
       if (movie.title === 'Top Rated') {
-        movie.movies.push(...this.props.topRated.data)
+        movie.movies.push(...this.props.topRated.data);
       }
       if (movie.title === 'Action Movies') {
-        movie.movies.push(...this.props.actionMovies.data)
+        movie.movies.push(...this.props.actionMovies.data);
       }
       if (movie.title === 'Comedy Movies') {
-        movie.movies.push(...this.props.comedyMovies.data)
+        movie.movies.push(...this.props.comedyMovies.data);
       }
       if (movie.title === 'Documentaries') {
-        movie.movies.push(...this.props.documentaries.data)
+        movie.movies.push(...this.props.documentaries.data);
       }
       if (movie.title === 'Horror Movies') {
-        movie.movies.push(...this.props.horrorMovies.data)
+        movie.movies.push(...this.props.horrorMovies.data);
       }
-      return movie
-    })
-    await this.setState({ movieInfo: newMoviesArray })
+      return movie;
+    });
+    await this.setState({ movieInfo: newMoviesArray });
   };
 
   getMovie = () => {
@@ -105,11 +103,11 @@ class MainContent extends Component {
     const url = `https://api.themoviedb.org/3/tv/${movieId}?api_key=${process.env.API_KEY}`;
     axios
       .get(url)
-      .then(res => {
+      .then((res) => {
         const movieData = res.data;
         this.setState({ selectedMovie: movieData });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -119,20 +117,19 @@ class MainContent extends Component {
       <div className="container">
         <Header movie={this.state.selectedMovie} />
         <div className="movieShowcase">
-          {
-            this.state.movieInfo.map((info) => {
-              if (info.movies.length > 0) {
-                return (
-                  <DisplayMovieRow
-                    selectMovieHandler={this.props.selectMovieHandler}
-                    key={info.title}
-                    title={info.title}
-                    url={info.url}
-                    movies={info.movies}
-                  />)
-              }
-            })
-          }
+          {this.state.movieInfo.map((info) => {
+            if (info.movies.length > 0) {
+              return (
+                <DisplayMovieRow
+                  selectMovieHandler={this.props.selectMovieHandler}
+                  key={info.title}
+                  title={info.title}
+                  url={info.url}
+                  movies={info.movies}
+                />
+              );
+            }
+          })}
         </div>
         <Footer />
       </div>
@@ -148,23 +145,23 @@ const mapStateToProps = (state) => {
     actionMovies: state.action,
     comedyMovies: state.comedy,
     documentaries: state.documentary,
-    horrorMovies: state.horror
+    horrorMovies: state.horror,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    fetchNetflixOriginals,
-    fetchTrending,
-    fetchTopRated,
-    fetchActionMovies,
-    fetchComedyMovies,
-    fetchDocumentaries,
-    fetchHorrorMovies
-  }, dispatch);
-}
+  return bindActionCreators(
+    {
+      fetchNetflixOriginals,
+      fetchTrending,
+      fetchTopRated,
+      fetchActionMovies,
+      fetchComedyMovies,
+      fetchDocumentaries,
+      fetchHorrorMovies,
+    },
+    dispatch
+  );
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MainContent); 
+export default connect(mapStateToProps, mapDispatchToProps)(MainContent);
