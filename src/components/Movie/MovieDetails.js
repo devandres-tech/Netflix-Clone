@@ -3,29 +3,34 @@ import React from 'react'
 import AddIcon from '../../static/images/add.svg'
 import PlayIcon from '../../static/images/play-button.svg'
 
-export default function MovieDetails(props) {
+export default function MovieDetails({
+  movie: {
+    title,
+    name,
+    vote_average,
+    release_date,
+    first_air_date,
+    runtime,
+    episode_run_time,
+    number_of_episodes,
+    number_of_seasons,
+    overview,
+  },
+}) {
   return (
     <div>
       <div className='modal__container'>
-        <h1 className='modal__title'>
-          {props.movie.title || props.movie.name}
-        </h1>
+        <h1 className='modal__title'>{title || name}</h1>
         <p className='modal__info'>
-          <span className='modal__rating'>
-            Rating: {props.movie.vote_average * 10}%{' '}
-          </span>
-          Release date: {props.movie.release_date || props.movie.first_air_date}{' '}
-          Runtime: {props.movie.runtime || props.movie.episode_run_time}m
+          <span className='modal__rating'>Rating: {vote_average * 10}% </span>
+          Release date: {release_date || first_air_date} Runtime:{' '}
+          {runtime || episode_run_time}m
         </p>
         <p className='modal__episode'>
-          {props.movie.number_of_episodes
-            ? ' Episodes: ' + props.movie.number_of_episodes
-            : ''}
-          {props.movie.number_of_seasons
-            ? ' Seasons: ' + props.movie.number_of_seasons
-            : ''}
+          {number_of_episodes ? ' Episodes: ' + number_of_episodes : ''}
+          {number_of_seasons ? ' Seasons: ' + number_of_seasons : ''}
         </p>
-        <p className='modal__overview'>{props.movie.overview}</p>
+        <p className='modal__overview'>{overview}</p>
         <button className='modal__btn modal__btn--red'>
           <PlayIcon className='modal__btn--icon' />
           Play
