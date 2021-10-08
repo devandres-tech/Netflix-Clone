@@ -14,7 +14,7 @@ import BellLogo from '../static/images/bell-logo.svg'
 import DropdownArrow from '../static/images/drop-down-arrow.svg'
 import DropdownContent from '../components/DropdownContent'
 
-const Navbar = (props) => {
+const Navbar = ({ history }) => {
   const [userInput, setUserInput] = useState('')
   const searchResults = useSelector((state) => state.searchMovie)
   const [scrollDimensions] = useScroll()
@@ -27,53 +27,17 @@ const Navbar = (props) => {
     setUserInput(event.target.value)
   }
 
-  useEffect(() => {
-    // onSearchUserInputHandler(userInput)
-    if (debouncedUserInput) {
-      // if (userInput.length === 0) {
-      //   props.history.push('/')
-      //   return
-      // }
-      // onSearchUserInputHandler(debouncedUserInput)
-      dispatch(movieActions.fetchSearchMovie(debouncedUserInput))
-      // props.history.push({
-      //   pathname: '/search',
-      //   movieRows: searchResults,
-      //   userInput: userInput,
-      // })
-    }
-  }, [debouncedUserInput])
+  // useEffect(() => {
+  //   if (debouncedUserInput) {
+  //     history.push(`/search?=${userInput}`)
+  //   }
+  // }, [debouncedUserInput])
 
   useEffect(() => {
-    // if (userInput.length === 1) {
-    //   console.log('goiong home...', userInput.length)
-    //   props.history.push('/')
-    //   return
-    // }
-    if (searchResults) {
-      console.log('useEffect()', searchResults.data)
-      props.history.push({
-        pathname: '/search',
-        movieRows: searchResults,
-        userInput: userInput,
-      })
-
-    }
-  }, [searchResults])
-
-  // const onSearchUserInputHandler = async (searchItem) => {
-
-  //   // const url = `/search/multi?api_key=${process.env.API_KEY}&language=en-US&include_adult=false&query=${searchItem}`
-  //   // const response = await axios.get(url)
-  //   // const results = response.data.results
-  //   dispatch(movieActions.fetchSearchMovie(searchItem))
-  //   // console.log('called api...', searchResults)
-  //   // props.history.push({
-  //   //   pathname: '/search',
-  //   //   movieRows: results,
-  //   //   userInput: searchItem,
-  //   // })
-  // }
+    userInput.length <= 0
+      ? history.push('/')
+      : history.push(`/search?=${userInput}`)
+  }, [userInput])
 
   const onLogoClick = () => {
     setUserInput('')

@@ -17,7 +17,6 @@ export const fetchSearchMovie = (searchTerm) => {
       const request = await axios.get(
         `/search/multi?api_key=${process.env.API_KEY}&language=en-US&include_adult=false&query=${searchTerm}`
       )
-      console.log('action.index.fetachSearchMove()', request)
       dispatch({ type: FETCH_SEARCH_MOVIE, payload: request })
     } catch (error) {
       console.log('error', error)
