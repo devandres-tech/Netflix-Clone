@@ -2,11 +2,10 @@
   background-color: $color-background;
   grid-column: 1 / 13;
   height: 82vh;
-  //   display: inline-block;
   display: grid;
 
   @include responsive(phone) {
-    height: 50rem;
+    height: 58rem;
   }
 
   &__container {
@@ -70,10 +69,6 @@
       line-height: 1.3;
       padding-top: 2.5rem;
       font-size: 1.8rem;
-
-      @include responsive(phone) {
-        width: 36rem;
-      }
     }
   }
 
@@ -87,5 +82,9 @@
       rgb(17, 17, 17),
       rgb(17, 17, 17)
     );
+
+    @include responsive(phone) {
+      height: 4rem;
+    }
   }
 }

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import * as movieActions from '../store/actions'
 
 import Header from './Header'
-import Footer from './Footer'
 import DisplayMovieRow from './DisplayMovieRow'
 
 const MainContent = ({ selectMovieHandler }) => {
@@ -77,7 +76,6 @@ const MainContent = ({ selectMovieHandler }) => {
           movies={documentaries.data}
         />
       </div>
-      <Footer />
     </div>
   )
 }

@@ -17,7 +17,6 @@
 .swiper-container-horizontal > .swiper-pagination-bullets {
   bottom: 0 !important;
   left: 0 !important;
-  //   width: 10% !important;
 }
 
 div.swiper-button-prev,
@@ -115,6 +114,7 @@ div.swiper-button-next {
         height: 100%;
         width: 100%;
         object-fit: contain;
+        border-radius: 5px;
       }
 
       &__netflix {

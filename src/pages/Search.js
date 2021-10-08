@@ -41,9 +41,9 @@ const Search = () => {
       <>
         <div className='search-container'>
           {searchResults.map((movie) => {
-            if (movie.poster_path !== null && movie.media_type !== 'person') {
+            if (movie.backdrop_path !== null && movie.media_type !== 'person') {
               const movieImageUrl =
-                'https://image.tmdb.org/t/p/w500' + movie.poster_path
+                'https://image.tmdb.org/t/p/w500' + movie.backdrop_path
               return (
                 <div className='movie'>
                   <div
