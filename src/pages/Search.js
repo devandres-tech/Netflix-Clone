@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
+import { useDebounce } from '../hooks/useDebounce'
 import Modal from '../components/UI/Modal'
 import MovieDetails from '../components/Movie/MovieDetails'
 import Movie from '../components/Movie/Movie'
 import axios from '../axios-movies'
 
-const Search = ({ location: { searchResults, userInput }, history }) => {
+// A custom hook that builds on useLocation to parse
+// the query string for you.
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search)
+}
+
+const Search = ({ history }) => {
+  let query = useQuery()
+  const debouncedSearchTerm = useDebounce(query.get('q'), 500)
+  const [isToggleModal, setIsToggleModal] = useState(false)
+  const searchResults = useSelector((state) => state.searchMovie)
+  const dispatch = useDispatch()
+
   // constructor(props) {
   //   super(props)
   //   this.state = {
@@ -16,8 +30,13 @@ const Search = ({ location: { searchResults, userInput }, history }) => {
   //     movieOverview: {},
   //   }
   // }
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      console.log('maing api call....')
+    }
+  }, [debouncedSearchTerm])
 
-  const [isToggleModal, setIsToggleModal] = useState(false)
+  console.log('location', query.get('q'))
 
   // componentDidMount = async () => {
 

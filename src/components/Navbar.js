@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import _ from 'lodash'
 import { withRouter } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { useScroll } from '../hooks/useScroll'
-import { useDebounce } from '../hooks/useDebounce'
-import * as movieActions from '../store/actions'
-// import axios from '../axios-movies'
 import SearchLogo from '../static/images/search-icon.svg'
 import NetflixLogo from '../static/images/Netflix_Logo_RGB.png'
 import BellLogo from '../static/images/bell-logo.svg'
@@ -16,27 +11,17 @@ import DropdownContent from '../components/DropdownContent'
 
 const Navbar = ({ history }) => {
   const [userInput, setUserInput] = useState('')
-  const searchResults = useSelector((state) => state.searchMovie)
   const [scrollDimensions] = useScroll()
   const { scrollY } = scrollDimensions
-
-  const dispatch = useDispatch()
-  const debouncedUserInput = useDebounce(userInput, 500)
 
   const onChange = async (event) => {
     setUserInput(event.target.value)
   }
 
-  // useEffect(() => {
-  //   if (debouncedUserInput) {
-  //     history.push(`/search?=${userInput}`)
-  //   }
-  // }, [debouncedUserInput])
-
   useEffect(() => {
     userInput.length <= 0
       ? history.push('/')
-      : history.push(`/search?=${userInput}`)
+      : history.push(`/search?q=${userInput}`)
   }, [userInput])
 
   const onLogoClick = () => {
