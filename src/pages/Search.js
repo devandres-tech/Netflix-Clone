@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useDebounce } from '../hooks/useDebounce'
 import * as movieActions from '../store/actions'
 import Modal from '../components/UI/Modal'
-import MovieDetails from '../components/Movie/MovieDetails'
-import Movie from '../components/Movie/Movie'
+import ModalMovieDetails from '../components/ModalMovieDetails'
+import Movie from '../components/Movie'
 
 // A custom hook that builds on useLocation to parse
 // the query string for you.
@@ -42,12 +42,10 @@ const Search = () => {
       <>
         <div className='search-container'>
           {searchResults.map((movie) => {
-            let movieRows = []
-            let movieImageUrl
             if (movie.poster_path !== null && movie.media_type !== 'person') {
-              movieImageUrl =
+              const movieImageUrl =
                 'https://image.tmdb.org/t/p/w500' + movie.poster_path
-              const movieComponent = (
+              return (
                 <Movie
                   movieDetails={() => onSelectMovieHandler(movie)}
                   key={movie.id}
@@ -55,18 +53,17 @@ const Search = () => {
                   movie={movie}
                 />
               )
-              movieRows.push(movieComponent)
             }
-            return movieRows
           })}
         </div>
         <Modal
-          Modal
           show={isToggleModal}
           modalClosed={onCloseModalHandler}
-          movie={movieDetails}
+          backgroundImage={
+            movieDetails.backdrop_path || movieDetails.poster_path
+          }
         >
-          <MovieDetails movie={movieDetails} />
+          <ModalMovieDetails movie={movieDetails} />
         </Modal>
       </>
     ) : (

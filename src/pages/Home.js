@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 
 import MainContent from '../components/MainContent'
 import Modal from '../components/UI/Modal'
-import MovieDetails from '../components/Movie/MovieDetails'
+import ModalMovieDetails from '../components/ModalMovieDetails'
 
 const Home = () => {
   const [toggleModal, setToggleModal] = useState(false)
-  const [movieOverview, setMovieOverview] = useState({})
+  const [movieDetails, setMovieDetails] = useState({})
 
   const selectMovieHandler = async (movie) => {
     setToggleModal(true)
-    setMovieOverview(movie)
+    setMovieDetails(movie)
   }
 
   const closeModal = () => {
@@ -25,9 +25,9 @@ const Home = () => {
       <Modal
         show={toggleModal}
         modalClosed={closeModal}
-        movie={movieOverview}
+        backgroundImage={movieDetails.backdrop_path || movieDetails.poster_path}
       >
-        <MovieDetails movie={movieOverview} />
+        <ModalMovieDetails movie={movieDetails} />
       </Modal>
     </>
   )

@@ -2,17 +2,10 @@ import React from 'react'
 
 import Backdrop from './Backdrop'
 
-const Modal = ({
-  show,
-  modalClosed,
-  children,
-  movie: { backdrop_path, poster_path },
-}) => {
+const Modal = ({ show, modalClosed, children, backgroundImage }) => {
   const backgroundStyle = {
     backgroundSize: 'cover',
-    backgroundImage: `url(https://image.tmdb.org/t/p/original/${
-      backdrop_path || poster_path
-    })`,
+    backgroundImage: `url(https://image.tmdb.org/t/p/original/${backgroundImage})`,
   }
 
   return (
