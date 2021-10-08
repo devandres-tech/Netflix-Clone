@@ -1,6 +1,5 @@
 import axios from '../../axios-movies'
 
-export const FETCH_HEADER_MOVIE = 'FETCH_HEADER_MOVIE'
 export const FETCH_TRENDING = 'FETCH_TRENDING'
 export const FETCH_NETFLIX_ORIGINALS = 'FETCH_NETFLIX_ORIGINALS'
 export const FETCH_TOP_RATED = 'FETCH_TOP_RATED'
@@ -52,21 +51,6 @@ export const fetchSearchMovie = (searchTerm) => {
       dispatch({ type: FETCH_SEARCH_MOVIE_SUCCESS, payload: request })
     } catch (error) {
       dispatch({ type: FETCH_SEARCH_MOVIE_FAIL })
-      console.log('error', error)
-    }
-  }
-}
-
-export const fetchHeaderMovie = () => {
-  const movieId = 63351
-  return async (dispatch) => {
-    try {
-      const request = await axios.get(
-        `tv/${movieId}?api_key=${process.env.API_KEY}`
-      )
-
-      dispatch({ type: FETCH_HEADER_MOVIE, payload: request })
-    } catch (error) {
       console.log('error', error)
     }
   }

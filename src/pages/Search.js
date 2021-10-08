@@ -6,7 +6,6 @@ import { useDebounce } from '../hooks/useDebounce'
 import * as movieActions from '../store/actions'
 import Modal from '../components/UI/Modal'
 import ModalMovieDetails from '../components/ModalMovieDetails'
-import Movie from '../components/Movie'
 
 // A custom hook that builds on useLocation to parse
 // the query string for you.
@@ -46,12 +45,14 @@ const Search = () => {
               const movieImageUrl =
                 'https://image.tmdb.org/t/p/w500' + movie.poster_path
               return (
-                <Movie
-                  movieDetails={() => onSelectMovieHandler(movie)}
-                  key={movie.id}
-                  movieImage={movieImageUrl}
-                  movie={movie}
-                />
+                <div className='movie'>
+                  <div
+                    onClick={() => onSelectMovieHandler(movie)}
+                    className='movie__column-poster'
+                  >
+                    <img src={movieImageUrl} alt='' className='movie__poster' />
+                  </div>
+                </div>
               )
             }
           })}

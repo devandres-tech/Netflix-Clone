@@ -7,7 +7,6 @@ import ComedyMoviesReducer from './reducerComedyMovies'
 import HorrorMoviesReducer from './reducerHorrorMovies'
 import RomanceMoviesReducer from './reducerRomanceMovies'
 import DocumentaryReducer from './reducerDocumentary'
-import HeaderMovieReducer from './reducerHeaderMovie'
 import SearchMovieReducer from './reducerSearchMovie'
 import MovieDetailsReducer from './reducerMovieDetails'
 
@@ -20,7 +19,6 @@ const rootReducer = combineReducers({
   horror: HorrorMoviesReducer,
   romance: RomanceMoviesReducer,
   documentary: DocumentaryReducer,
-  headerMovie: HeaderMovieReducer,
   searchMovie: SearchMovieReducer,
   movieDetails: MovieDetailsReducer,
 })

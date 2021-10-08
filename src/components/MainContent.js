@@ -7,7 +7,7 @@ import Footer from './Footer'
 import DisplayMovieRow from './DisplayMovieRow'
 
 const MainContent = ({ selectMovieHandler }) => {
-  const headerMovie = useSelector((state) => state.headerMovie)
+  const { movieDetails } = useSelector((state) => state.movieDetails)
   const netflixOriginals = useSelector((state) => state.netflixOriginals)
   const trending = useSelector((state) => state.trending)
   const topRated = useSelector((state) => state.topRated)
@@ -20,7 +20,7 @@ const MainContent = ({ selectMovieHandler }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(movieActions.fetchHeaderMovie())
+    dispatch(movieActions.fetchMovieDetails('tv', '63351'))
     dispatch(movieActions.fetchNetflixOriginals())
     dispatch(movieActions.fetchTrending())
     dispatch(movieActions.fetchTopRated())
@@ -33,7 +33,7 @@ const MainContent = ({ selectMovieHandler }) => {
 
   return (
     <div className='container'>
-      <Header movie={headerMovie} />
+      <Header movie={movieDetails} />
       <div className='movieShowcase'>
         <DisplayMovieRow
           isNetflixMovies={true}
