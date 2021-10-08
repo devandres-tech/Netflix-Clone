@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 
@@ -10,6 +10,7 @@ import DropdownArrow from '../static/images/drop-down-arrow.svg'
 import DropdownContent from '../components/DropdownContent'
 
 const Navbar = ({ history }) => {
+  const searchInput = React.useRef(null)
   const [userInput, setUserInput] = useState('')
   const [scrollDimensions] = useScroll()
   const { scrollY } = scrollDimensions
@@ -19,10 +20,14 @@ const Navbar = ({ history }) => {
   }
 
   useEffect(() => {
-    userInput.length <= 0
-      ? history.push('/')
-      : history.push(`/search?q=${userInput}`)
-  }, [userInput])
+    if (
+      document.activeElement === searchInput.current &&
+      userInput.length === 0
+    ) {
+      history.push('/browse')
+    }
+    if (userInput.length > 0) history.push(`/search?q=${userInput}`)
+  }, [userInput, searchInput])
 
   const onLogoClick = () => {
     setUserInput('')
@@ -50,6 +55,7 @@ const Navbar = ({ history }) => {
         <div className='navigation__container--left'>
           <SearchLogo className='logo' />
           <input
+            ref={searchInput}
             value={userInput}
             onChange={(event) => onChange(event)}
             className='navigation__container--left__input'

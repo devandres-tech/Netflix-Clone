@@ -1,10 +1,23 @@
-import { FETCH_SEARCH_MOVIE } from '../actions/index'
+import {
+  FETCH_SEARCH_MOVIE,
+  FETCH_SEARCH_MOVIE_FAIL,
+  FETCH_SEARCH_MOVIE_SUCCESS,
+} from '../actions/index'
 
-export default function (state = {}, action) {
+const initialState = {
+  isLoading: false,
+  searchResults: [],
+}
+
+export default function (state = initialState, action) {
   switch (action.type) {
     case FETCH_SEARCH_MOVIE:
-      const data = action.payload.data.results
-      return { ...state, data }
+      return { ...state, isLoading: true }
+    case FETCH_SEARCH_MOVIE_FAIL:
+      return { ...state, isLoading: false }
+    case FETCH_SEARCH_MOVIE_SUCCESS:
+      const searchResults = action.payload.data.results
+      return { ...state, searchResults, isLoading: false }
     default:
       return state
   }

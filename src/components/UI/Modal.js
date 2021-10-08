@@ -6,8 +6,10 @@ const Modal = ({
   show,
   modalClosed,
   children,
+  movie,
   movie: { backdrop_path, poster_path },
 }) => {
+  console.log('Modal.movie', movie)
   const backgroundStyle = {
     backgroundSize: 'cover',
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${
