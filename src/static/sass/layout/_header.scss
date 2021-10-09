@@ -1,8 +1,5 @@
 .header {
   background-color: $color-background;
-  // grid-column: 1 / 13;
-  // height: 82vh;
-  // display: grid;
   position: relative;
   padding-top: 56.25%;
 
@@ -143,7 +140,6 @@
     }
 
     &--fadeBottom {
-      // z-index: 100000000000;
       position: absolute;
       bottom: 0;
       height: 10rem;

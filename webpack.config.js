@@ -84,9 +84,6 @@ module.exports = () => {
         template: './src/index.html',
         filename: './index.html',
       }),
-      // new CopyWebpackPlugin({
-      // patterns: [[  { from: 'src/static/images', to: 'static/images' }],
-      // }),
       new CopyWebpackPlugin({
         patterns: [
           {
@@ -96,8 +93,6 @@ module.exports = () => {
         ],
       }),
       new MiniCssExtractPlugin({
-        // Options similar to the same options in webpackOptions.output
-        // both options are optional
         filename: 'main.css',
       }),
       new CleanWebpackPlugin(),
