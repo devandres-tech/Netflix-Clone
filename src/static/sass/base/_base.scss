@@ -141,7 +141,7 @@ html {
 
 // GRID AREA
 .container {
-  display: grid;
-  grid-template-rows: min-content min-content min-content min-content;
-  grid-template-columns: 0 repeat(10, 1fr);
+  // display: grid;
+  // grid-template-rows: min-content min-content min-content min-content;
+  // grid-template-columns: 0 repeat(10, 1fr);
 }
