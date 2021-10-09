@@ -1,85 +1,165 @@
 .header {
-   background-color: $color-background;
-   grid-column: 1 / 13;
-   height: 65rem;
-   display: inline-block;
+  background-color: $color-background;
+  // grid-column: 1 / 13;
+  // height: 82vh;
+  // display: grid;
+  position: relative;
+  padding-top: 56.25%;
 
-   @include responsive(phone) {
-      height: 50rem;
-   }
-   
-  
-   &__container {
-      padding-top: 20rem;
-      padding-left: 4.5rem;
+  @include responsive(phone) {
+    padding-top: 0;
+    height: 32rem;
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__container {
+    color: #fff;
+
+    @include responsive(phone) {
+      padding-left: 1rem;
+    }
+
+    &-heading {
+      font-size: 6rem;
+      position: absolute;
       color: #fff;
+      top: 12rem;
+      left: 3.5rem;
 
       @include responsive(phone) {
-         padding-left: 1rem;
+        top: 7rem;
+        font-size: 3rem;
+      }
+    }
+
+    &-btnPlay,
+    &-btnMyList {
+      top: 40rem;
+      cursor: pointer;
+      font-size: 1.6rem;
+      color: #fff;
+      outline: none;
+      border: none;
+      font-weight: 700;
+      border-radius: 5px;
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
+      margin-right: 1rem;
+      padding-top: 1rem;
+      background-color: rgba(112, 111, 111, 0.5);
+      padding-bottom: 1rem;
+
+      @include responsive(phone) {
+        top: 24rem;
       }
 
-      &-heading {
-         font-size: 6rem;
-         padding-bottom: 1rem;
+      &-add {
+        width: 15px;
+        height: 15px;
+        fill: #fff;
+        margin-right: 1rem;
       }
 
-      &-btnPlay, 
-      &-btnMyList {
-         cursor: pointer;
-         font-size: 1.6rem;
-         color: #fff;
-         outline: none;
-         border: none;
-         font-weight: 700;
-         border-radius: .2vw;
-         padding-left: 3.5rem;
-         padding-right: 3.5rem;
-         margin-right: 1rem;
-         padding-top: 1rem;
-         background-color: rgba(51,51,51,.5); 
-         padding-bottom: 1rem;
+      &-play {
+        width: 15px;
+        height: 15px;
+        fill: #fff;
+        margin-right: 1rem;
+      }
+    }
 
-         &-add {
-            width: 15px;
-            height: 15px;
-            fill: #fff;
-            margin-right: 1rem;
-         }
+    &-btnPlay {
+      color: #000;
+      background-color: #e6e6e6;
+      transition: all 0.2s;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 
-         &-play {
-            width: 15px;
-            height: 15px;
-            fill: #fff;
-            margin-right: 1rem;
-         }
-         
-         &:hover {
-            color: #000;
-            background-color: #e6e6e6;
-            transition: all .2s;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+      & > * {
+        fill: #000;
+      }
+      left: 4rem;
+      position: absolute;
+    }
 
-            & > * {
-               fill: #000;
-            }
-         }
+    &-btnMyList {
+      left: 18.5rem;
+      position: absolute;
+
+      &:hover {
+        background-color: rgb(37, 37, 37);
+      }
+    }
+
+    &-btnVolume {
+      position: absolute;
+      height: 3rem;
+      width: 3rem;
+      top: 45rem;
+      right: 14rem;
+      cursor: pointer;
+      border-radius: 50%;
+      padding: 1rem;
+      border: #fff solid 1px;
+      transition: all 0.3s;
+
+      @include responsive(tab_medium) {
+        top: 30rem;
+      }
+      @include responsive(phone) {
+        top: 20rem;
+        right: 8rem;
       }
 
-      &-overview {
-         width: 45rem;
-         line-height: 1.3;
-         padding-top: 2.5rem;
-         font-size: 1.8rem;
-
-         @include responsive(phone) {
-              width: 36rem;
-         }
+      & > * {
+        stroke: #fff;
+        stroke-width: 1;
       }
-   }
 
-   &--fadeBottom {
-      height: 28.5rem;
-      background-image: linear-gradient(180deg, transparent,rgba(37, 37, 37, 0.61), rgb(17, 17, 17));
-   }
+      &:hover {
+        background-color: rgba(211, 211, 211, 0.178);
+        transition: all 0.3s;
+      }
+    }
+
+    &-overview {
+      top: 28rem;
+      left: 4rem;
+      position: absolute;
+      color: #fff;
+      width: 55rem;
+      line-height: 1.3;
+      padding-top: 2.5rem;
+      font-size: 1.8rem;
+
+      @include responsive(phone) {
+        top: 10rem;
+        width: 20rem;
+      }
+    }
+
+    &--fadeBottom {
+      // z-index: 100000000000;
+      position: absolute;
+      bottom: 0;
+      height: 10rem;
+      width: 100%;
+
+      background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(15, 15, 15, 0.61),
+        rgb(17, 17, 17),
+        rgb(17, 17, 17)
+      );
+
+      @include responsive(phone) {
+        height: 4rem;
+      }
+    }
+  }
 }
-

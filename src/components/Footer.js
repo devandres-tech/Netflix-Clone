@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
 const footer = () => (
-  <footer className="footer">
-    <div className="footer__copyright">
-      &copy; 2018 Made with ❤️ by{' '}
-      <a className="footer__copyright--link" href="http://andresio.com">
+  <footer className='footer'>
+    <div className='footer__copyright'>
+      &copy; 2021 Made with ❤️ by{' '}
+      <a className='footer__copyright--link' href='https://github.com/AndresXI'>
         {' '}
         Andres Alcocer
       </a>
     </div>
   </footer>
-);
+)
 
-export default footer;
+export default footer

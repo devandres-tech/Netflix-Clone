@@ -1,125 +1,135 @@
 // Override swiper styles
 .swiper-pagination {
-   top: 0 !important;
-   height: 2rem !important;
-   text-align: right !important;
-   padding-right: 4rem !important;
+  top: 0 !important;
+  height: 1rem !important;
+  text-align: right !important;
 }
 
 .swiper-pagination-bullet {
-   background-color: rgb(255, 255, 255) !important;
+  background-color: rgb(255, 255, 255) !important;
 }
 
-.swiper-container-horizontal>.swiper-pagination-bullets {
-   bottom: 0 !important;
-   left: 0 !important;
-   width: 100% !important;
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  width: 97.5% !important;
+  height: 1px !important;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0 !important;
+  left: 0 !important;
 }
 
 div.swiper-button-prev,
 div.swiper-button-next {
-   transition: all 450ms !important;
-   color: rgb(255, 255, 255);
+  transition: all 450ms !important;
+  color: rgb(255, 255, 255);
 
-   &:hover {
-      transform: scale(1.2) !important;
-      transition: all 450ms !important;
-   }
+  &:hover {
+    transform: scale(1.2) !important;
+    transition: all 450ms !important;
+  }
 }
 
 .swiper-slide {
-   transition: all 450ms !important;
+  transition: all 450ms !important;
 }
 
 .swiper-wrapper:hover .swiper-slide {
-   opacity: .3 !important;
+  z-index: 10000;
+  opacity: 0.3 !important;
 
-   &:hover {
-      transform: scale(1.3) !important;
-      opacity: 1 !important;
+  &:hover {
+    transform: scale(1.3) !important;
+    opacity: 1 !important;
 
-      @include responsive(tab_port) {
-         transform: scale(1.2) !important;
-      }
-   }
+    @include responsive(tab_port) {
+      transform: scale(1.2) !important;
+    }
+  }
 }
 
 .movieShowcase {
-   background-color: $color-background;
-   grid-column: 2 / 13;
-   color: #fff;
+  background-color: transparent;
+  grid-column: 2 / 13;
+  color: #fff;
 
-   &__heading {
-      padding-top: 2rem;
-   }
+  &__heading {
+    position: relative;
+    top: 3rem;
+    // margin: 0;
+    padding-left: 4rem;
+    font-weight: 500;
+  }
 
-   &__container::-webkit-scrollbar {
-      display: none;
-   }
+  &__container::-webkit-scrollbar {
+    display: none;
+  }
 
-   &__container {
+  &__container {
+    @include responsive(phone) {
+      width: 98vw;
+    }
+
+    &--movie:hover ~ &--movie {
+      transform: translate3d(6.5rem, 0, 0);
+
+      @include responsive(tab_port) {
+        transform: translate3d(3rem, 0, 0);
+      }
+
       @include responsive(phone) {
-         width: 98vw;
+        transform: translate3d(2.8rem, 0, 0);
+      }
+    }
+
+    &--movie__netflix:hover ~ &--movie__netflix {
+      transform: translate3d(1rem, 0, 0);
+    }
+
+    &:hover &--movie__netflix {
+      &:hover {
+        transform: scale(1.1) !important;
+
+        @include responsive(tab_port) {
+          transform: scale(1.05) !important;
+        }
+
+        @include responsive(phone) {
+          transform: scale(1.05) !important;
+        }
+      }
+    }
+
+    &--movie {
+      cursor: pointer;
+      transition: all 450ms;
+      transform: center left;
+      padding-top: 3.5rem;
+      padding-bottom: 4rem;
+      min-height: 0;
+      object-fit: contain;
+
+      &:not(:last-child) {
+        padding-right: 0.5rem;
       }
 
-      &--movie:hover~&--movie {
-         transform: translate3d(5rem, 0, 0);
-
-         @include responsive(tab_port) {
-            transform: translate3d(3rem, 0, 0);
-         }
-
-         @include responsive(phone) {
-            transform: translate3d(2.8rem, 0, 0);
-         }
+      &-image {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        border-radius: 5px;
       }
 
-      &--movie__netflix:hover~&--movie__netflix {
-         transform: translate3d(1rem, 0, 0);
+      &__netflix {
+        min-height: 0;
+        padding-top: 3rem;
+        padding-bottom: 4rem;
+        padding-right: 1rem;
+        cursor: pointer;
+        transition: all 450ms;
+        transform: center left;
       }
-
-      &:hover &--movie__netflix {
-         &:hover {
-            transform: scale(1.1) !important;
-
-            @include responsive(tab_port) {
-               transform: scale(1.05) !important;
-            }
-
-            @include responsive(phone) {
-               transform: scale(1.05) !important;
-            }
-         }
-      }
-
-      &--movie {
-         cursor: pointer;
-         transition: all 450ms;
-         transform: center left;
-         padding-top: 3.5rem;
-         padding-bottom: 4rem;
-         min-height: 0;
-         object-fit: contain;
-
-         &:not(:last-child) {
-            padding-right: .5rem;
-         }
-
-         &-image {
-            height: 100%;
-            width: 100%;
-            object-fit: contain;
-         }
-
-         &__netflix {
-            min-height: 0;
-            padding-top: 3rem;
-            padding-bottom: 4rem;
-            padding-right: 1rem;
-            cursor: pointer;
-            transition: all 450ms;
-            transform: center left;
-         }
-      }
-   }
+    }
+  }
 }

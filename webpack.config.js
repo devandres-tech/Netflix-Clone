@@ -1,7 +1,7 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const dotenv = require('dotenv');
 const webpack = require('webpack');
 var path = require('path');
@@ -42,7 +42,7 @@ module.exports = () => {
         {
           test: /\.css$/,
           include: /node_modules/,
-          loaders: ['style-loader', 'css-loader'],
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.scss$/,
@@ -76,7 +76,7 @@ module.exports = () => {
       historyApiFallback: true,
     },
     node: {
-      fs: 'empty',
+      global: true,
     },
     plugins: [
       new webpack.DefinePlugin(envKeys),
@@ -84,15 +84,23 @@ module.exports = () => {
         template: './src/index.html',
         filename: './index.html',
       }),
-      new CopyWebpackPlugin([
-        { from: 'src/static/images', to: 'static/images' },
-      ]),
+      // new CopyWebpackPlugin({
+      // patterns: [[  { from: 'src/static/images', to: 'static/images' }],
+      // }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'src/static/images',
+            to: 'static/images',
+          },
+        ],
+      }),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
         filename: 'main.css',
       }),
-      new CleanWebpackPlugin(['dist']),
+      new CleanWebpackPlugin(),
     ],
   };
 };

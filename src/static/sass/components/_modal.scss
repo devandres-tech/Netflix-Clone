@@ -1,142 +1,147 @@
 .modal {
-   position: fixed;
-   z-index: 500;
-   width: 100%;
-   top: 0;
-   left: 0;
-   color: #fff;
-   height: 52rem;
-   opacity: 0;
-   box-shadow: 0 1.5rem 4rem rgba($color-dark, .15);
-   transition: all .3s;
+  position: fixed;
+  z-index: 500;
+  width: 100%;
+  top: 0;
+  left: 0;
+  color: #fff;
+  height: 52rem;
+  opacity: 0;
+  box-shadow: 0 1.5rem 4rem rgba($color-dark, 0.15);
+  transition: all 0.3s;
 
-   @include responsive(tab_port) {
-      height: 38rem;
-   }
+  @include responsive(tab_port) {
+    height: 38rem;
+  }
 
-   @include responsive(phone) {
-      height: 50rem;
-   }
+  @include responsive(phone) {
+    height: 50rem;
+  }
 
+  &__container {
+    background: linear-gradient(90deg, #000 50%, transparent);
+    width: 70%;
+    padding-top: 3rem;
+    height: 100%;
+    padding-left: 5rem;
 
-   &__container {
-      background: linear-gradient(90deg, #000 50%, transparent);
-      width: 70%;
-      padding-top: 3rem;
-      height: 100%;
-      padding-left: 5rem;
+    @include responsive(tab_port) {
+      background: linear-gradient(
+        90deg,
+        rgb(0, 0, 0) 55%,
+        rgba(0, 0, 0, 0.733),
+        transparent
+      );
+      width: 88%;
+    }
 
-      @include responsive(tab_port) {
-         background: linear-gradient(90deg, rgb(0, 0, 0) 55%, rgba(0, 0, 0, 0.733), transparent);
-         width: 88%;
-      }
+    @include responsive(tab_medium) {
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.966) 65%, transparent);
+      width: 100%;
+    }
 
-      @include responsive(tab_medium) {
-         background: linear-gradient(90deg, rgba(0, 0, 0, 0.966) 65%, transparent);
-         width: 100%;
-      }
+    @include responsive(phone) {
+      padding-top: 1rem;
+      padding-left: 1rem;
+    }
+  }
 
-      @include responsive(phone) {
-         padding-top: 1rem;
-         padding-left: 1rem;
-      }
-   }
+  &__title {
+    font-size: 4rem;
+  }
 
-   &__title {
-      font-size: 4rem;
-   }
+  &__rating {
+    font-size: 2rem;
+    color: $color-green-modal;
+  }
 
-   &__rating {
-      font-size: 2rem;
-      color: $color-green-modal;
-   }
+  &__info {
+    padding-top: 1.6rem;
+    font-size: 2rem;
 
-   &__info {
-      padding-top: 1.6rem;
-      font-size: 2rem;
+    @include responsive(phone) {
+      padding-top: 1.2rem;
+    }
+  }
 
-      @include responsive(phone) {
-         padding-top: 1.2rem;
-      }
-   }
+  &__episode {
+    padding-top: 0.5rem;
+    font-size: 2rem;
+  }
 
-   &__episode {
-      padding-top: .5rem;
-      font-size: 2rem;
-   }
+  &__overview {
+    color: $color-modal-grey-2;
+    padding-top: 2rem;
+    font-size: 2rem;
+    hyphens: auto;
+    width: 60%;
+    line-height: 1.2;
 
-   &__overview {
-      color: $color-modal-grey-2;
-      padding-top: 2rem;
-      font-size: 2rem;
-      hyphens: auto;
+    @include responsive(lg_desktop) {
       width: 60%;
-      line-height: 1.2;
+      font-size: 1.8rem;
+    }
 
-      @include responsive(lg_desktop) {
-         width: 60%;
-         font-size: 1.8rem;
-      }
+    @include responsive(tab_port) {
+      width: 80%;
+    }
 
-      @include responsive(tab_port) {
-         width: 80%;
-      }
+    @include responsive(tab_medium) {
+      width: 95%;
+      color: rgba(255, 255, 255, 0.877);
+    }
 
-      @include responsive(tab_medium) {
-         width: 95%;
-         color: rgba(255, 255, 255, 0.877);
-      }
+    @include responsive(phone) {
+      padding-top: 1rem;
+      font-size: 1.7rem;
+    }
+  }
 
-      @include responsive(phone) {
-         padding-top: 1rem;
-         font-size: 1.7rem;
-      }
-   }
+  &__btn {
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: transparent;
+    color: #fff;
+    border: 0.5px solid $color-modal-grey-2;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    padding: 1rem 2rem 1rem 2rem;
+    transition: all 0.2s;
 
-   &__btn {
-      text-transform: uppercase;
-      font-weight: 500;
-      cursor: pointer;
-      background-color: transparent;
-      color: #fff;
-      border: .5px solid $color-modal-grey-2;
-      border-radius: 2px;
-      font-size: 1.5rem;
-      margin-top: 2rem;
-      margin-right: 1rem;
-      padding: 1rem 2rem 1rem 2rem;
-      transition: all .2s;
+    @include responsive(phone) {
+      margin-top: 1rem;
+    }
 
-      @include responsive(phone) {
-         margin-top: 1rem;
-      }
+    &:hover {
+      transform: scale(1.09);
+    }
 
-      &:hover {
-         transform: scale(1.09);
-      }
+    &--red {
+      background-color: $color-red-2;
+      border: none;
+    }
 
-      &--red {
-         background-color: $color-red-2;
-         border: none;
-      }
-
-      &--icon {
-         fill: #fff;
-         padding-right: 1rem;
-         height: 1.4rem;
-         width: 1.4rem;
-      }
-   }
+    &--icon {
+      fill: #fff;
+      padding-right: 1rem;
+      height: 1.4rem;
+      width: 1.4rem;
+    }
+  }
 }
 
 .show {
-   transition: .5s .3s ease-out;
-   top: 25%;
-   left: 0;
-   visibility: visible;
-   opacity: 1;
+  transition: 0.3s 0.3s ease-out;
+  top: 25%;
+  left: 0;
+  visibility: visible;
+  opacity: 1;
 }
 
 .hide {
-   visibility: hidden;
+  visibility: hidden;
+  transition: 0.3s ease-out;
 }
