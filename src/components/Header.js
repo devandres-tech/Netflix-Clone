@@ -7,7 +7,7 @@ import UnmuteIcon from '../static/images/unmute.svg'
 import ReactPlayer from 'react-player'
 
 const Header = ({ movie: { name, overview } }) => {
-  const [isMuted, setIsMuted] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
 
   return (
     <header className='header'>
