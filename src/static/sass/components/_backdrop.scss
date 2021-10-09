@@ -1,10 +1,19 @@
 .backdrop {
-   width: 120%;
-   height: 100%;
-   position: fixed;
-   z-index: 100;
-   left: 0;
-   top: 0;
-   background-color: rgba($color-background, .7);
-   transition: all .3s;
+  width: 120%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  animation: fadeIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  background-color: rgba($color-background, 0.7);
+}
+
+@keyframes fadeIn {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.7);
+  }
 }
