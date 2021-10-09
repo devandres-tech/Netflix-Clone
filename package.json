@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --config webpack.config.js --open",
-    "build": "webpack -p",
+    "build": "webpack --mode production",
     "lint": "eslint --fix . && echo 'Lint complete.'"
   },
   "engines": {
@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.22.0",
+    "firebase": "^9.1.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
