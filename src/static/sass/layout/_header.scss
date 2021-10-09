@@ -85,6 +85,29 @@
       }
     }
 
+    &-btnVolume {
+      position: absolute;
+      height: 3rem;
+      width: 3rem;
+      top: 45rem;
+      right: 14rem;
+      cursor: pointer;
+      border-radius: 50%;
+      padding: 1rem;
+      border: #fff solid 1px;
+      transition: all 0.3s;
+
+      & > * {
+        stroke: #fff;
+        stroke-width: 1;
+      }
+
+      &:hover {
+        background-color: rgba(211, 211, 211, 0.178);
+        transition: all 0.3s;
+      }
+    }
+
     &-overview {
       top: 28rem;
       left: 4rem;
