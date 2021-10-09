@@ -1,7 +1,7 @@
 // Override swiper styles
 .swiper-pagination {
   top: 0 !important;
-  height: 2rem !important;
+  height: 1rem !important;
   text-align: right !important;
 }
 
@@ -12,6 +12,7 @@
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   width: 97.5% !important;
+  height: 1px !important;
 }
 
 .swiper-container-horizontal > .swiper-pagination-bullets {
@@ -39,7 +40,7 @@ div.swiper-button-next {
   opacity: 0.3 !important;
 
   &:hover {
-    transform: scale(1.4) !important;
+    transform: scale(1.3) !important;
     opacity: 1 !important;
 
     @include responsive(tab_port) {
@@ -54,8 +55,11 @@ div.swiper-button-next {
   color: #fff;
 
   &__heading {
-    margin-bottom: 0;
+    position: relative;
+    top: 3rem;
+    // margin: 0;
     padding-left: 4rem;
+    font-weight: 500;
   }
 
   &__container::-webkit-scrollbar {
