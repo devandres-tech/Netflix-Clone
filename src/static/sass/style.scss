@@ -1,14 +1,15 @@
-@import "abstracts/functions";
-@import "abstracts/variables";
+@import 'abstracts/functions';
+@import 'abstracts/variables';
 
-@import "base/base";
+@import 'base/base';
 
-@import "components/backdrop";
-@import "components/modal";
-@import "components/search";
-@import "components/movie";
-@import "components/movieShowcase";
+@import 'components/backdrop';
+@import 'components/modal';
+@import 'components/search';
+@import 'components/movie';
+@import 'components/movieShowcase';
+@import 'components/notfound';
 
-@import "layout/footer";
-@import "layout/header";
-@import "layout/navigation";
+@import 'layout/footer';
+@import 'layout/header';
+@import 'layout/navigation';
