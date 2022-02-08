@@ -9,6 +9,7 @@ var path = require('path')
 module.exports = () => {
   // call dotenv and it will return an Object with a parsed key
   const env = dotenv.config().parsed
+  console.log('process------', process.env)
   console.log('env------', dotenv.config())
 
   // reduce env variables to an oject
