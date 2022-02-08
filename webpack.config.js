@@ -1,20 +1,21 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const dotenv = require('dotenv');
-const webpack = require('webpack');
-var path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const dotenv = require('dotenv')
+const webpack = require('webpack')
+var path = require('path')
 
 module.exports = () => {
   // call dotenv and it will return an Object with a parsed key
-  const env = dotenv.config().parsed;
+  const env = dotenv.config().parsed
+  console.log('env------', env)
 
   // reduce env variables to an oject
   const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
-    return prev;
-  }, {});
+    prev[`process.env.${next}`] = JSON.stringify(env[next])
+    return prev
+  }, {})
 
   return {
     entry: './src/index.js',
@@ -97,5 +98,5 @@ module.exports = () => {
       }),
       new CleanWebpackPlugin(),
     ],
-  };
-};
+  }
+}
