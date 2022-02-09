@@ -8,18 +8,17 @@ var path = require('path')
 
 module.exports = () => {
   // call dotenv and it will return an Object with a parsed key
-  console.log('PROCESS', process.env.NODE_ENV)
-  const env = dotenv.config().parsed
-  // console.log('process------', process.env.API_KEY)
-  // console.log('env------', dotenv.config())
-
-  // reduce env variables to an oject
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next])
-    return prev
-  }, {})
-
-  console.log('key', envKeys)
+  let envKeys = {}
+  if (process.env.NODE_ENV === 'production') {
+    envKeys = { API_KEY: process.env.API_KEY }
+  } else {
+    // reduce env variables to an oject
+    const env = dotenv.config().parsed
+    envKeys = Object.keys(env).reduce((prev, next) => {
+      prev[`process.env.${next}`] = JSON.stringify(env[next])
+      return prev
+    }, {})
+  }
 
   return {
     entry: './src/index.js',
