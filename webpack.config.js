@@ -7,18 +7,13 @@ const webpack = require('webpack')
 var path = require('path')
 
 module.exports = () => {
-  let envKeys = {}
-  if (process.env.VERCEL_ENV === 'production') {
-    envKeys = { API_KEY: process.env.API_KEY }
-  } else {
-    // call dotenv and it will return an Object with a parsed key
-    const env = dotenv.config().parsed
-    // reduce env variables to an oject
-    envKeys = Object.keys(env).reduce((prev, next) => {
-      prev[`process.env.${next}`] = JSON.stringify(env[next])
-      return prev
-    }, {})
-  }
+  // call dotenv and it will return an Object with a parsed key
+  const env = dotenv.config().parsed
+  // reduce env variables to an oject
+  const envKeys = Object.keys(env).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(env[next])
+    return prev
+  }, {})
 
   return {
     entry: './src/index.js',
