@@ -7,13 +7,14 @@ const webpack = require('webpack')
 var path = require('path')
 
 module.exports = () => {
-  // call dotenv and it will return an Object with a parsed key
+  console.log('process', process.env.NODE_ENV)
   let envKeys = {}
   if (process.env.NODE_ENV === 'production') {
     envKeys = { API_KEY: process.env.API_KEY }
   } else {
-    // reduce env variables to an oject
+    // call dotenv and it will return an Object with a parsed key
     const env = dotenv.config().parsed
+    // reduce env variables to an oject
     envKeys = Object.keys(env).reduce((prev, next) => {
       prev[`process.env.${next}`] = JSON.stringify(env[next])
       return prev
