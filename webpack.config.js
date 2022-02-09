@@ -10,7 +10,7 @@ module.exports = () => {
   // call dotenv and it will return an Object with a parsed key
   const env = dotenv.config().parsed
   console.log('process------', process.env)
-  console.log('env------', dotenv.config())
+  console.log('env------', $API_KEY)
 
   // reduce env variables to an oject
   const envKeys = Object.keys(env).reduce((prev, next) => {
