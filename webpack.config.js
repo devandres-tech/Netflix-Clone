@@ -7,7 +7,6 @@ const webpack = require('webpack')
 var path = require('path')
 
 module.exports = () => {
-  console.log('process', process.env)
   let envKeys = {}
   if (process.env.VERCEL_ENV === 'production') {
     envKeys = { API_KEY: process.env.API_KEY }

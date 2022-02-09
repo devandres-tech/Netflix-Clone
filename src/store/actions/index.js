@@ -59,6 +59,7 @@ export const fetchSearchMovie = (searchTerm) => {
 export const fetchNetflixOriginals = () => {
   return async (dispatch) => {
     try {
+      console.log('PROCESSS', process.env)
       const request = await axios.get(
         `/discover/tv?api_key=${process.env.API_KEY}&with_networks=213`
       )
