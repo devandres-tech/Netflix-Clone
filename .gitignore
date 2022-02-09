@@ -16,3 +16,5 @@ npm-debug.log*
 .firebase
 .firebaserc
 .firebase.json
+
+.vercel
