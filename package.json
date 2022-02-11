@@ -58,7 +58,7 @@
     "html-webpack-plugin": "^5.3.2",
     "image-webpack-loader": "^8.0.1",
     "mini-css-extract-plugin": "^2.4.1",
-    "node-sass": "^6.0.1",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "prettier": "^2.4.1",
     "react-owl-carousel2": "^0.3.0",
