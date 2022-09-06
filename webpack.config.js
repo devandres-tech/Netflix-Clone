@@ -16,16 +16,20 @@ module.exports = () => {
   }, {})
 
   return {
-    entry: './src/index.js',
+    entry: './src/index.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js',
       publicPath: '/',
     },
+    resolve: {
+      // Add `.ts` and `.tsx` as a resolvable extension.
+      extensions: [".ts", ".tsx", ".js"]
+    },
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(ts|js)x?$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
