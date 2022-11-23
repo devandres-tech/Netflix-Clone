@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import * as ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import ReduxThunk from 'redux-thunk'
@@ -23,4 +23,4 @@ const app = (
   </Provider>
 )
 
-ReactDOM.render(app, document.getElementById('app'))
+ReactDOM.createRoot(document.getElementById('app')).render(app)
