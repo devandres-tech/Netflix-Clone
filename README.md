@@ -4,6 +4,14 @@
 
 This project is a simplified front end clone of Netflix. It was created with React and CSS (Grid and Flexbox). It uses [The MovieDB Api](https://www.themoviedb.org/documentation/api) to search for movies and display details. Feel free to contribute!
 
+### TODO's
+
+- [ ] Implement Not Found page styles
+- [ ] Implement navigation header links functionality
+- [ ] Update modal to current styling
+- [ ] Update carousel to current styling
+- [ ] Create movie page screen
+
 ### Tools used
 
 - Webpack
