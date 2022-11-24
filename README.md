@@ -11,6 +11,7 @@ This project is a simplified front end clone of Netflix. It was created with Rea
 - [ ] Update modal to current styling
 - [ ] Update carousel to current styling
 - [ ] Create movie page screen
+- [ ] Migrate to Typescript
 
 ### Tools used
 
