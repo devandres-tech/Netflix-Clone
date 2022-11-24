@@ -10,7 +10,6 @@ module.exports = () => {
   // call dotenv and it will return an Object with a parsed key
   const env = dotenv.config().parsed
   // reduce env variables to an oject
-  console.log('ENV IS', dotenv.config())
   const envKeys = Object.keys(env).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next])
     return prev
