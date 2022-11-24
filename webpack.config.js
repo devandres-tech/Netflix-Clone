@@ -4,24 +4,38 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const dotenv = require('dotenv')
 const webpack = require('webpack')
-var path = require('path')
+const prod =
+  (process.env.NODE_ENV ? process.env.NODE_ENV : '').trim() === 'production'
+const path = require('path')
 
 module.exports = () => {
-  // call dotenv and it will return an Object with a parsed key
-  const env = dotenv.config().parsed
-  // reduce env variables to an oject
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next])
-    return prev
-  }, {})
+  dotenv.config({
+    path: './.env',
+  })
 
   return {
     entry: './src/index.js',
     output: {
+      filename: '[name].[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js',
-      publicPath: '/',
+      clean: true,
     },
+    optimization: {
+      runtimeChunk: 'single',
+      moduleIds: 'deterministic',
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
+      },
+    },
+    mode: prod ? 'production' : 'development',
+    // Enable sourcemaps for debugging webpack's output.
+    devtool: prod ? 'none' : 'eval-source-map',
     module: {
       rules: [
         {
@@ -78,7 +92,9 @@ module.exports = () => {
       global: true,
     },
     plugins: [
-      new webpack.DefinePlugin(envKeys),
+      new webpack.DefinePlugin({
+        'process.env': JSON.stringify(process.env),
+      }),
       new HtmlWebPackPlugin({
         template: './src/index.html',
         filename: './index.html',

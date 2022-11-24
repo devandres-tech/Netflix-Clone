@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { useScroll } from '../hooks/useScroll'
 import SearchLogo from '../static/images/search-icon.svg'
@@ -9,7 +9,8 @@ import BellLogo from '../static/images/bell-logo.svg'
 import DropdownArrow from '../static/images/drop-down-arrow.svg'
 import DropdownContent from '../components/DropdownContent'
 
-const Navbar = ({ history }) => {
+const Navbar = () => {
+  const navigate = useNavigate()
   const searchInput = React.useRef(null)
   const [userInput, setUserInput] = useState('')
   const [scrollDimensions] = useScroll()
@@ -24,9 +25,9 @@ const Navbar = ({ history }) => {
       document.activeElement === searchInput.current &&
       userInput.length === 0
     ) {
-      history.push('/browse')
+      navigate('/browse')
     }
-    if (userInput.length > 0) history.push(`/search?q=${userInput}`)
+    if (userInput.length > 0) navigate(`/search?q=${userInput}`)
   }, [userInput, searchInput])
 
   const onLogoClick = () => {
@@ -75,4 +76,4 @@ const Navbar = ({ history }) => {
   )
 }
 
-export default withRouter(Navbar)
+export default Navbar
