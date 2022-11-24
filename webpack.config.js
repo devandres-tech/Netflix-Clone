@@ -20,10 +20,22 @@ module.exports = () => {
   return {
     entry: './src/index.js',
     output: {
+      filename: '[name].[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js',
-      publicPath: '/',
       clean: true,
+    },
+    optimization: {
+      runtimeChunk: 'single',
+      moduleIds: 'deterministic',
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
+      },
     },
     mode: prod ? 'production' : 'development',
     // Enable sourcemaps for debugging webpack's output.
