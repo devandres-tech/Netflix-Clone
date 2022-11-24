@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode development --config webpack.config.js --open",
-    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development --config webpack.config.js",
+    "build:prod": "webpack --mode development",
+    "run:dev": "webpack serve --mode development --config webpack.config.js --open",
+    "run:prod": "webpack serve --mode production --open",
     "lint": "eslint --fix . && echo 'Lint complete.'"
   },
   "engines": {
