@@ -1,8 +1,8 @@
-import { FETCH_NETFLIX_ORIGINALS } from '../actions/index'
+import { FETCH_TOP_RATED } from '../actions/index'
 
-export default function (state = {}, action) {
+export default function (state = {}, action: any) {
   switch (action.type) {
-    case FETCH_NETFLIX_ORIGINALS:
+    case FETCH_TOP_RATED:
       const data = action.payload.data.results
       return { ...state, data }
     default:

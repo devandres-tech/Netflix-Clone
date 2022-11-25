@@ -23,6 +23,9 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
       clean: true,
     },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+    },
     optimization: {
       runtimeChunk: 'single',
       moduleIds: 'deterministic',
@@ -81,6 +84,11 @@ module.exports = () => {
           use: {
             loader: 'babel-loader',
           },
+        },
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
         },
         {
           test: /\.svg$/,

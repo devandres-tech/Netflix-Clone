@@ -4,12 +4,17 @@ import {
   FETCH_MOVIE_DETAILS_FAIL,
 } from '../actions/index'
 
-const initialState = {
+interface IInitialState {
+  isLoading: boolean
+  movieDetails: []
+}
+
+const initialState: IInitialState = {
   isLoading: false,
   movieDetails: [],
 }
 
-export default function (state = initialState, action) {
+export default function (state = initialState, action: any) {
   switch (action.type) {
     case FETCH_MOVIE_DETAILS:
       return { ...state, isLoading: true }

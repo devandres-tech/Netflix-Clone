@@ -4,12 +4,17 @@ import {
   FETCH_SEARCH_MOVIE_SUCCESS,
 } from '../actions/index'
 
-const initialState = {
+interface IInitialState {
+  isLoading: boolean
+  searchResults: []
+}
+
+const initialState: IInitialState = {
   isLoading: false,
   searchResults: [],
 }
 
-export default function (state = initialState, action) {
+export default function (state = initialState, action: any) {
   switch (action.type) {
     case FETCH_SEARCH_MOVIE:
       return { ...state, isLoading: true }
