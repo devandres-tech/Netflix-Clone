@@ -7,7 +7,7 @@ import SearchLogo from '../static/images/search-icon.svg'
 import NetflixLogo from '../static/images/Netflix_Logo_RGB.png'
 import BellLogo from '../static/images/bell-logo.svg'
 import DropdownArrow from '../static/images/drop-down-arrow.svg'
-import DropdownContent from '../components/DropdownContent'
+import DropdownContent from './DropdownContent'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -16,7 +16,7 @@ const Navbar = () => {
   const [scrollDimensions] = useScroll()
   const { scrollY } = scrollDimensions
 
-  const onChange = async (event) => {
+  const onChange = async (event: any) => {
     setUserInput(event.target.value)
   }
 

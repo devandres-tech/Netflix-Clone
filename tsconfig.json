@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "sourceMap": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "typeRoots": ["custom.d.ts", "node_modules/@types"],
+    "allowSyntheticDefaultImports": true
+  },
+  "files": ["custom.d.ts"],
+  "include": ["src/", "custom.d.ts"]
+}

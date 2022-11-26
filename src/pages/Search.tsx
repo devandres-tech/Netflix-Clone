@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
+
+import { useAppSelector, useAppDispatch } from '../store'
 import ModalMovieDetails from '../components/ModalMovieDetails'
-import Modal from '../components/UI/Modal'
+import Modal from '../components/Modal'
 import { useDebounce } from '../hooks/useDebounce'
-import * as movieActions from '../store/actions'
+import * as searchSlice from '../store/slices/searchSlice'
+import * as movieDetailsSlice from '../store/slices/movieDetailsSlice'
+
+interface IMovie {
+  id: string
+  media_type?: string
+  backdrop_path?: string
+}
 
 // A custom hook that builds on useLocation to parse
 // the query string for you.
@@ -16,13 +24,15 @@ const Search = () => {
   let query = useQuery()
   const debouncedSearchTerm = useDebounce(query.get('q'), 500)
   const [isToggleModal, setIsToggleModal] = useState(false)
-  const { searchResults, isLoading } = useSelector((state) => state.searchMovie)
-  const { movieDetails } = useSelector((state) => state.movieDetails)
-  const dispatch = useDispatch()
+  const { searchResults, isLoading } = useAppSelector(
+    (state) => state.searchMovie
+  )
+  const { movieDetails } = useAppSelector((state) => state.movieDetails)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      dispatch(movieActions.fetchSearchMovie(debouncedSearchTerm))
+      dispatch(searchSlice.searchItemsAsync(debouncedSearchTerm))
     }
   }, [debouncedSearchTerm])
 
@@ -30,8 +40,13 @@ const Search = () => {
     setIsToggleModal(false)
   }
 
-  const onSelectMovieHandler = (movie) => {
-    dispatch(movieActions.fetchMovieDetails(movie.media_type, movie.id))
+  const onSelectMovieHandler = (movie: IMovie) => {
+    dispatch(
+      movieDetailsSlice.getMovieDetailsAsync({
+        mediaType: movie.media_type,
+        mediaId: movie.id,
+      })
+    )
     setIsToggleModal(true)
   }
 
@@ -39,7 +54,7 @@ const Search = () => {
     return searchResults.length > 0 ? (
       <>
         <div className='search-container'>
-          {searchResults.map((movie) => {
+          {searchResults.map((movie: IMovie) => {
             if (movie.backdrop_path !== null && movie.media_type !== 'person') {
               const movieImageUrl =
                 'https://image.tmdb.org/t/p/w500' + movie.backdrop_path
@@ -58,12 +73,12 @@ const Search = () => {
         </div>
         <Modal
           show={isToggleModal}
-          modalClosed={onCloseModalHandler}
+          toggleBackdrop={onCloseModalHandler}
           backgroundImage={
             movieDetails.backdrop_path || movieDetails.poster_path
           }
         >
-          <ModalMovieDetails movie={movieDetails} />
+          <ModalMovieDetails {...movieDetails} />
         </Modal>
       </>
     ) : (
