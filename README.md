@@ -10,13 +10,15 @@ This project is a simplified front end clone of Netflix. It was created with Rea
 - [ ] Implement navigation header links functionality
 - [ ] Update modal to current styling
 - [ ] Update carousel to current styling
-- [ ] Create movie page screen
-- [ ] Migrate to Typescript
+- [ ] Create movie page
+- [ ] Create user account page
+- [x] Migrate to Typescript
 - [ ] Implement dynamic code splitting with dynamic imports
+- [ ] Setup storybook
 
 ### Tools used
 
-- Webpack
+- Webpack v5
 - Axios
 - Redux & React
 - Sass (grid & flexbox)
