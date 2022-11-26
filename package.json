@@ -13,10 +13,12 @@
   "author": "Andres Alcocer",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.0",
     "@types/jest": "^29.2.3",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
+    "@types/react-redux": "^7.1.24",
     "axios": "^1.2.0",
     "dotenv": "^16.0.3",
     "firebase": "^9.14.0",

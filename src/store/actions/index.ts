@@ -31,7 +31,6 @@ export const fetchMovieDetails = (mediaType: string, mediaId: string) => {
         urlPath = `/movie/${mediaId}?api_key=${process.env.API_KEY}`
       if (mediaType === media_type.tv)
         urlPath = `/tv/${mediaId}?api_key=${process.env.API_KEY}`
-      console.log('media type', mediaType, urlPath)
       const request = await axios.get(urlPath)
       dispatch({ type: FETCH_MOVIE_DETAILS_SUCCESS, payload: request })
     } catch (error) {

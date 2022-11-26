@@ -1,40 +1,40 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import * as movieActions from '../store/actions'
+import * as actionMovies from '../store/slices/actionMovieSlice'
+import { useAppSelector, useAppDispatch } from '../store'
 
 import Header from './Header'
 import DisplayMovieRow from './DisplayMovieRow'
 
 const MainContent = ({ selectMovieHandler }) => {
-  const { movieDetails } = useSelector((state) => state.movieDetails)
-  const netflixOriginals = useSelector((state) => state.netflixOriginals)
-  const trending = useSelector((state) => state.trending)
-  const topRated = useSelector((state) => state.topRated)
-  const actionMovies = useSelector((state) => state.action)
-  const comedyMovies = useSelector((state) => state.comedy)
-  const horrorMovies = useSelector((state) => state.horror)
-  const romanceMovies = useSelector((state) => state.romance)
-  const documentaries = useSelector((state) => state.documentary)
+  // const { movieDetails } = useSelector((state) => state.movieDetails)
+  // const netflixOriginals = useSelector((state) => state.netflixOriginals)
+  // const trending = useSelector((state) => state.trending)
+  // const topRated = useSelector((state) => state.topRated)
+  const actionMoviesState = useAppSelector((state) => state.action)
+  // const comedyMovies = useSelector((state) => state.comedy)
+  // const horrorMovies = useSelector((state) => state.horror)
+  // const romanceMovies = useSelector((state) => state.romance)
+  // const documentaries = useSelector((state) => state.documentary)
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(movieActions.fetchMovieDetails('tv', '63351'))
-    dispatch(movieActions.fetchNetflixOriginals())
-    dispatch(movieActions.fetchTrending())
-    dispatch(movieActions.fetchTopRated())
-    dispatch(movieActions.fetchActionMovies())
-    dispatch(movieActions.fetchComedyMovies())
-    dispatch(movieActions.fetchHorrorMovies())
-    dispatch(movieActions.fetchRomanceMovies())
-    dispatch(movieActions.fetchDocumentaries())
+    // dispatch(movieActions.fetchMovieDetails('tv', '63351'))
+    // dispatch(movieActions.fetchNetflixOriginals())
+    // dispatch(movieActions.fetchTrending())
+    // dispatch(movieActions.fetchTopRated())
+    dispatch(actionMovies.getActionMoviesAsync())
+    // dispatch(movieActions.fetchComedyMovies())
+    // dispatch(movieActions.fetchHorrorMovies())
+    // dispatch(movieActions.fetchRomanceMovies())
+    // dispatch(movieActions.fetchDocumentaries())
   }, [dispatch])
 
   return (
     <div className='container'>
-      <Header movie={movieDetails} />
+      {/* <Header movie={movieDetails} /> */}
       <div className='movieShowcase'>
-        <DisplayMovieRow
+        {/* <DisplayMovieRow
           isNetflixMovies={true}
           title='Netflix Originals'
           selectMovieHandler={selectMovieHandler}
@@ -49,13 +49,13 @@ const MainContent = ({ selectMovieHandler }) => {
           title='Top Rated'
           selectMovieHandler={selectMovieHandler}
           movies={topRated.data}
-        />
+        /> */}
         <DisplayMovieRow
           title='Action Movies'
           selectMovieHandler={selectMovieHandler}
-          movies={actionMovies.data}
+          movies={actionMoviesState.data}
         />
-        <DisplayMovieRow
+        {/* <DisplayMovieRow
           title='Comedy'
           selectMovieHandler={selectMovieHandler}
           movies={comedyMovies.data}
@@ -74,7 +74,7 @@ const MainContent = ({ selectMovieHandler }) => {
           title='Documentaries'
           selectMovieHandler={selectMovieHandler}
           movies={documentaries.data}
-        />
+        /> */}
       </div>
     </div>
   )
