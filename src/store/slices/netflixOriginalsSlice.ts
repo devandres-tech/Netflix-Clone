@@ -8,26 +8,29 @@ const initialState: { data: IMovieDetails[] } = {
   data: [],
 }
 
-export const getActionMoviesAsync = createAsyncThunk<
+export const getNetflixOriginalsAsync = createAsyncThunk<
   any,
   void,
   { state: RootState }
->('action/getActionMovies', async () => {
+>('netflixOriginals/getNetflixOriginals', async () => {
   const response = await axios.get(
-    `/discover/movie?api_key=${process.env.API_KEY}&with_genres=28`
+    `/discover/tv?api_key=${process.env.API_KEY}&with_networks=213`
   )
   return response.data.results
 })
 
-const actionMovieSlice = createSlice({
-  name: 'actionMovie',
+const netflixOriginalsSlice = createSlice({
+  name: 'netflixOriginals',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getActionMoviesAsync.fulfilled, (state, { payload }) => {
-      state.data = payload
-    })
+    builder.addCase(
+      getNetflixOriginalsAsync.fulfilled,
+      (state, { payload }) => {
+        state.data = payload
+      }
+    )
   },
 })
 
-export default actionMovieSlice.reducer
+export default netflixOriginalsSlice.reducer

@@ -4,10 +4,24 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 
 import { useViewport } from '../hooks/useViewport'
 
+import { IMovieDetails } from '../store/slices/movieDetailsSlice'
+
+interface IDisplayMovie {
+  title: string
+  isNetflixMovies?: boolean
+  movies: IMovieDetails[]
+  selectMovieHandler?: (movie: IMovieDetails) => void
+}
+
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
-const DisplayMovieRow = ({ title, isNetflixMovies, movies, selectMovieHandler }) => {
+const DisplayMovieRow = ({
+  title,
+  isNetflixMovies,
+  movies,
+  selectMovieHandler,
+}: IDisplayMovie) => {
   const [windowDimensions] = useViewport()
   const { width } = windowDimensions
 

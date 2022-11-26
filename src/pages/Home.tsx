@@ -3,12 +3,13 @@ import React, { useState } from 'react'
 import MainContent from '../components/MainContent'
 import Modal from '../components/UI/Modal'
 import ModalMovieDetails from '../components/ModalMovieDetails'
+import { IMovieDetails } from '../store/slices/movieDetailsSlice'
 
 const Home = () => {
   const [toggleModal, setToggleModal] = useState(false)
-  const [movieDetails, setMovieDetails] = useState({})
+  const [movieDetails, setMovieDetails] = useState<IMovieDetails>()
 
-  const selectMovieHandler = async (movie) => {
+  const selectMovieHandler = async (movie: IMovieDetails) => {
     setToggleModal(true)
     setMovieDetails(movie)
   }

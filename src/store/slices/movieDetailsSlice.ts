@@ -2,14 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import axios from '../../axios-movies'
 import { RootState } from '../index'
-import {
-  FETCH_MOVIE_DETAILS,
-  FETCH_MOVIE_DETAILS_SUCCESS,
-  FETCH_MOVIE_DETAILS_FAIL,
-} from '../actions/index'
-import { string } from 'prop-types'
 
-interface IMovieDetails {
+export interface IMovieDetails {
   backdrop_path?: string
   poster_path?: string
   title: any
@@ -34,25 +28,6 @@ const media_type = {
   movie: 'movie',
 }
 
-// const initialState: IInitialState = {
-//   isLoading: false,
-//   movieDetails: [],
-// }
-
-// export default function (state = initialState, action: any) {
-//   switch (action.type) {
-//     case FETCH_MOVIE_DETAILS:
-//       return { ...state, isLoading: true }
-//     case FETCH_MOVIE_DETAILS_FAIL:
-//       return { ...state, isLoading: false }
-//     case FETCH_MOVIE_DETAILS_SUCCESS:
-//       const movieDetails = action.payload.data
-//       return { ...state, movieDetails, isLoading: false }
-//     default:
-//       return state
-//   }
-// }
-
 const initialState: IInitialState = {
   isLoading: false,
   movieDetails: {
@@ -73,9 +48,9 @@ const initialState: IInitialState = {
 
 export const getMovieDetailsAsync = createAsyncThunk<
   any,
-  string,
+  { mediaType: string; mediaId: string },
   { state: RootState }
->('movieDetails/getMovieDetailsAsync', async (mediaType, mediaId) => {
+>('movieDetails/getMovieDetailsAsync', async ({ mediaType, mediaId }) => {
   let urlPath
   if (mediaType === media_type.movie)
     urlPath = `/movie/${mediaId}?api_key=${process.env.API_KEY}`

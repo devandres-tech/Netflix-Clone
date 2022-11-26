@@ -8,26 +8,26 @@ const initialState: { data: IMovieDetails[] } = {
   data: [],
 }
 
-export const getActionMoviesAsync = createAsyncThunk<
+export const getTrendingAsync = createAsyncThunk<
   any,
   void,
   { state: RootState }
->('action/getActionMovies', async () => {
+>('trending/getTrending', async () => {
   const response = await axios.get(
-    `/discover/movie?api_key=${process.env.API_KEY}&with_genres=28`
+    `/trending/all/week?api_key=${process.env.API_KEY}&language=en-US`
   )
   return response.data.results
 })
 
-const actionMovieSlice = createSlice({
-  name: 'actionMovie',
+const trendingSlice = createSlice({
+  name: 'trending',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getActionMoviesAsync.fulfilled, (state, { payload }) => {
+    builder.addCase(getTrendingAsync.fulfilled, (state, { payload }) => {
       state.data = payload
     })
   },
 })
 
-export default actionMovieSlice.reducer
+export default trendingSlice.reducer

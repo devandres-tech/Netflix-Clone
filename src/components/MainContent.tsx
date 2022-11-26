@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react'
-import * as actionMovies from '../store/slices/actionMovieSlice'
+import * as actionMoviesSlice from '../store/slices/actionMovieSlice'
+import * as movieDetailsSlice from '../store/slices/movieDetailsSlice'
+import * as netflixOriginalsSlice from '../store/slices/netflixOriginalsSlice'
+import * as trendingSlice from '../store/slices/trendingSlice'
 import { useAppSelector, useAppDispatch } from '../store'
 
 import Header from './Header'
 import DisplayMovieRow from './DisplayMovieRow'
 
-const MainContent = ({ selectMovieHandler }) => {
-  // const { movieDetails } = useSelector((state) => state.movieDetails)
-  // const netflixOriginals = useSelector((state) => state.netflixOriginals)
-  // const trending = useSelector((state) => state.trending)
+const MainContent = ({ selectMovieHandler }: { selectMovieHandler: any }) => {
+  const { movieDetails } = useAppSelector((state) => state.movieDetails)
+  const netflixOriginals = useAppSelector((state) => state.netflixOriginals)
+  const trending = useAppSelector((state) => state.trending)
   // const topRated = useSelector((state) => state.topRated)
   const actionMoviesState = useAppSelector((state) => state.action)
   // const comedyMovies = useSelector((state) => state.comedy)
@@ -19,11 +22,17 @@ const MainContent = ({ selectMovieHandler }) => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    // dispatch(movieActions.fetchMovieDetails('tv', '63351'))
-    // dispatch(movieActions.fetchNetflixOriginals())
-    // dispatch(movieActions.fetchTrending())
+    // dispatch(movieDetailsSlice.getMovieDetailsAsync('tv', '63351'))
+    dispatch(
+      movieDetailsSlice.getMovieDetailsAsync({
+        mediaType: 'tv',
+        mediaId: '63351',
+      })
+    )
+    dispatch(netflixOriginalsSlice.getNetflixOriginalsAsync())
+    dispatch(trendingSlice.getTrendingAsync())
     // dispatch(movieActions.fetchTopRated())
-    dispatch(actionMovies.getActionMoviesAsync())
+    dispatch(actionMoviesSlice.getActionMoviesAsync())
     // dispatch(movieActions.fetchComedyMovies())
     // dispatch(movieActions.fetchHorrorMovies())
     // dispatch(movieActions.fetchRomanceMovies())
@@ -32,9 +41,9 @@ const MainContent = ({ selectMovieHandler }) => {
 
   return (
     <div className='container'>
-      {/* <Header movie={movieDetails} /> */}
+      <Header movie={movieDetails} />
       <div className='movieShowcase'>
-        {/* <DisplayMovieRow
+        <DisplayMovieRow
           isNetflixMovies={true}
           title='Netflix Originals'
           selectMovieHandler={selectMovieHandler}
@@ -45,7 +54,7 @@ const MainContent = ({ selectMovieHandler }) => {
           selectMovieHandler={selectMovieHandler}
           movies={trending.data}
         />
-        <DisplayMovieRow
+        {/* <DisplayMovieRow
           title='Top Rated'
           selectMovieHandler={selectMovieHandler}
           movies={topRated.data}

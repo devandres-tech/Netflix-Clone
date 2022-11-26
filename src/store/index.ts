@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
-import TrendingReducer from './slices/reducerTrending'
-import NetflixOriginalsReducer from './slices/reducerNetflixOriginals'
+import TrendingReducer from './slices/trendingSlice'
+import NetflixOriginalsReducer from './slices/netflixOriginalsSlice'
 import TopRatedReducer from './slices/reducerTopRated'
 import ActionMoviesReducer from './slices/actionMovieSlice'
 import ComedyMoviesReducer from './slices/reducerComedyMovies'
@@ -14,8 +14,8 @@ import MovieDetailsReducer from './slices/movieDetailsSlice'
 
 export const store = configureStore({
   reducer: {
-    // trending: TrendingReducer,
-    // netflixOriginals: NetflixOriginalsReducer,
+    trending: TrendingReducer,
+    netflixOriginals: NetflixOriginalsReducer,
     // topRated: TopRatedReducer,
     action: ActionMoviesReducer,
     // comedy: ComedyMoviesReducer,
