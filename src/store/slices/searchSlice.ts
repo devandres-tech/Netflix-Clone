@@ -2,35 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import axios from '../../axios-movies'
 import { RootState } from '../index'
-import {
-  FETCH_SEARCH_MOVIE,
-  FETCH_SEARCH_MOVIE_FAIL,
-  FETCH_SEARCH_MOVIE_SUCCESS,
-} from '../actions/index'
-
-// interface IInitialState {
-//   isLoading: boolean
-//   searchResults: []
-// }
-
-// const initialState: IInitialState = {
-//   isLoading: false,
-//   searchResults: [],
-// }
-
-// export default function (state = initialState, action: any) {
-//   switch (action.type) {
-//     case FETCH_SEARCH_MOVIE:
-//       return { ...state, isLoading: true }
-//     case FETCH_SEARCH_MOVIE_FAIL:
-//       return { ...state, isLoading: false }
-//     case FETCH_SEARCH_MOVIE_SUCCESS:
-//       const searchResults = action.payload.data.results
-//       return { ...state, searchResults, isLoading: false }
-//     default:
-//       return state
-//   }
-// }
 
 const initialState = {
   searchResults: [{}],
@@ -39,7 +10,7 @@ const initialState = {
 
 export const searchItemsAsync = createAsyncThunk<
   any,
-  void,
+  string,
   { state: RootState }
 >('search/getSearchItems', async (searchTerm) => {
   const response = await axios.get(

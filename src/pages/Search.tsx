@@ -3,9 +3,10 @@ import { useLocation } from 'react-router-dom'
 
 import { useAppSelector, useAppDispatch } from '../store'
 import ModalMovieDetails from '../components/ModalMovieDetails'
-import Modal from '../components/UI/Modal'
+import Modal from '../components/Modal'
 import { useDebounce } from '../hooks/useDebounce'
-import * as movieActions from '../store/actions'
+import * as searchSlice from '../store/slices/searchSlice'
+import * as movieDetailsSlice from '../store/slices/movieDetailsSlice'
 
 interface IMovie {
   id: string
@@ -31,7 +32,7 @@ const Search = () => {
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      dispatch(movieActions.fetchSearchMovie(debouncedSearchTerm))
+      dispatch(searchSlice.searchItemsAsync(debouncedSearchTerm))
     }
   }, [debouncedSearchTerm])
 
@@ -40,7 +41,12 @@ const Search = () => {
   }
 
   const onSelectMovieHandler = (movie: IMovie) => {
-    dispatch(movieActions.fetchMovieDetails(movie.media_type, movie.id))
+    dispatch(
+      movieDetailsSlice.getMovieDetailsAsync({
+        mediaType: movie.media_type,
+        mediaId: movie.id,
+      })
+    )
     setIsToggleModal(true)
   }
 
@@ -67,12 +73,12 @@ const Search = () => {
         </div>
         <Modal
           show={isToggleModal}
-          modalClosed={onCloseModalHandler}
+          toggleBackdrop={onCloseModalHandler}
           backgroundImage={
             movieDetails.backdrop_path || movieDetails.poster_path
           }
         >
-          <ModalMovieDetails movie={movieDetails} />
+          <ModalMovieDetails {...movieDetails} />
         </Modal>
       </>
     ) : (

@@ -6,16 +6,16 @@ import { RootState } from '../index'
 export interface IMovieDetails {
   backdrop_path?: string
   poster_path?: string
-  title: any
-  name: any
-  vote_average: any
-  release_date: any
-  first_air_date: any
-  runtime: any
-  episode_run_time: any
-  number_of_episodes: any
-  number_of_seasons: any
-  overview: any
+  title?: any
+  name?: any
+  vote_average?: any
+  release_date?: any
+  first_air_date?: any
+  runtime?: any
+  episode_run_time?: any
+  number_of_episodes?: any
+  number_of_seasons?: any
+  overview?: any
 }
 
 interface IInitialState {
@@ -29,7 +29,7 @@ const media_type = {
 }
 
 const initialState: IInitialState = {
-  isLoading: false,
+  isLoading: true,
   movieDetails: {
     backdrop_path: '',
     poster_path: '',
@@ -57,7 +57,7 @@ export const getMovieDetailsAsync = createAsyncThunk<
   if (mediaType === media_type.tv)
     urlPath = `/tv/${mediaId}?api_key=${process.env.API_KEY}`
   const response = await axios.get(urlPath)
-  return response.data.results
+  return response.data
 })
 
 const movieDetailsSlice = createSlice({
@@ -67,7 +67,12 @@ const movieDetailsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getMovieDetailsAsync.fulfilled, (state, { payload }) => {
       state.isLoading = false
+      console.log('state ', state)
+      console.log('payload', payload)
       state.movieDetails = payload
+    })
+    builder.addCase(getMovieDetailsAsync.pending, (state) => {
+      state.isLoading = true
     })
   },
 })

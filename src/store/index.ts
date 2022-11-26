@@ -3,12 +3,12 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 import TrendingReducer from './slices/trendingSlice'
 import NetflixOriginalsReducer from './slices/netflixOriginalsSlice'
-import TopRatedReducer from './slices/reducerTopRated'
+import TopRatedReducer from './slices/topRatedSlice'
 import ActionMoviesReducer from './slices/actionMovieSlice'
-import ComedyMoviesReducer from './slices/reducerComedyMovies'
-import HorrorMoviesReducer from './slices/reducerHorrorMovies'
-import RomanceMoviesReducer from './slices/reducerRomanceMovies'
-import DocumentaryReducer from './slices/reducerDocumentary'
+import ComedyMoviesReducer from './slices/comedyMoviesSlice'
+import HorrorMoviesReducer from './slices/horrorMoviesSlice'
+import RomanceMoviesReducer from './slices/romanceMoviesSlice'
+import DocumentaryReducer from './slices/documentarySlice'
 import SearchMovieReducer from './slices/searchSlice'
 import MovieDetailsReducer from './slices/movieDetailsSlice'
 
@@ -16,13 +16,13 @@ export const store = configureStore({
   reducer: {
     trending: TrendingReducer,
     netflixOriginals: NetflixOriginalsReducer,
-    // topRated: TopRatedReducer,
+    topRated: TopRatedReducer,
     action: ActionMoviesReducer,
-    // comedy: ComedyMoviesReducer,
-    // horror: HorrorMoviesReducer,
-    // romance: RomanceMoviesReducer,
+    comedy: ComedyMoviesReducer,
+    horror: HorrorMoviesReducer,
+    romance: RomanceMoviesReducer,
     searchMovie: SearchMovieReducer,
-    // documentary: DocumentaryReducer,
+    documentary: DocumentaryReducer,
     movieDetails: MovieDetailsReducer,
   },
 })

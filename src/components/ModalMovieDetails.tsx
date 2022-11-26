@@ -2,9 +2,10 @@ import React from 'react'
 
 import AddIcon from '../static/images/add.svg'
 import PlayIcon from '../static/images/play-button.svg'
+import { IMovieDetails } from '../store/slices/movieDetailsSlice'
 
-const MovieDetails = ({
-  movie: {
+const MovieDetails = (props: IMovieDetails) => {
+  const {
     title,
     name,
     vote_average,
@@ -15,8 +16,7 @@ const MovieDetails = ({
     number_of_episodes,
     number_of_seasons,
     overview,
-  },
-}) => {
+  } = props
   return (
     <div className='modal__container'>
       <h1 className='modal__title'>{title || name}</h1>

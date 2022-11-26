@@ -6,7 +6,12 @@ import MuteIcon from '../static/images/mute.svg'
 import UnmuteIcon from '../static/images/unmute.svg'
 import ReactPlayer from 'react-player'
 
-const Header = ({ movie: { name, overview } }) => {
+interface IHeader {
+  name: string
+  overview: string
+}
+
+const Header = ({ name, overview }: IHeader) => {
   const [isMuted, setIsMuted] = useState(true)
 
   return (
@@ -33,7 +38,6 @@ const Header = ({ movie: { name, overview } }) => {
         <AddLogo className='header__container-btnMyList-add' />
         My List
       </button>
-
       {isMuted ? (
         <MuteIcon
           onClick={() => setIsMuted(false)}

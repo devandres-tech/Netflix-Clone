@@ -8,7 +8,9 @@
     "sourceMap": true,
     "allowJs": true,
     "moduleResolution": "node",
-    "typeRoots": ["types/", "node_modules/@types"],
+    "typeRoots": ["custom.d.ts", "node_modules/@types"],
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "files": ["custom.d.ts"],
+  "include": ["src/", "custom.d.ts"]
 }
