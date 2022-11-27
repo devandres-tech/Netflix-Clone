@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 import PlayLogo from '../static/images/play-button.svg'
+import { ButtonType } from './Button/Button'
+import Button from './Button/Button'
 import AddLogo from '../static/images/add.svg'
 import MuteIcon from '../static/images/mute.svg'
 import UnmuteIcon from '../static/images/unmute.svg'
@@ -27,17 +29,17 @@ const Header = ({ name, overview }: IHeader) => {
         url='https://vimeo.com/384025132'
       />
       <h1 className='header__container-heading'>{name}</h1>
-      <button
+      <Button
+        Icon={<PlayLogo />}
+        buttonType={ButtonType.Primary}
         onClick={() => alert('not a movie!')}
-        className='header__container-btnPlay'
-      >
-        <PlayLogo className='header__container-btnMyList-play' />
-        Play
-      </button>
-      <button className='header__container-btnMyList'>
-        <AddLogo className='header__container-btnMyList-add' />
-        My List
-      </button>
+        label={'Play'}
+      />
+      <Button
+        label={'My List'}
+        Icon={<AddLogo />}
+        buttonType={ButtonType.Secondary}
+      />
       {isMuted ? (
         <MuteIcon
           onClick={() => setIsMuted(false)}

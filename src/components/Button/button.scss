@@ -1,0 +1,49 @@
+@import '../../static/sass/abstracts/functions';
+
+.n-button {
+  top: 40rem;
+  cursor: pointer;
+  font-size: 1.6rem;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  border-radius: 5px;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  margin-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  @include responsive(phone) {
+    top: 24rem;
+  }
+
+  &.with-icon {
+    fill: #fff;
+    margin-right: 1rem;
+    display: flex;
+
+    & > * {
+      width: 15px;
+      height: 15px;
+      fill: #fff;
+      margin-right: 1rem;
+    }
+  }
+
+  &.Primary {
+    color: #000;
+    background-color: #fff;
+    transition: all 0.2s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+    & > * {
+      fill: #000;
+    }
+  }
+
+  &.Secondary {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: #fff;
+  }
+}
