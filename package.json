@@ -10,12 +10,22 @@
     "start:prod": "webpack serve --mode production --open",
     "lint": "eslint --fix . && echo 'Lint complete.'",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "react-scripts test"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/",
+      "!**/*.stories.{js,jsx}"
+    ]
   },
   "author": "Andres Alcocer",
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
+    "@testing-library/jest-dom": "^5.16.5",
     "@types/jest": "^29.2.3",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",

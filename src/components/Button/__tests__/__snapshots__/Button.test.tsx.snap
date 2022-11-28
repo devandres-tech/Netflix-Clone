@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button should render primary button 1`] = `
+<div>
+  <button
+    class="n-button Primary"
+  >
+    Primary
+  </button>
+</div>
+`;
