@@ -8,6 +8,22 @@ import PlayLogo from '../../../static/images/play-button.svg'
 export default {
   title: 'Button',
   component: Button,
+  parameters: {
+    parameters: {
+      backgrounds: {
+        default: '#141414',
+        values: [
+          { name: 'dark', value: '#141414' },
+          { name: 'light', value: '#fff' },
+        ],
+      },
+    },
+    docs: {
+      description: {
+        component: 'Primary and secondary styles for all buttons',
+      },
+    },
+  },
 } as ComponentMeta<typeof Button>
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
