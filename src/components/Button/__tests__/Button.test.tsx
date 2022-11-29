@@ -1,9 +1,19 @@
-import { Primary } from './Button.stories'
-import { render, screen } from '@testing-library/react'
+import { Primary, Secondary } from './Button.stories'
+import { render } from '@testing-library/react'
 
-describe('button', (): void => {
+describe('Button', (): void => {
   test('should render primary button', (): void => {
     const { container } = render(<Primary {...Primary.args} />)
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should render secondary button', (): void => {
+    const { container } = render(<Secondary {...Secondary.args} />)
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should render primary button with icon', (): void => {
+    const { container } = render(<Secondary {...Secondary.args} />)
     expect(container).toMatchSnapshot()
   })
 })

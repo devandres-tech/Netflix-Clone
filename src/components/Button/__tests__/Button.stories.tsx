@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import Button from '../Button'
 import { ButtonType } from '../Button'
 import PlayLogo from '../../../static/images/play-button.svg'
+import AddLogo from '../../../static/images/add.svg'
 
 export default {
   title: 'Button',
@@ -29,7 +30,6 @@ export default {
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 export const Primary = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   label: 'Primary',
   buttonType: ButtonType.Primary,
@@ -41,9 +41,16 @@ Secondary.args = {
   buttonType: ButtonType.Secondary,
 }
 
-export const WithIcon = Template.bind({})
-WithIcon.args = {
-  label: 'Icon Btn',
+export const PrimaryWithIcon = Template.bind({})
+PrimaryWithIcon.args = {
+  label: 'Primary Ic',
   buttonType: ButtonType.Primary,
   Icon: <PlayLogo />,
+}
+
+export const SecondaryWithIcon = Template.bind({})
+SecondaryWithIcon.args = {
+  label: 'Secondary Ic',
+  buttonType: ButtonType.Secondary,
+  Icon: <AddLogo />,
 }
