@@ -3,7 +3,8 @@
 .n-button {
   cursor: pointer;
   outline: none;
-  border: none;
+  appearance: none;
+  border: 0;
   border-radius: 4px;
   padding: 0.8rem;
   opacity: 1;
@@ -20,14 +21,14 @@
   }
 
   &.with-icon {
-    fill: #fff;
     display: flex;
-    padding-left: 2rem;
-    padding-right: 2.4rem;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
 
     & > * {
-      width: 25px;
-      height: 25px;
+      width: 24px;
+      height: 24px;
       fill: #fff;
       margin-right: 1rem;
     }
@@ -56,9 +57,18 @@
       color: rgba(0, 0, 0, 0.7);
     }
 
-    &:not(:disabled):focus {
+    &:not(:disabled):focus::before {
+      box-sizing: content-box;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
       border: 2px solid white;
       border-radius: 8px;
+      padding: 2px;
+      position: absolute;
+      left: -4px;
+      top: -4px;
     }
   }
 
