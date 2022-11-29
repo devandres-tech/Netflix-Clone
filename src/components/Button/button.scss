@@ -1,18 +1,19 @@
 @import '../../static/sass/abstracts/functions';
 
 .n-button {
-  top: 40rem;
   cursor: pointer;
-  font-size: 1.6rem;
   outline: none;
   border: none;
-  font-weight: 700;
-  border-radius: 5px;
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
-  margin-right: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  border-radius: 4px;
+  padding: 0.8rem;
+  opacity: 1;
+  user-select: none;
+  will-change: background-color, color;
+  word-break: break-word;
+  white-space: nowrap;
+  font-size: 1.2vw;
+  font-weight: 500;
+  line-height: 2.4rem;
 
   @include responsive(phone) {
     top: 24rem;
@@ -20,25 +21,44 @@
 
   &.with-icon {
     fill: #fff;
-    margin-right: 1rem;
     display: flex;
+    padding-left: 2rem;
+    padding-right: 2.4rem;
 
     & > * {
-      width: 15px;
-      height: 15px;
+      width: 25px;
+      height: 25px;
       fill: #fff;
       margin-right: 1rem;
     }
   }
 
+  &.with-label {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+
   &.Primary {
     color: #000;
     background-color: #fff;
-    transition: all 0.2s;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 
     & > * {
       fill: #000;
+    }
+
+    &:not(:disabled):hover {
+      background-color: rgba(255, 255, 255, 0.75);
+    }
+
+    &:not(:disabled):active {
+      background-color: rgba(255, 255, 255, 0.5);
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    &:not(:disabled):focus {
+      border: 2px solid white;
+      border-radius: 8px;
     }
   }
 

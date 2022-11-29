@@ -1,4 +1,3 @@
-import React from 'react'
 import './button.scss'
 
 export enum ButtonType {
@@ -7,18 +6,28 @@ export enum ButtonType {
 }
 
 interface IButton {
-  label: string
+  label?: string
   onClick?: () => void
   buttonType: ButtonType
-  Icon: JSX.Element
+  Icon?: JSX.Element
 }
 
 const Button = ({ label, onClick, buttonType, Icon }: IButton) => {
+  const getIconClassName = (): '' | ' with-icon' => {
+    return Icon ? ' with-icon' : ''
+  }
+
+  const getLabelClassName = (): '' | ' with-label' => {
+    return label ? ' with-label' : ''
+  }
+
+  const getPrimaryClassName = (): string => {
+    return ButtonType[buttonType ? buttonType : ButtonType.Primary]
+  }
+
   return (
     <button
-      className={`n-button${Icon ? ' with-icon' : ''} ${
-        ButtonType[buttonType ? buttonType : ButtonType.Primary]
-      }`}
+      className={`n-button${getIconClassName()}${getLabelClassName()} ${getPrimaryClassName()}`}
       onClick={onClick}
     >
       {Icon && Icon}

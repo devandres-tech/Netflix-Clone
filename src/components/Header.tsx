@@ -32,14 +32,10 @@ const Header = ({ name, overview }: IHeader) => {
       <Button
         Icon={<PlayLogo />}
         buttonType={ButtonType.Primary}
-        onClick={() => alert('not a movie!')}
+        onClick={() => console.log('not a movie!')}
         label={'Play'}
       />
-      <Button
-        label={'My List'}
-        Icon={<AddLogo />}
-        buttonType={ButtonType.Secondary}
-      />
+      <Button label={'My List'} buttonType={ButtonType.Secondary} />
       {isMuted ? (
         <MuteIcon
           onClick={() => setIsMuted(false)}
