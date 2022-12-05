@@ -54,3 +54,9 @@ SecondaryWithIcon.args = {
   buttonType: ButtonType.Secondary,
   Icon: <AddLogo />,
 }
+
+export const IconRound = Template.bind({})
+IconRound.args = {
+  ButtonType: ButtonType.IconRound,
+  Icon: <AddLogo />,
+}

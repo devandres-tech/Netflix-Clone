@@ -13,6 +13,11 @@
     position: absolute;
   }
 
+  & > button.IconRound {
+    left: 18.5rem;
+    position: absolute;
+  }
+
   @include responsive(phone) {
     padding-top: 0;
     height: 32rem;

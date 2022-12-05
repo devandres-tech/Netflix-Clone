@@ -29,13 +29,13 @@ const Header = ({ name, overview }: IHeader) => {
         url='https://vimeo.com/384025132'
       />
       <h1 className='header__container-heading'>{name}</h1>
+      <Button buttonType={ButtonType.IconRound} Icon={<PlayLogo />} />
       <Button
         Icon={<PlayLogo />}
         buttonType={ButtonType.Primary}
         onClick={() => console.log('not a movie!')}
         label={'Play'}
       />
-      <Button label={'My List'} buttonType={ButtonType.Secondary} />
       {isMuted ? (
         <MuteIcon
           onClick={() => setIsMuted(false)}

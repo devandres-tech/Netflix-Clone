@@ -3,6 +3,7 @@ import './button.scss'
 export enum ButtonType {
   Primary,
   Secondary,
+  IconRound,
 }
 
 interface IButton {

@@ -75,5 +75,37 @@
   &.Secondary {
     background-color: rgba(109, 109, 110, 0.7);
     color: #fff;
+
+    &:not(:disabled):hover {
+      background-color: rgba(109, 109, 110, 0.4);
+    }
+
+    &:not(:disabled):active {
+      background-color: rgba(109, 109, 110, 0.4);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    &:not(:disabled):focus::before {
+      box-sizing: content-box;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      border: 2px solid white;
+      border-radius: 8px;
+      padding: 2px;
+      position: absolute;
+      left: -4px;
+      top: -4px;
+    }
+  }
+
+  &.IconRound {
+    background-color: rgba(42, 42, 42, 0.6);
+    border-color: hsla(0, 0%, 100%, 0.5);
+    border-width: 2px;
+    & > * {
+      fill: #fff;
+    }
   }
 }

@@ -124,8 +124,16 @@
   border-spacing: 0;
 }
 
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('../../../fonts/NetflixSans_W_Bd.woff2') format('woff2');
+  // url('~/fonts/NetflixSans_W_Md.woff2') format('woff2'),
+  // url('~/fonts/NetflixSans_W_Bd.woff2') format('woff2');
+}
+
 body {
-  font-family: 'Hind', sans-serif;
+  font-family: 'Netflix Sans', 'Helvetica Neue', 'Segoe UI', 'Roboto', 'Ubuntu',
+    'sans-serif';
   box-sizing: border-box;
   background-color: $color-background;
 }

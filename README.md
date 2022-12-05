@@ -15,6 +15,7 @@ This project is a simplified front end clone of Netflix. It was created with Rea
 - [x] Migrate to Typescript
 - [ ] Implement dynamic code splitting with dynamic imports
 - [ ] Setup storybook
+- [ ] Implement internationalization with react-i18next
 
 ### Tools used
 
