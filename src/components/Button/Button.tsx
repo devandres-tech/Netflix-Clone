@@ -32,7 +32,7 @@ const Button = ({ label, onClick, buttonType, Icon }: IButton) => {
       onClick={onClick}
     >
       {Icon && Icon}
-      {label}
+      {label && <span>{label}</span>}
     </button>
   )
 }

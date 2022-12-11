@@ -67,7 +67,6 @@ const Navbar = () => {
             placeholder='Title, genres, people'
           />
         </div>
-        <Button buttonType={ButtonType.IconRound} Icon={<AddLogo />} />
         <div className='navigation__container-link pseudo-link'>KIDS</div>
         <div className='navigation__container-link pseudo-link'>DVD</div>
         <BellLogo className='navigation__container--bellLogo' />

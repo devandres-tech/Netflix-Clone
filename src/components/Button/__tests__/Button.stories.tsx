@@ -41,6 +41,12 @@ Secondary.args = {
   buttonType: ButtonType.Secondary,
 }
 
+export const IconRound = Template.bind({})
+IconRound.args = {
+  Icon: <AddLogo />,
+  buttonType: ButtonType.IconRound,
+}
+
 export const PrimaryWithIcon = Template.bind({})
 PrimaryWithIcon.args = {
   label: 'Primary Ic',
@@ -52,11 +58,5 @@ export const SecondaryWithIcon = Template.bind({})
 SecondaryWithIcon.args = {
   label: 'Secondary Ic',
   buttonType: ButtonType.Secondary,
-  Icon: <AddLogo />,
-}
-
-export const IconRound = Template.bind({})
-IconRound.args = {
-  ButtonType: ButtonType.IconRound,
   Icon: <AddLogo />,
 }

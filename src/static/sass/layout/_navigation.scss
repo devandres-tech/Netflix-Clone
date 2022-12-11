@@ -109,12 +109,17 @@
     }
 
     &-link {
-      font-weight: 500;
       font-size: 1.4rem;
       color: rgb(221, 221, 221);
       text-decoration: none;
       margin-right: 2rem;
       transition: all 0.2s;
+
+      @media screen and (min-width: 1200px) {
+        .pinning-header .main-header {
+          font-size: 14px;
+        }
+      }
 
       &:last-child {
         padding-right: 2.6rem;

@@ -29,7 +29,7 @@ const Header = ({ name, overview }: IHeader) => {
         url='https://vimeo.com/384025132'
       />
       <h1 className='header__container-heading'>{name}</h1>
-      <Button buttonType={ButtonType.IconRound} Icon={<PlayLogo />} />
+      <Button buttonType={ButtonType.IconRound} Icon={<AddLogo />} />
       <Button
         Icon={<PlayLogo />}
         buttonType={ButtonType.Primary}

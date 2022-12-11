@@ -123,12 +123,10 @@
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+// prettier-ignore
 @font-face {
   font-family: 'Netflix Sans';
-  src: url('../../../fonts/NetflixSans_W_Bd.woff2') format('woff2');
-  // url('~/fonts/NetflixSans_W_Md.woff2') format('woff2'),
-  // url('~/fonts/NetflixSans_W_Bd.woff2') format('woff2');
+  src: url('../../../fonts/NetflixSans_W_Rg.woff2') format('woff2'), url('../../../fonts/NetflixSans_W_Md.woff2') format('woff2'), url('../../../fonts/NetflixSans_W_Bd.woff2') format('woff2');
 }
 
 body {
@@ -141,6 +139,7 @@ body {
 html {
   // this defines what 1rem is --> font root size
   font-size: 62.5%; // 10/16, 1rem = 10px;
+  // font-weight: bold;
 
   @include responsive(tab_port) {
     font-size: 50%;

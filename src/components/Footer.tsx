@@ -1,4 +1,6 @@
 import React from 'react'
+import Button, { ButtonType } from './Button/Button'
+import AddLogo from '../static/images/add.svg'
 
 const footer = () => (
   <footer className='footer'>
@@ -8,8 +10,8 @@ const footer = () => (
         className='footer__copyright--link'
         href='https://github.com/devandres-tech'
       >
-        {' '}
-        Dev Andres
+        <Button Icon={<AddLogo />} buttonType={ButtonType.IconRound} /> Dev
+        Andres
       </a>
     </div>
   </footer>

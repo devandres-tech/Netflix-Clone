@@ -21,6 +21,7 @@ module.exports = () => {
       filename: '[name].[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
       assetModuleFilename: 'assets/[name][ext]',
+      clean: true,
     },
     resolve: {
       extensions: ['.js', '.ts', '.tsx'],
@@ -104,7 +105,6 @@ module.exports = () => {
         },
         {
           test: /\.(sass|less|css|scss)$/,
-          // include: path.resolve(__dirname),
           use: [
             // fallback to style-loader in development
             process.env.NODE_ENV !== 'production'
@@ -130,7 +130,6 @@ module.exports = () => {
         },
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
-          // include: path.resolve(__dirname),
           type: 'asset/resource',
           generator: {
             filename: './fonts/[name][ext]',
