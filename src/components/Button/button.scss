@@ -119,5 +119,32 @@
       height: 100%;
       width: 100%;
     }
+
+    &:not(.with-label):hover {
+      background-color: #2a2a2a;
+      border-color: #fff;
+      border-width: 2px;
+    }
+
+    &:not(.with-label):focus {
+      background-color: #2a2a2a;
+      border: 2px solid white;
+      color: white;
+    }
+
+    &:not(:disabled):focus::before {
+      box-sizing: content-box;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      border: 2px solid white;
+      border-radius: 8px;
+      padding: 2px;
+      position: absolute;
+      left: -4px;
+      top: -4px;
+      border-radius: 50%;
+    }
   }
 }
