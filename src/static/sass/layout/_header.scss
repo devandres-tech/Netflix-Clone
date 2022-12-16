@@ -3,19 +3,26 @@
   position: relative;
   padding-top: 56.25%;
 
+  & > button.Primary,
+  button.Secondary {
+    top: 40rem;
+    position: absolute;
+
+    @include responsive(phone) {
+      top: 24rem;
+    }
+  }
+
   & > button.Primary {
     left: 4rem;
-    position: absolute;
   }
 
   & > button.Secondary {
-    left: 18.5rem;
-    position: absolute;
-  }
+    left: 17rem;
 
-  & > button.IconRound {
-    left: 18.5rem;
-    position: absolute;
+    @include responsive(tab_port) {
+      left: 18.5rem;
+    }
   }
 
   @include responsive(phone) {

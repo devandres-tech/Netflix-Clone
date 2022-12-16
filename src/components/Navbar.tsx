@@ -3,14 +3,12 @@ import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 import { useScroll } from '../hooks/useScroll'
-import SearchLogo from '../static/images/search-icon.svg'
+import Search from '../static/images/search-icon.svg'
 import NetflixLogo from '../static/images/Netflix_Logo_RGB.png'
 import AddLogo from '../static/images/add.svg'
 import BellLogo from '../static/images/bell-logo.svg'
 import DropdownArrow from '../static/images/drop-down-arrow.svg'
 import DropdownContent from './DropdownContent'
-import Button from './Button/Button'
-import { ButtonType } from './Button/Button'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -55,9 +53,8 @@ const Navbar = () => {
           Recently Added
         </div>
         <div className='navigation__container-link pseudo-link'>My List</div>
-
         <div className='navigation__container--left'>
-          <SearchLogo className='logo' />
+          <Search className='logo' />
           <input
             ref={searchInput}
             value={userInput}

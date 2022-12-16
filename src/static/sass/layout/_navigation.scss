@@ -35,7 +35,6 @@
     &--bellLogo {
       cursor: pointer;
       height: 2.2rem;
-      fill: red;
       width: 2.2rem;
       padding-right: 2.5rem;
 
@@ -167,8 +166,9 @@
 }
 
 .logo {
-  width: 1.8rem;
-  height: 1.8rem;
+  position: relative;
+  left: 10px;
+  bottom: 4px;
   transform: translateX(2.4rem) translateY(1rem);
   cursor: pointer;
 }
@@ -176,7 +176,6 @@
 .dropdownContent {
   display: flex;
   flex-direction: column;
-  //   align-items: center;
   opacity: 0;
 
   color: #fff;
@@ -201,7 +200,6 @@
 
     &:hover {
       border-bottom: 1px solid #fff;
-      // border-width: 2%;
     }
   }
 
