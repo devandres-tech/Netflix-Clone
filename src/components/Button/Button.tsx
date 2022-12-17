@@ -4,6 +4,8 @@ export enum ButtonType {
   Primary,
   Secondary,
   IconRound,
+  IconRoundSecondary,
+  Alternate,
 }
 
 interface IButton {

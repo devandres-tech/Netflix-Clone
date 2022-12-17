@@ -4,7 +4,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import Button from '../Button'
 import { ButtonType } from '../Button'
 import PlayLogo from '../../../static/images/play-button.svg'
-import AddLogo from '../../../static/images/add.svg'
 
 export default {
   title: 'Button',
@@ -41,10 +40,22 @@ Secondary.args = {
   buttonType: ButtonType.Secondary,
 }
 
+export const Alternate = Template.bind({})
+Alternate.args = {
+  label: 'Alternate',
+  buttonType: ButtonType.Alternate,
+}
+
 export const IconRound = Template.bind({})
 IconRound.args = {
-  Icon: <AddLogo />,
+  Icon: <PlayLogo />,
   buttonType: ButtonType.IconRound,
+}
+
+export const IconRoundSecondary = Template.bind({})
+IconRoundSecondary.args = {
+  Icon: <PlayLogo />,
+  buttonType: ButtonType.IconRoundSecondary,
 }
 
 export const PrimaryWithIcon = Template.bind({})
@@ -58,5 +69,5 @@ export const SecondaryWithIcon = Template.bind({})
 SecondaryWithIcon.args = {
   label: 'Secondary Ic',
   buttonType: ButtonType.Secondary,
-  Icon: <AddLogo />,
+  Icon: <PlayLogo />,
 }

@@ -1,21 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button should render primary button 1`] = `
+exports[`Button constructor should render alternate button 1`] = `
 <div>
   <button
-    class="n-button Primary"
+    class="n-button with-label Alternate"
   >
-    Primary
+    <span>
+      Alternate
+    </span>
   </button>
 </div>
 `;
 
-exports[`Button should render secondary button 1`] = `
+exports[`Button constructor should render icon round button 1`] = `
 <div>
   <button
-    class="n-button Secondary"
+    class="n-button with-icon IconRound"
   >
-    Secondary
+    <play-button.svg />
+  </button>
+</div>
+`;
+
+exports[`Button constructor should render primary button 1`] = `
+<div>
+  <button
+    class="n-button with-label Primary"
+  >
+    <span>
+      Primary
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button constructor should render primary button with icon 1`] = `
+<div>
+  <button
+    class="n-button with-icon with-label Primary"
+  >
+    <play-button.svg />
+    <span>
+      Primary Ic
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button constructor should render secondary button 1`] = `
+<div>
+  <button
+    class="n-button with-label Secondary"
+  >
+    <span>
+      Secondary
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button constructor should render secondary button with icon 1`] = `
+<div>
+  <button
+    class="n-button with-icon with-label Secondary"
+  >
+    <play-button.svg />
+    <span>
+      Secondary Ic
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button constructor should render secondary icon round button 1`] = `
+<div>
+  <button
+    class="n-button with-icon IconRoundSecondary"
+  >
+    <play-button.svg />
   </button>
 </div>
 `;

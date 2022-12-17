@@ -103,7 +103,13 @@
     }
   }
 
-  &.IconRound {
+  &.Alternate {
+    background-color: #d22f27;
+    color: #fff;
+  }
+
+  &.IconRound,
+  &.IconRoundSecondary {
     border-radius: 50%;
     display: flex;
     height: 42px;
@@ -145,6 +151,17 @@
       left: -4px;
       top: -4px;
       border-radius: 50%;
+    }
+  }
+
+  &.IconRoundSecondary {
+    background-color: #fff;
+    & > * {
+      fill: #000;
+    }
+
+    &:not(.with-label):hover {
+      background-color: #e3e3e3;
     }
   }
 }

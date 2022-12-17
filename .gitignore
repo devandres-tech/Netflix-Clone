@@ -4,6 +4,9 @@ node_modules
 # Build files
 dist/
 
+# tests
+coverage/
+
 # Environment varialbes
 .env
 
