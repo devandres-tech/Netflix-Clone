@@ -3,6 +3,28 @@
   position: relative;
   padding-top: 56.25%;
 
+  & > button.Primary,
+  button.Secondary {
+    top: 40rem;
+    position: absolute;
+
+    @include responsive(phone) {
+      top: 24rem;
+    }
+  }
+
+  & > button.Primary {
+    left: 4rem;
+  }
+
+  & > button.Secondary {
+    left: 17rem;
+
+    @include responsive(tab_port) {
+      left: 18.5rem;
+    }
+  }
+
   @include responsive(phone) {
     padding-top: 0;
     height: 32rem;
@@ -31,64 +53,6 @@
       @include responsive(phone) {
         top: 7rem;
         font-size: 3rem;
-      }
-    }
-
-    &-btnPlay,
-    &-btnMyList {
-      top: 40rem;
-      cursor: pointer;
-      font-size: 1.6rem;
-      color: #fff;
-      outline: none;
-      border: none;
-      font-weight: 700;
-      border-radius: 5px;
-      padding-left: 3.5rem;
-      padding-right: 3.5rem;
-      margin-right: 1rem;
-      padding-top: 1rem;
-      background-color: rgba(112, 111, 111, 0.5);
-      padding-bottom: 1rem;
-
-      @include responsive(phone) {
-        top: 24rem;
-      }
-
-      &-add {
-        width: 15px;
-        height: 15px;
-        fill: #fff;
-        margin-right: 1rem;
-      }
-
-      &-play {
-        width: 15px;
-        height: 15px;
-        fill: #fff;
-        margin-right: 1rem;
-      }
-    }
-
-    &-btnPlay {
-      color: #000;
-      background-color: #e6e6e6;
-      transition: all 0.2s;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-
-      & > * {
-        fill: #000;
-      }
-      left: 4rem;
-      position: absolute;
-    }
-
-    &-btnMyList {
-      left: 18.5rem;
-      position: absolute;
-
-      &:hover {
-        background-color: rgb(37, 37, 37);
       }
     }
 

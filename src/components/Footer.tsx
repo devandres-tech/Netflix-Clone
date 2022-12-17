@@ -8,7 +8,6 @@ const footer = () => (
         className='footer__copyright--link'
         href='https://github.com/devandres-tech'
       >
-        {' '}
         Dev Andres
       </a>
     </div>

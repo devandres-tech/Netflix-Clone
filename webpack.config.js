@@ -2,14 +2,13 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const dotenv = require('dotenv')
 const webpack = require('webpack')
+const path = require('path')
 
 const prod =
   (process.env.NODE_ENV ? process.env.NODE_ENV : '').trim() === 'production'
-const path = require('path')
 
 module.exports = () => {
   dotenv.config({
@@ -21,10 +20,11 @@ module.exports = () => {
     output: {
       filename: '[name].[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
+      assetModuleFilename: 'assets/[name][ext]',
       clean: true,
     },
     resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
+      extensions: ['.js', '.ts', '.tsx'],
     },
     optimization: {
       runtimeChunk: 'single',
@@ -67,7 +67,15 @@ module.exports = () => {
         patterns: [
           {
             from: 'src/static/images',
-            to: 'static/images',
+            to: 'resources/',
+          },
+        ],
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'src/fonts',
+            to: 'fonts/',
           },
         ],
       }),
@@ -93,24 +101,17 @@ module.exports = () => {
         {
           test: /\.svg$/,
           exclude: /node_modules/,
-          use: {
-            loader: 'svg-react-loader',
-          },
+          use: ['@svgr/webpack'],
         },
         {
-          test: /\.css$/i,
-          use: [MiniCssExtractPlugin.loader, 'css-loader'],
-        },
-        {
-          test: /\.scss$/,
+          test: /\.(sass|less|css|scss)$/,
           use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath: '../',
-              },
-            },
+            // fallback to style-loader in development
+            process.env.NODE_ENV !== 'production'
+              ? 'style-loader'
+              : MiniCssExtractPlugin.loader,
             'css-loader',
+            'resolve-url-loader',
             'sass-loader',
           ],
         },
@@ -126,6 +127,13 @@ module.exports = () => {
               },
             },
           ],
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: './fonts/[name][ext]',
+          },
         },
       ],
     },

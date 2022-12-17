@@ -4,6 +4,9 @@ node_modules
 # Build files
 dist/
 
+# tests
+coverage/
+
 # Environment varialbes
 .env
 
@@ -18,3 +21,13 @@ npm-debug.log*
 .firebase.json
 
 .vercel
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

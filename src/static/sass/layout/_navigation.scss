@@ -35,7 +35,6 @@
     &--bellLogo {
       cursor: pointer;
       height: 2.2rem;
-      fill: red;
       width: 2.2rem;
       padding-right: 2.5rem;
 
@@ -109,12 +108,17 @@
     }
 
     &-link {
-      font-weight: 500;
       font-size: 1.4rem;
       color: rgb(221, 221, 221);
       text-decoration: none;
       margin-right: 2rem;
       transition: all 0.2s;
+
+      @media screen and (min-width: 1200px) {
+        .pinning-header .main-header {
+          font-size: 14px;
+        }
+      }
 
       &:last-child {
         padding-right: 2.6rem;
@@ -162,8 +166,9 @@
 }
 
 .logo {
-  width: 1.8rem;
-  height: 1.8rem;
+  position: relative;
+  left: 10px;
+  bottom: 4px;
   transform: translateX(2.4rem) translateY(1rem);
   cursor: pointer;
 }
@@ -171,7 +176,6 @@
 .dropdownContent {
   display: flex;
   flex-direction: column;
-  //   align-items: center;
   opacity: 0;
 
   color: #fff;
@@ -196,7 +200,6 @@
 
     &:hover {
       border-bottom: 1px solid #fff;
-      // border-width: 2%;
     }
   }
 

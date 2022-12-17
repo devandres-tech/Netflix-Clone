@@ -1,0 +1,167 @@
+@import '../../static/sass/abstracts/functions';
+
+.n-button {
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  border: 0;
+  border-radius: 4px;
+  padding: 0.8rem;
+  opacity: 1;
+  user-select: none;
+  will-change: background-color, color;
+  word-break: break-word;
+  white-space: nowrap;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 2.4rem;
+  font-family: 'Netflix Sans', 'Helvetica Neue', 'Segoe UI', 'Roboto', 'Ubuntu',
+    'sans-serif';
+
+  @include responsive(phone) {
+    top: 24rem;
+  }
+
+  &.with-icon {
+    display: flex;
+    align-items: center;
+
+    & > * {
+      height: 24px;
+      fill: #fff;
+    }
+  }
+
+  &.with-label {
+    padding-left: 2.4rem;
+    padding-right: 2.8rem;
+
+    & > span {
+      margin-left: 1rem;
+      font-weight: 500;
+    }
+  }
+
+  &.Primary {
+    color: #000;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+    & > * {
+      fill: #000;
+    }
+
+    &:not(:disabled):hover {
+      background-color: rgba(255, 255, 255, 0.75);
+    }
+
+    &:not(:disabled):active {
+      background-color: rgba(255, 255, 255, 0.5);
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    &:not(:disabled):focus::before {
+      box-sizing: content-box;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      border: 2px solid white;
+      border-radius: 8px;
+      padding: 2px;
+      position: absolute;
+      left: -4px;
+      top: -4px;
+    }
+  }
+
+  &.Secondary {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: #fff;
+
+    &:not(:disabled):hover {
+      background-color: rgba(109, 109, 110, 0.4);
+    }
+
+    &:not(:disabled):active {
+      background-color: rgba(109, 109, 110, 0.4);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    &:not(:disabled):focus::before {
+      box-sizing: content-box;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      border: 2px solid white;
+      border-radius: 8px;
+      padding: 2px;
+      position: absolute;
+      left: -4px;
+      top: -4px;
+    }
+  }
+
+  &.Alternate {
+    background-color: #d22f27;
+    color: #fff;
+  }
+
+  &.IconRound,
+  &.IconRoundSecondary {
+    border-radius: 50%;
+    display: flex;
+    height: 42px;
+    width: 42px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: white;
+    background-color: rgba(42, 42, 42, 0.6);
+    border-color: hsla(0, 0%, 100%, 0.5);
+    border-width: 2px;
+
+    & > * {
+      fill: #fff;
+      height: 100%;
+      width: 100%;
+    }
+
+    &:not(.with-label):hover {
+      background-color: #2a2a2a;
+      border-color: #fff;
+      border-width: 2px;
+    }
+
+    &:not(.with-label):focus {
+      background-color: #2a2a2a;
+      border: 2px solid white;
+      color: white;
+    }
+
+    &:not(:disabled):focus::before {
+      box-sizing: content-box;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      border: 2px solid white;
+      border-radius: 8px;
+      padding: 2px;
+      position: absolute;
+      left: -4px;
+      top: -4px;
+      border-radius: 50%;
+    }
+  }
+
+  &.IconRoundSecondary {
+    background-color: #fff;
+    & > * {
+      fill: #000;
+    }
+
+    &:not(.with-label):hover {
+      background-color: #e3e3e3;
+    }
+  }
+}
