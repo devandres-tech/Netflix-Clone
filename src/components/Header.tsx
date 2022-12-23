@@ -40,20 +40,14 @@ const Header = ({ name, overview }: IHeader) => {
         buttonType={ButtonType.Secondary}
         label={'More Info'}
       />
-
-      {isMuted ? (
-        <MuteIcon
-          onClick={() => setIsMuted(false)}
-          className='header__container-btnVolume'
-        />
-      ) : (
-        <UnmuteIcon
-          onClick={() => setIsMuted(true)}
-          className='header__container-btnVolume'
-        />
-      )}
+      <Button
+        Icon={isMuted ? <MuteIcon /> : <UnmuteIcon />}
+        buttonType={ButtonType.IconRound}
+        onClick={() => setIsMuted(!isMuted)}
+        customClassName={'header__container-btnVolume'}
+      />
       <p className='header__container-overview'>{overview}</p>
-      <div className='header__container--fadeBottom'></div>
+      <div className='header__container--fadeBottom' />
     </header>
   )
 }
