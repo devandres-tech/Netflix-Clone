@@ -6,6 +6,7 @@ import {
   SecondaryWithIcon,
   Alternate,
   IconRoundSecondary,
+  PrimaryWithCustomClass,
 } from './Button.stories'
 import { render } from '@testing-library/react'
 
@@ -46,6 +47,10 @@ describe('Button constructor', (): void => {
 
   test('should render alternate button', (): void => {
     const { container } = render(<Alternate {...Alternate.args} />)
+    expect(container).toMatchSnapshot()
+  })
+  test('should render custom css class name', (): void => {
+    const { container } = render(<Primary {...PrimaryWithCustomClass.args} />)
     expect(container).toMatchSnapshot()
   })
 })
