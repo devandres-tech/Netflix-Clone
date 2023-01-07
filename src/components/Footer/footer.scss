@@ -1,0 +1,28 @@
+@import '../../static/sass/style';
+
+.footer {
+  background-color: $color-background;
+  padding-top: 15rem;
+  padding-bottom: 4rem;
+  grid-column: 1 / 13;
+  text-align: center;
+
+  @include responsive(phone) {
+    padding-top: 10rem;
+  }
+
+  &__copyright {
+    color: #fff;
+    font-size: 1.8rem;
+
+    &--link {
+      text-decoration: none;
+      color: $color-red-2;
+      transition: all 0.3s;
+    }
+
+    &--link:hover {
+      color: orange;
+    }
+  }
+}
