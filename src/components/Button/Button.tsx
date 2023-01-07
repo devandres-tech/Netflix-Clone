@@ -9,13 +9,20 @@ export enum ButtonType {
 }
 
 interface IButton {
+  buttonType: ButtonType
   label?: string
   onClick?: () => void
-  buttonType: ButtonType
   Icon?: JSX.Element
+  customClassName?: string
 }
 
-const Button = ({ label, onClick, buttonType, Icon }: IButton) => {
+const Button = ({
+  label,
+  onClick,
+  buttonType,
+  Icon,
+  customClassName,
+}: IButton) => {
   const getIconClassName = (): '' | ' with-icon' => {
     return Icon ? ' with-icon' : ''
   }
@@ -28,9 +35,13 @@ const Button = ({ label, onClick, buttonType, Icon }: IButton) => {
     return ButtonType[buttonType ? buttonType : ButtonType.Primary]
   }
 
+  const getCustomClassName = (): string => {
+    return customClassName ? ` ${customClassName}` : ''
+  }
+
   return (
     <button
-      className={`n-button${getIconClassName()}${getLabelClassName()} ${getPrimaryClassName()}`}
+      className={`n-button${getIconClassName()}${getLabelClassName()}${getCustomClassName()} ${getPrimaryClassName()}`}
       onClick={onClick}
     >
       {Icon && Icon}

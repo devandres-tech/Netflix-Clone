@@ -34,6 +34,13 @@ Primary.args = {
   buttonType: ButtonType.Primary,
 }
 
+export const PrimaryWithCustomClass = Template.bind({})
+PrimaryWithCustomClass.args = {
+  label: 'Primary Custom',
+  buttonType: ButtonType.Primary,
+  customClassName: 'custom-class-name',
+}
+
 export const Secondary = Template.bind({})
 Secondary.args = {
   label: 'Secondary',

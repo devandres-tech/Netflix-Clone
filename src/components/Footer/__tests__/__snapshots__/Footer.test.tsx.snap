@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  <footer
+    class="footer"
+  >
+    <div
+      class="footer__copyright"
+    >
+      © 
+      2022
+       Made with ❤️ by
+       
+      <a
+        class="footer__copyright--link"
+        href="https://github.com/devandres-tech"
+      >
+        Dev Andres
+      </a>
+    </div>
+  </footer>
+</div>
+`;

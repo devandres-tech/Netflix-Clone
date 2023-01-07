@@ -12,6 +12,18 @@ exports[`Button constructor should render alternate button 1`] = `
 </div>
 `;
 
+exports[`Button constructor should render custom css class name 1`] = `
+<div>
+  <button
+    class="n-button with-label custom-class-name Primary"
+  >
+    <span>
+      Primary Custom
+    </span>
+  </button>
+</div>
+`;
+
 exports[`Button constructor should render icon round button 1`] = `
 <div>
   <button
