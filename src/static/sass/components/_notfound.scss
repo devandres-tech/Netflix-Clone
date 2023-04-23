@@ -1,9 +1,228 @@
-.not-found__message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.not-found {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgba(0, 0, 0, .18);
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
+  font-size: 10px;
+  left: 0;
+  line-height: 1.2;
+  overflow: hidden;
+  padding-top: 68px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000
 }
 
-.not-found__message > h1 {
-  color: #fff;
+.not-found:after,
+.not-found:before {
+  content: "";
+  display: flex;
+  flex: 1;
+  max-height: 25%
+}
+
+.not-found--header {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, .97);
+  height: 68px;
+  left: 0;
+  padding: 0 45px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 20
+}
+
+.not-found--logo {
+  left: 40px;
+  position: absolute;
+  top: 22px
+}
+
+.not-found--logo a {
+  background-image: url(https://assets.nflxext.com/en_us/home/logo_v7.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  font-size: 0;
+  height: 25px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 93px
+}
+
+.not-found--logo a:focus {
+  outline: none
+}
+
+.not-found--button {
+  font-weight: 600;
+  font-size: 18px;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+}
+
+.not-found--content {
+  display: flex;
+  flex: 2 0;
+  flex-direction: column;
+  margin: 0 1em;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none
+}
+
+.not-found--content h1 {
+  font-size: 6em;
+  font-weight: 500;
+  margin-bottom: 2vw;
+  z-index: 1
+}
+
+.not-found--content h1,
+.not-found--content p {
+  color: inherit;
+  margin-top: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .57)
+}
+
+.not-found--content p {
+  font-size: 2.2em;
+  font-weight: 300
+}
+
+.not-found--content--body {
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.not-found--content--buttons {
+  display: flex;
+  justify-content: center
+}
+
+.not-found--content--buttons>:not(:first-child) {
+  margin-left: 1em
+}
+
+.not-found--content--buttons>:not(:first-child):dir(rtl) {
+  margin-left: 0;
+  margin-right: 1em
+}
+
+.not-found--content--buttons>a {
+  text-decoration: none
+}
+
+.not-found--content--buttons>a:focus {
+  outline: none
+}
+
+.not-found--content--buttons button.medium {
+  padding: .6em
+}
+
+.not-found--content--buttons button.medium.hasLabel {
+  border-radius: .3em;
+  padding-left: 1.8em;
+  padding-right: 1.8em
+}
+
+.not-found--content--buttons button.medium>span {
+  font-size: 1.6em;
+  line-height: 2.4em
+}
+
+.not-found--content--errorCode {
+  align-items: flex-end;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  margin-top: 2em
+}
+
+.not-found--content--errorCode span {
+  border-left: 2px solid #e50914;
+  font-size: 2.4em;
+  font-weight: 100;
+  letter-spacing: .1em;
+  line-height: 2.2em;
+  padding: 0 1vw
+}
+
+.not-found--content--errorCode span:dir(rtl) {
+  border-left: none;
+  border-right: 2px solid #e50914
+}
+
+.not-found--content:before {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .2) 45%, rgba(0, 0, 0, .1) 55%, transparent 70%);
+  bottom: -10vw;
+  content: "";
+  left: 10vw;
+  position: absolute;
+  right: 10vw;
+  top: -10vw;
+  z-index: 0
+}
+
+.not-found--content:after {
+  background-attachment: fixed;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1
+}
+
+.not-found.nfse .not-found--content:after {
+  background-image: url(https://assets.nflxext.com/ffe/siteui/pages/errors/bg-nailed-it.png)
+}
+
+.not-found .not-found--content:after {
+  background-image: url(https://assets.nflxext.com/ffe/siteui/pages/errors/bg-lost-in-space.png)
+}
+
+.not-found.player .not-found--content:after {
+  background-image: url(https://assets.nflxext.com/ffe/siteui/pages/errors/bg-mindhunter-v2.png)
+}
+
+.not-found--imageSource {
+  bottom: 0;
+  color: hsla(0, 0%, 90%, .57);
+  font-size: 1.4em;
+  font-weight: 100;
+  letter-spacing: .1em;
+  line-height: 1.5vw;
+  margin: 2.5vw 4.8vw;
+  position: fixed;
+  right: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .57)
+}
+
+.not-found--imageSource>strong {
+  color: hsla(0, 0%, 90%, .77);
+  letter-spacing: normal;
+  margin-left: .2em
+}
+
+.not-found--requestInfo {
+  bottom: 0;
+  color: transparent;
+  left: 0;
+  margin: 2.5vw 4.8vw;
+  position: fixed
 }
